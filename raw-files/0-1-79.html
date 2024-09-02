@@ -1,0 +1,120 @@
+
+<!-- saved from url=(0037)https://acstuff.ru/patch/?info=0.1.79 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body><div class="version-block"><h3>v0.1.79</h3><ul><li>Version ID: 2144</li><li>Tags: <span class="tag tag-recommended">recommended</span></li><li>Size: 80.74 MB</li></ul><h4>Changelog:</h4><div class="changelog markdown"><ul>
+<li>ExtraFX update:
+<ul>
+<li>SSLR: various fixes and tweaks, lower resolution tracing improved, new quality levels including Hi-Z tracing (expensive, but produces best results);</li>
+<li>SSAO (poor implementation) removed until further improvement;</li>
+<li>SSGI removed for good;</li>
+<li>Instead, added a new view-independent effect for cars to reflect intense light on the ground around them;</li>
+<li>Emissive meshes can cast light on surrounding geometry (currently needs a car or track config);</li>
+</ul></li>
+<li>Brake Disc FX:
+<ul>
+<li>Rim silhouette is used for more accurate reflection and occlusion;</li>
+<li>Few fixes to improve compatibility with various cars;</li>
+</ul></li>
+<li>New system for adding hundreds of thousands of trees and smaller bushes to tracks:
+<ul>
+<li>So far it’s not procedural and requires track creators to provide tree models in a new format (docs are coming soon);</li>
+<li>Trees can be 3D or billboards;</li>
+<li>With heavy use of instancing and other optimization techniques tens or hundreds of trees can be added without an issue;</li>
+<li>VAO integration is fully supported: new trees both cast shadows and receive ambient shadows from scene and other trees;</li>
+</ul></li>
+<li>Original AC heat shimmer updated (optional):
+<ul>
+<li>Taking into account wind and temperature;</li>
+<li>Spawning more with flames and overheated brakes;</li>
+<li>Configurable per car;</li>
+<li>Tracks can add similar effect to bonfires and such (already included in “particles_track.ini”);</li>
+</ul></li>
+<li>New AI behaviour: optional rubberbanding (makes cars in front of you slower and cars behind faster);</li>
+<li>Scenery lighting hack for old shaders: now sunsets should keep the track brighter, with more PBR-like look (set by WeatherFX script);</li>
+<li>Reflections in car rims are occluded using shadowed wheels module; </li>
+<li>Default weather: improved lighting, adjustments for fog;</li>
+<li>Option to stop Escape button from exiting replays;</li>
+<li>Experimental option to improve loading speed;</li>
+<li>Improved shaders loading (should reduce microstutters);</li>
+<li>New controls button for pausing the race compatible with steering wheels and gamepads (uses Start button by default if nothing else has been selected);</li>
+<li>PS5 DualSense support (light bar, LEDs, pad, new API for Gamepad FX allowing to access acceleration, gyroscope and apply resistance to triggers);</li>
+<li>Control Tweaks app can change gamepad buttons live (useful with DualSense controllers);</li>
+<li>Car Mirrors Configurator app now allows for a more precise adjustment;</li>
+<li>New CSP apps now store their position and size across different desktops;</li>
+<li>Real Mirrors: “VR lock” option is compatible with “Alter FOV” now;</li>
+<li>Option for adding MIPs to rear view mirrors to reduce aliasing (enabled by default);</li>
+<li>Small Tweaks: option to turn driver head with free and orbit cameras;</li>
+<li>Some protection from cheating online;</li>
+<li>Improved errors handling.</li>
+</ul>
+<p>Fixes:</p>
+<ul>
+<li>Fake Shadows FX making wheel shadows offset from the wheels fixed;</li>
+<li>Neck FX: better behaviour for large drifting angles;</li>
+<li>New spectators causing shadows flickering in distance fixed; </li>
+<li>A few issues with AC Pro compatibility fixed;</li>
+<li>A lot of fixes for wind speed and direction (now properly aligned in the world, correct speed shown in session details, etc.);</li>
+<li>Chat shortcuts no longer stop working in some conditions;</li>
+<li>Android Auto: radio app fixed;</li>
+<li>Advanced culling braking blurred rims should be fixed now;</li>
+<li>CSP render stats remain opened across sessions;</li>
+<li>AC would no longer crash if “cameras.ini” in car data is missing or malformed;</li>
+<li>Few bugs causing issues with Paintshop app fixed;</li>
+<li>Skidmarks FX unload properly when disabled;</li>
+<li>Exhaust flames are much more shortlived for most part now;</li>
+<li>A couple of fixes for custom physics related to AI and overall stability;</li>
+<li>Better support for custom online servers;</li>
+<li>AC motion blur is better compatible with FSR now;</li>
+<li>Mesh splitting crashes fixed;</li>
+<li>Optimized reflections rendering fixed;</li>
+<li>Slight freezes related to Skidmarks FX at the start of the race fixed;</li>
+<li>Live conditions online now wouldn’t break physics despite values given by server;</li>
+<li>Smaller fixes and improvements.</li>
+</ul>
+<p>Configs and such:</p>
+<ul>
+<li>New server options:
+<ul>
+<li>A Mumble link for an optional automatic connection (also, optionally closing Mumble when exiting AC);</li>
+<li>Slipstream effectiveness multiplier;</li>
+</ul></li>
+<li>Car configs now can override position and orientation of car audio sources as well;</li>
+<li>Car data can have alternative entries for CSP;</li>
+<li>Update for the new PBR shader: UV1 scaling, option to use unscaled UV1 as UV2, micro shadow and AO fresnel, multilayer version acting the same as classic shader;</li>
+<li>WeatherFX: option for setting distant ambient lighting shift;</li>
+<li>Car configs: wobbling nodes now can affect several objects with a single section, especially helpful with LODs;</li>
+<li>Car skins now can include extra UV2 patches;</li>
+<li>New headless mode for only running AC physics part with few extra tweaks;</li>
+<li>Override the name of AC data folder in documents or name of race configuration file (“race.ini”) with environment variables;</li>
+<li>Skidmarks FX: option to dump skidmarks in a OBJ file;</li>
+<li>New <code>AABB_RANGE</code> parameter for track lights for a small performance improvement;</li>
+<li>Car data: override grip multiplier for AI;</li>
+<li>Track meshes split with <code>[SPLIT_MESHES_...]</code> are selectable now;</li>
+<li>Some crashes happening with configs like mesh splitting fixed;</li>
+<li>Car and track lights, if configured for this, can be disabled if Extra FX bounced light is active properly;</li>
+<li>CSP looks for car config in car data as well (“data/csp_config.ini”);</li>
+<li>“CAR<em>ACTIVE</em>…” track conditions and garage doors work online properly now;</li>
+<li>Custom AI: access to data if car wheels are on the valid track surface or not, teleportation direction fixed.</li>
+</ul>
+<p>Lua:</p>
+<ul>
+<li>Access car headlights color and turning lights active phase in car state, sky, sun and fog color in sim state;</li>
+<li>String splitting function fixed for a case where delimiter is longer than a single symbol;</li>
+<li>Use TTS with a shared library;</li>
+<li>New shared UI library for simplified creation of large virtualized lists;</li>
+<li>Lua modes and online scripts can change audio reverb value;</li>
+<li>Lua apps: add notification counter, check if window is collapsed, control mouse position, simulate clicks and mouse wheel, alter timezone and geo coordinates live;</li>
+<li>Physics API (for example, available to online scripts): limit use of DRS, toggle DRS, disable car collisions, changing driver name fixed;</li>
+<li>Custom physics scripts: change final gear ratio, change or replace turbos with custom implementation, access dynamic controllers, create custom setup menu items and more;</li>
+<li>Standard library: load and use regular LUTs with optional cubic interpolation;</li>
+<li>Extended car state: access to gear ratios and values shown by default developer Wings app;</li>
+<li>Audio: play regular files (WAV, MP3, FLAC, etc.) in 3D space with FMOD (also, now you can start audio events not waiting for audio engine to load);</li>
+<li>Refresh state of <code>sim.isAdmin</code> flag;</li>
+<li>Bug with lua apps getting unloaded without “LAZY = FULL” option fixed;</li>
+<li>Online servers now have an option to require Lua scripts to load, shutting down AC if for some reason they aren’t available;</li>
+<li>Optional periodic live refresh for online servers (clients would re-download scripts every N seconds and refresh their state if scripts have changed);</li>
+<li>API function for changing driver names live fixed;</li>
+<li>Crash with several online scripts drawing HUD at once fixed;</li>
+<li>Bug with extra car audio sources lagging behind car fixed;</li>
+<li>ERS/KERS values fixed, also a new shared library for accessing config tyre values more easily;</li>
+<li>Loading LUT from INI config is now working for AC packed data.</li>
+</ul></div><h4 class="version-block-links-title">Links:</h4><ul class="version-block-links"><li><span>Download: </span><a download="lights-patch-v0.1.79.zip" href="https://acstuff.ru/patch/?get=0.1.79">lights-patch-v0.1.79.zip</a></li></ul></div></body></html>

@@ -1,0 +1,239 @@
+
+<!-- saved from url=(0037)https://acstuff.ru/patch/?info=0.1.78 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body><div class="version-block"><h3>v0.1.78</h3><ul><li>Version ID: 2051</li><li>Tags: <span class="tag tag-untested">untested</span></li><li>Size: 80.75 MB</li></ul><h4>Changelog:</h4><div class="changelog markdown"><ul>
+<li>VR update:
+<ul>
+<li>Single Pass Stereo, cutting number of draw calls by two;</li>
+<li>Variable Rate Shading (aka foveated rendering) for NVIDIA 16…-, 20…- and 30…-gen GPUs;</li>
+<li>Optional single YEBIS pass;</li>
+<li>Support for corner masking optimization (stops shading in areas covered by lens to speed things up);</li>
+<li>ASW 2.0 support for Oculus;</li>
+<li>Also, for Oculus: CSP now updates AC manifest, updates assets to show details about the race, closes AC if itsd VR element is closed;</li>
+<li>Better OpenComposite (previously known as OpenOVR) support, for both OpenCompositeACC and regular OpenComposite version (fixing crash with “ipdOffset”);</li>
+<li>Crashes in VR now shut down AC first and show errors in a separate process, to make sure VR environment would switch back to desktop;</li>
+<li>X-ray rendering for HUD to stop things looking weird if there is some geometry in front of HUD;</li>
+<li>Controllers integration: interact with HUD, adjust rear view mirrors, use touchscreens, press car buttons and more (if car has those set);</li>
+<li>Experimental option to get driver hands to follow VR controllers;</li>
+<li>Optional extra dithering, might help with overly compressed image with Oculus Air Link;</li>
+<li>FPS counter for custom VR mirroring;</li>
+</ul></li>
+<li>Custom GamepadFX script updated:
+<ul>
+<li>Improved implementation;</li>
+<li>Separate drifting and racing modes which can be switched while driving;</li>
+</ul></li>
+<li>WeatherFX:
+<ul>
+<li>Various improvements for cloud covers;</li>
+<li>Accurate moon eclipses (need to be enabled by WeatherFX scripts to ensure compatibility);</li>
+<li>New API for implementation scripts to create custom effects;</li>
+</ul></li>
+<li>Default WeatherFX script:
+<ul>
+<li>Distant thunder effects;</li>
+<li>Rain haze;</li>
+<li>Rain audio;</li>
+<li>Auroras (try February of 2022 on a track further than 60° of latitude, such as Ahvenisto Race Circuit);</li>
+<li>Fixes for fog, fog covering tops of tall buildings;</li>
+<li>Size of planets, sun and the moon fixed;</li>
+</ul></li>
+<li>Extra server options:
+<ul>
+<li>An experimental option to pause collisions for a bit if remote car would suddenly jump;</li>
+<li>Explicitly defined timezone and coordinates to ensure lighting would match with custom tracks with no such properties defined;</li>
+<li>Syncing of wheel angles now includes caster;</li>
+<li>Custom cars motion fixed, now shouldn’t cause issues with remote cars acting slightly differently when colliding;</li>
+<li>An extra option for custom cars motion: smooth motion for slower cars helping with cars shaking on larger tracks (can be activated with <code>CUSTOM_MOTION = 1, SMOOTH</code>);</li>
+<li>Options to reset car if it got stuck in a collision or falling through ground, with optional penalty;</li>
+<li>New core options: force custom cars physics, force custom track physics, hide pit crews to speed up loading (support in CM is coming soon);</li>
+<li>Commands to show a message and override ban message, available as new direct TCP commands or compatible chat commands;</li>
+<li>Issue with some of <code>EXTRA_RULES</code> values allowing to access setup menu without going to pits fixed (set new CSP build ID as a minimum required version);</li>
+<li>New rule requiring to finish the lap before going through pit penalty (so people couldn’t reverse back through pits instead);</li>
+<li>Set some CSP modules to be required for a server;</li>
+<li>If server requires any CSP module using that option, or requires WeatherFX or RainFX using older methods, live settings reload will be disabled;</li>
+<li>Option to hide default map app;</li>
+</ul></li>
+<li>Features for custom server implementations:
+<ul>
+<li>Custom packet format: support for types less than a byte (<code>CUSTOM_UPDATE_V2</code>);</li>
+<li>Batch update fix fixed (new ID is <code>BATCH_FIX_V2</code>);</li>
+<li>Servers changing tracks often can specify <code>FREQUENT_TRACK_CHANGES</code> feature which will force CSP to update track ID to actual one before connecting;</li>
+</ul></li>
+<li>Python:
+<ul>
+<li>Better errors handling;</li>
+<li>Optional caching to speed up loading;</li>
+<li>A compatibility fix: can help if installing an older app breaks a newer app (forces apps to use newest <code>sim_info</code> library);</li>
+</ul></li>
+<li>New built-in apps (written in Lua):
+<ul>
+<li>Controller tweaks: adjust FFB, gamepad or keyboard control options during the race with changes applying live;</li>
+<li>Mirrors configurator: adjust Real Mirrors with convenient sliders;</li>
+<li>Setup Exchange: publish car setups, load and apply setups made by other people in pits (pits integration is disabled by default, can be enabled in app settings);</li>
+</ul></li>
+<li>Remote cars no longer have their steering wheel angle limited by 127°;</li>
+<li>CSP soundbank with sounds for wipers is included now;</li>
+<li>Water shader: few fixes, new depth-aware mode for smooth blending, caustics (for both refraction and reflection);</li>
+<li>New water drain shader for water in water drains filling with rain;</li>
+<li>New rainbow stickers material for cars;</li>
+<li>New ChromaFlair car paint;</li>
+<li>UV2 support for car paints and <code>nePerPixelMultiMap_AT_NMDetail_stickers</code> shader, for an extra layer with stickers and similar things;</li>
+<li>Showroom mode: loads showrooms from <code>content/showroom</code> with some AC features disabled for faster loading;</li>
+<li>Some misconfigured car soundbanks now get fixed before loading (thanks to Chr0m3 for the solution);</li>
+<li>ProTyres and Camber Extravaganza apps now function correctly with virtual tyres (such as automatically generated rain tyres);</li>
+<li>Blown tyres now make a different sound;</li>
+<li>Few further optimizations for loading speed;</li>
+<li>AC apps now can be dragged all the way to the top of the screen;</li>
+<li>GUI controller integration: bind specific keys if necessary (for example, in case you don’t have D-Pads)</li>
+<li>Updated default GrassFX texture, few small improvements for its shading;</li>
+<li>Engine explosions now produce more smoke;</li>
+<li>Android Auto recreation: radio app now allows to add more stations in-game;</li>
+<li>New Planetarium filter (also, cartoon filter updated);</li>
+<li>DDS textures now can have LZ4 compression applied to them to reduce file sizes;</li>
+<li>A new experimental feature for creating custom external AI implementations;</li>
+<li>New experimental chunks optimization mode increasing FPS on large tracks;</li>
+<li>Basic chunks optimization now uses adaptive chunk size, increasing performance for tracks with smaller objects grouped in a separate KN5s;</li>
+<li>Optional clearing of system shaders cache when CSP version changes (enabled by default, solves issue with loading getting stuck with some hardware);</li>
+<li>Option to stop AC from creating setup folders for every installed track (also saves time during loading);</li>
+<li>Option to pause rendering if AC is in background;</li>
+<li>Option to use memory mapping for loading textures and VAO patches (might increase loading speed);</li>
+<li>Option to use Time-To-Speech for chat messages online.</li>
+</ul>
+<p>Fixes:</p>
+<ul>
+<li>Issue with new procedural wipers getting deformed, especially in VR, should be fixed now;</li>
+<li>Some replays failing to load fixed;</li>
+<li>Mouse steering fixed;</li>
+<li>Wind not affecting trees fixed;</li>
+<li>Mumble link is more reliable;</li>
+<li>VAO: first version of extra samples now loads correctly;</li>
+<li>Smoke from brakes online fixed;</li>
+<li>Skidmarks now get cleared during loading to avoid having too many layers in a single area, to improve performance;</li>
+<li>Audio pauses when making a screenshot in replays;</li>
+<li>Shadow biases fixed, now taking into account shadow resolution;</li>
+<li>New DDS loader now ignores textures without MIPs;</li>
+<li>Pixelated smoke fixed;</li>
+<li>Issue with new pause menu resulting in broken shading fixed;</li>
+<li>Fix for shading: certain materials that used to change in brightness based on distance to camera now should do it less;</li>
+<li>Godrays not working without <code>ac.setGodraysCustomColor()</code> call fixed;</li>
+<li>Pause menu not opening correctly on first try fixed;</li>
+<li>Scriptable filters fixed;</li>
+<li>Hold mode for high/low beams button fixed;</li>
+<li>Shader for distant glow fixed, now works better with different fog configurations;</li>
+<li>Compatibility with ReShade improved;</li>
+<li>Hiding car labels on some online servers fixed;</li>
+<li>Issue with fonts rendering causing first draw call of a bit of text to fail fixed;</li>
+<li>GUI controller integration not working with certain controller configurations fixed;</li>
+<li>Android Auto no longer takes screenshots when both pedals are pressed;</li>
+<li>Flickering lighting on tyres for stationary cars fixed;</li>
+<li>AC is considered to be in foreground if VR is active (if not in foreground, certain things like reacting to keyboard presses pause);</li>
+<li>Wind acting on water fixed (now water follows wind direction);</li>
+<li>FOV for Real Mirrors changes with distance in VR as well;</li>
+<li>Driver tags shown for disconnected cars with triple screen fixed;</li>
+<li>Default water normals texture is no longer so overly compressed;</li>
+<li>Overly blurry FSR with VR fixed (although it’s not compatible with SPS at the moment or VRS at all);</li>
+<li>New pause: camera no longer shifts in VR, that looked weird;</li>
+<li>Walking-out-thing no longer breaks with AI flood active;</li>
+<li>TAA flickering on sky/track boundary fixed;</li>
+<li>Flammable objects (such as hay) now work even if they are perfectly aligned with axis;</li>
+<li>Exterior wiper traces now showing on some systems fixed;</li>
+<li>Options to show icon for active manual pits speed limiter and disabled automatic pits speed limiter;</li>
+<li>Manual pits speed limiter resets with session change or restart;</li>
+<li>Refracting headlights: emissive part absorbed by glass is colored accordingly now;</li>
+<li>Sparks flying from contacts with roads don’t fly up as much if car is not moving fast enough or if car is not the right type (can be customized in car config);</li>
+<li>Skidmarks and grass disappearing on some tracks with certain view angles fixed;</li>
+<li>Skidmarks not rendering correctly in triple mode with separate FSR multiplier for sides fixed;</li>
+<li>Refracting headlights no longer break if transparency flag for surface meshes is set;</li>
+<li>A couple of issues related to tyre tester app are fixed;</li>
+<li>Stars map fixed (rolled back to previous correct version);</li>
+<li>Scriptable filters no longer break with TAA;</li>
+<li>Audio switching between interior and exterior of fast moving cars with F5 camera fixed;</li>
+<li>Loading of some unusually saved replays fixed;</li>
+<li>Smaller fixes and stability improvements.</li>
+</ul>
+<p>Configs:</p>
+<ul>
+<li>New things for dynamic objects on tracks with custom track physics:
+<ul>
+<li>Adjust mass;</li>
+<li>Alter collision properties;</li>
+<li>Enable self-collision (use with caution);</li>
+<li>Replace mesh colliders with geometry colliders;</li>
+<li>Move center-of-gravity;</li>
+<li>Automatically detect boxes and replace their colliders with fitting box colliders, also fixing center-of-gravity;</li>
+</ul></li>
+<li>Live reload for track cameras;</li>
+<li>New <code>[BASIC] NEEDS_LIGHTS_FIX = 1</code> parameter for cars which have their lighting configured for older broken version of CSP and now having lights that are too bright;</li>
+<li>New <code>[BASIC] SPECTATOR_COCKPIT_HR_DISTANCE = N</code> parameter to increase high-res cockpit distance for spectators, free and track cameras (somewhat fixes dark interior of BMW E30 DTM);</li>
+<li>New option for trees: use <code>MATERIAL_FLAG_0 = 1</code> with <code>[SHADER_REPLACEMENT_...]</code> to fade away triangles facing along view direction;</li>
+<li>Android Auto recreation: better support for smaller displays, offset no longer breaks clicking;</li>
+<li>Fix for partial reload: now material adjustments, lights and such reload when track conditions are edited;</li>
+<li>Car configs now can override tyre and rim width and offset, to get skidmarks and particles to fit properly on some unusual tyres;</li>
+<li>Car paints: flag to force sharp reflections on clear coat;</li>
+<li>Custom cars physics: get tyres to blow up with suspension damage;</li>
+<li>Custom track physics: slightly randomize spawning positions;</li>
+<li>Material for distant geometry fixed, now it no longer needs options and, with some caveats, doesn’t have any distance limitations;</li>
+<li>Subdivide track meshes (helpful for distant geometry fix applying to a giant plane for the ground, like on Shuto);</li>
+<li>New simple <code>ksPerPixelAT_NM_emissive</code> shader for some basic track objects with alpha in <code>txDiffuse</code>;</li>
+<li>New <code>VRS_FIX</code> option for shader replacements which should help with some materials getting too dark nearby (and looking horribly with VRS);</li>
+<li>Accurate PBR materials for tracks with optional displacement (currently in experimental stage).</li>
+</ul>
+<p>Lua:</p>
+<ul>
+<li>Custom car physics script:
+<ul>
+<li>Access car state (<code>ac.StateCar</code> as <code>car</code>, it doesn’t update at physics rate, but for some things it should work all right);</li>
+<li>Change CD_GAIN and CL_GAIN for wings;</li>
+<li>Access and alter body damage and tyres inflation (set to 0 to blow them);</li>
+<li>Access more of wheels state;</li>
+<li>Move box colliders;</li>
+<li>File “script.lua” would be loaded only if “data.acd” is not present, otherwise CSP will search for a file in “data.acd”;</li>
+</ul></li>
+<li>Improved handling of custom shaders:
+<ul>
+<li>Warnings get printed in log;</li>
+<li>Now it’s possible to load shaders from files and use includes;</li>
+<li>Line numbers in reported messages match;</li>
+<li>Load 3D textures, cubemaps and texture arrays from DDS files;</li>
+<li>Bind textures with number of channels other than 4;</li>
+</ul></li>
+<li>Library definitions updated to better support updated Lua extension by sumneko;</li>
+<li>Lua interpreter updated to include the latest improvements added by Mike Pall;</li>
+<li>New <code>ui.GIFPlayer()</code> helper allowing to use animated GIFs in UI and as textures;</li>
+<li>New <code>os.addDLLDirectory()</code> function to simplify loading extra DLLs for things like socket library (also, <code>package.add()</code> now adds <code>cpath</code> as well);</li>
+<li>Socket library is included by default now;</li>
+<li>Lua apps now can create new UI elements for car setup, save and load setups, access setup items and change them;</li>
+<li>When creating extra canvases, it’s now possible to specify format, including HDR formats;</li>
+<li>Textures are now reference counted and unload automatically (you’d still need to use <code>ui.unloadTexture()</code> to unload textures used in UI);</li>
+<li>Functions to render quads and quads with custom shader, function for optimized fullscreen pass for extra canvases;</li>
+<li>Sim value <code>currentServerTime</code> stays synced with session change;</li>
+<li>Access lap splits in sim state;</li>
+<li>WeatherFX: skip first MIPs when loading a texture, access scene API;</li>
+<li>INI parser fixed (previously, it could occasionally fail);</li>
+<li>Car scripts now can switch to neutral gear (could be bound to a mesh button);</li>
+<li>Car mesh buttons now can be set with local mesh coordinates for moving geometry (like steering wheel buttons);</li>
+<li>Textureless car scripts now can use mesh buttons too;</li>
+<li>Force-apply driver animation: allows to add and blend custom rig movements on top of existing animation;</li>
+<li>See the state of extra canvases with Lua Debug App by assigning them a name with <code>:setName()</code>;</li>
+<li>GamepadFX: access to gamepad settings and more details about car state;</li>
+<li>Get state of VR controllers, use it to create interactive objects, set controllers vibration or recenter VR headset;</li>
+<li>Instead of <code>web.loadRemoteModel()</code> and <code>web.loadRemoteAnimation()</code>, there is a new <code>web.loadRemoteAssets()</code> function which can be used for both and more;</li>
+<li>New functions to get details about drivers: names, teams, nationalities, numbers (uses explicitly set values or, if not set, skin JSONs);</li>
+<li>Any Lua script now runs only after full sim initialization, thus ensuring state of <code>ac.getSim()</code> would be valid;</li>
+<li>Access shared memory files;</li>
+<li>Physics API: override or offset user steering, access original steering value;</li>
+<li>New physics rigidbodies now can be kinetic (have velocity and impact scene, but not get impacted back) and use geometric colliders instead of mesh one;</li>
+<li>Tracks can allow for scripts to manipulate extra rigidbodies without accessing the rest of physics API, allowing to create dynamic and new kinetic rigidbodies;</li>
+<li>New <code>physics.setRestrictor()</code> and <code>physics.setBallast()</code> functions for scripts that can alter physics state;</li>
+<li>Scene API: new functions for basic set operations on scene references, async loading for new models;</li>
+<li>Text inputs are no longer limited by 256 symbols;</li>
+<li>Web requests no longer throw errors if URL is malformed, instead they return errors via callbacks;</li>
+<li>New parameter for web requests to load headers only, without the payload (not all servers respect <code>HEAD</code> method);</li>
+<li>Car state: pit speed limiter works correctly (aware of session-specified maximum speed, takes into account manually operating limiter);</li>
+<li>New functions: check if Lua app window is pinned or make a screenshot;</li>
+<li>Check time gap between cars with <code>ac.getGapBetweenCars()</code>;</li>
+<li>New functions allowing to access extra options and teleport function on server that has it set;</li>
+<li>Base library: <code>string.split</code> and <code>string.trim</code> reworked and optimized, new string functions including functions adding regular expressions support;</li>
+<li>Function <code>ac.findCarAtPlace()</code> is fixed;</li>
+<li>A lot of other smaller fixes.</li>
+</ul></div><h4 class="version-block-links-title">Links:</h4><ul class="version-block-links"><li><span>Download: </span><a download="lights-patch-v0.1.78.zip" href="https://acstuff.ru/patch/?get=0.1.78">lights-patch-v0.1.78.zip</a></li></ul></div></body></html>

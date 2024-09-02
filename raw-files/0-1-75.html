@@ -1,0 +1,122 @@
+
+<!-- saved from url=(0037)https://acstuff.ru/patch/?info=0.1.75 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body><div class="version-block"><h3>v0.1.75</h3><ul><li>Version ID: 1614</li><li>Tags: <span class="tag tag-untested">untested</span></li><li>Size: 52.83 MB</li></ul><h4>Changelog:</h4><div class="changelog markdown"><ul>
+<li>AMD FidelityFX Super Resolution integration (works with either PP and FXAA enabled in AC video settings, or in VR mode with any configuration);</li>
+<li>FXAA replacement options in Graphics Adjustments now apply to VR as well;</li>
+<li>Option to save last 30 seconds of replay as a small clip with a shortcut (servers can also set an upload URL for those for more automated reporting);</li>
+<li>Mumble integration for voice chat with positional audio with option to adjust scale in server configuration;</li>
+<li>New way to animate wipers of most shapes and forms, doesn’t need to split meshes, automatically snaps them onto windscreen and more;</li>
+<li>New Colorized Shadowing module for windscreen banners to cast colorful shadows and colorize ambient lighting nearby;</li>
+<li>Interior reflections masking reworked, now applied to all nearby cars;</li>
+<li>A bit of occlusion for driver model for encosed cars, similar to Shadowed Wheels module;</li>
+<li>With free camera, nearest car within 10 meters now counts as focused;</li>
+<li>“Limit audio” option updated, now with proper fading and further optimizing;</li>
+<li>Caching for precomputed CSP data (such as new fake shadows for cars) reworked, old entries will be removed automatically;</li>
+<li>NeckFX: option for horizon lock to lock camera to track surface instead of horizon;</li>
+<li>New module with tweaks for triple screen mode, allows to alter how image is split between three cameras;</li>
+<li>Default normals textures for spectators redrawn properly, with updated shading;</li>
+<li>Ghost car recorder saves its file immediattely after a new record instead of waiting for session to end;</li>
+<li>Digital displays for mirrors now optional, with an option for better LDR simulation;</li>
+<li>Default WeatherFX implementation updated, with adjusted lighting and clouds, AIs now turn on headlights in time as well;</li>
+<li>Option for simpler render style of new UI, to speed things up a bit for simpler GPUs;</li>
+<li>Speculars in reflection cubemap are disabled to reduce flickering;</li>
+<li>Debug mode for Origin Shift is removed to prevent people from activating it accidentally.</li>
+</ul>
+<p>Fixes:</p>
+<ul>
+<li>Fake track shadows added in 0.1.74 now can be linked to meshes to disappear on certain layouts where meshes are missing;</li>
+<li>Flying wipers on LODs of some cars and similar issues where animation breaks when applied to LOD are fixed;</li>
+<li>Caching AC data to speed up loading breaking car skins fixed;</li>
+<li>Cars with VAO looking too dark until VAO is switched a few times fixed;</li>
+<li>Few performance issues related to IBL reflections fixed;</li>
+<li>VAO gamma now applies to VAO samples affecting car brightness as well;</li>
+<li>Driver Interview mode fixed (winning condition was missing), difficulty reduced, now working with track from assettocorsamods.net as well;</li>
+<li>Digital screens shader updated for more accurate TN color distortion;</li>
+<li>Boosted edge refraction for sides of glass is fixed;</li>
+<li>Cars falling through ground on some rare tracks fixed (bug in 0.1.74);</li>
+<li>After making an accumulation blur store, state of particles will be restored;</li>
+<li>URLs in welcome message: parsing fixed, support for TeamSpeak and Mumble URLs, context menu to copy URL to clipboard;</li>
+<li>Custom clip planes from Graphics Adjustments now apply with VR mode selected unless camera is inside a car;</li>
+<li>AI flood: disabling colour randomization now works;</li>
+<li>CPU cars heightmap used for detecting where the camera is fixed;</li>
+<li>Origin Shift works with post-processing disabled;</li>
+<li>Sped up reflections now work properly, no longer breaking on some tracks;</li>
+<li>WeatherFX: occlusion estimation fixed, clipped clouds fixed;</li>
+<li>TAA for refracting headlights fixed;</li>
+<li>Default normals textures for spectators only apply to default spectators textures;</li>
+<li>Horizon object detection improved to fix background glitch on some tracks;</li>
+<li>Issue with things getting blurred on LODs switching fixed;</li>
+<li>Virtual mirror breaking UI in certain combination of settings fixed;</li>
+<li>Displays with cameras on tracks work with origin shift and show smoke, flames and fireworks;</li>
+<li>Visual oil spills getting stuck fixed;</li>
+<li>Crashes on exit fixed;</li>
+<li>Speculars from dynamic lights on car paint shader fixed;</li>
+<li>Few smaller fixes and optimizations.</li>
+</ul>
+<p>For new content and configs:</p>
+<ul>
+<li>Human surface material now can be set in car config;</li>
+<li>GrassFX: option to adjust texture brightness in track config (for colored parts);
+<ul>
+<li>Variations of Highlands textures are removed to save space, instead for compatibility CSP will use a brightness adjustment for them;</li>
+</ul></li>
+<li>Apps for track conditions and track occluders are removed;</li>
+<li>Instead, they’re added as tools in Objects Inspector to stop cluttering apps list, more apps will be moved and added soon;</li>
+<li>Fake track shadows tool is reworked, now it can link shadows to meshes and manage all the shadows at once;</li>
+<li>Default specular multiplier for track lights is changed to 1 now (with tracks generic config);</li>
+<li>New way to create digital instruments, displays <code>[SCRIPTABLE_DISPLAY_...]</code> scriptable with Lua;</li>
+<li>New addition for cars, <code>[EXTRA_SHAPE_...]</code> allowing to create new geometry (for example, for Kunos cars missing some indicators or properly mapped displays);</li>
+<li>New templates for easy creation of new displays and indicators with [EXTRA<em>SHAPE</em>...];</li>
+<li>New <code>RESOLUTION_LIMIT</code> option for dynamic textures, to make sure unusually set scaling wouldn’t make them too big;</li>
+<li>New mode for digital screen material, VA matrix;</li>
+<li>Navigators now can use car textures as loading logos (look at BMW M4 config for an example);</li>
+<li>All other references to textures (in <code>[SHADER_REPLACEMENT_...]</code>, for example, can use car textures too;</li>
+<li>Parameter <code>ALPHA_MODE</code> for features using bending shader now applied correctly;</li>
+<li>INIpp:
+<ul>
+<li>Macros in templates now can’t override values set by macros in main section;</li>
+<li>New <code>@GENERATOR_STARTING_INDEX</code> parameter for templates used in generators to change staring index;</li>
+</ul></li>
+<li><code>[PARTICLES_FX_EXHAUST_...]</code>: direction is now optional, oriented backwards by default;</li>
+<li><code>[MESH_ADJUSTMENT_...]</code> and <code>[NODE_ADJUSTMENT_...]</code> updated:
+<ul>
+<li>Now work the same for tracks and cars;</li>
+<li>Moving meshes to different nodes updates their vertices so they would be positioned in the same place, great to get mesh coordinates to match car coordinates;</li>
+</ul></li>
+<li><code>SKINS</code> filter now can use complex queries such as <code>SKINS = '{ ( red?, green? ) &amp; !?_matte }'</code>;</li>
+<li>Visualize pits for currently active cars (loaded and not disconnected):
+<ul>
+<li>Toggle garage doors or animate them;</li>
+<li>New track condition inputs to check if corresponding cars are present;</li>
+</ul></li>
+<li>Split track mesh elements into separate meshes (increases number of draw calls, use carefully);</li>
+<li>Shader <code>stPerPixelNM_UVflow</code>:
+<ul>
+<li>Parameters for UV multiplier and offset (bind offset to an animated condition for transition effect);</li>
+<li>Parameter to use alpha-channel from txDiffuse instead of txNormal;</li>
+<li>Parameter to clip out everything outside of 0…1 texture coordinates;</li>
+</ul></li>
+<li>Hex colors in material adjustments now work;</li>
+<li>Digital displays for mirrors: option to adjust the angle;</li>
+<li>Wrongly set <code>OUT</code> values in lods.ini now fixed automatically to match <code>IN</code> of a following definition;</li>
+<li>Masking pass now works with delayed render (great for colorful windscreen banners);</li>
+<li>New interior cars material <code>[Material_WindscreenBanner]</code> with everything for windscreen banners, frames and so on for easy colored shadowing and RainFX integration.</li>
+</ul>
+<p>For new apps and scripts:</p>
+<ul>
+<li>Structures with state extended, containing a lot more data now;</li>
+<li>Lua API generator rewritten, now ensures type safety and adds automatic conversions where possible;</li>
+<li>Few fixes for Lua API (now vectors only equal to vectors and such);</li>
+<li>WeatherFX:
+<ul>
+<li>New <code>ac.setCameraOcclusionDepthBoost()</code> value to adjust cubemap-based occlusion estimation;</li>
+<li>New cloud material property <code>.alphaSmoothTransition</code> for adjusting alpha gradient;</li>
+<li>Cloud properly <code>.extraFidelity</code> can be set below zero to blur pattern instead of adding an extra layer;</li>
+</ul></li>
+<li>New modes:
+<ul>
+<li>API to draw UI moved from <code>ac.ui…</code> to <code>ui.…</code> (sorry about this, I usually try not to break compatibility, but it’s just been released and I think it’s better to fix this one sooner);</li>
+<li>API to draw things in 3D-space;</li>
+</ul></li>
+<li>Automatically generated definitions now include types.</li>
+</ul></div><h4 class="version-block-links-title">Links:</h4><ul class="version-block-links"><li><span>Download: </span><a download="lights-patch-v0.1.75.zip" href="https://acstuff.ru/patch/?get=0.1.75">lights-patch-v0.1.75.zip</a></li></ul></div></body></html>
