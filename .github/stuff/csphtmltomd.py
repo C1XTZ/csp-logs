@@ -60,7 +60,7 @@ def convert_html_to_markdown(input_html):
     markdown=f"---\ntitle: {process_text_with_entities(title_text)}\n---\n\n"
     markdown+=f"*   Version ID: {process_text_with_entities(version_id)}\n"
     markdown+=f"*   Size: {process_text_with_entities(size)}\n"
-    markdown+=f"\n## Changelog\n{changelog_markdown}"
+    markdown+=f"\n# Changelog\n{changelog_markdown}"
     return markdown
 
 def save_markdown_file(markdown,filename="output.md"):
