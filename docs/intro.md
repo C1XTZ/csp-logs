@@ -10,6 +10,8 @@ Hopefully this will help someone in the future.
 # Version ID List
 | Version Name                                   | Version ID |
 |------------------------------------------------|------------|
+| [0.2.10-preview1](./changelogs/0-2-10p1.md)    | `3436`     |
+| [0.2.9](./changelogs/0-2-9.md)                 | `3435`     |
 | [0.2.9-preview1](./changelogs/0-2-9p1.md)      | `3425`     |
 | [0.2.8](./changelogs/0-2-8.md)                 | `3424`     |
 | [0.2.8-preview1](./changelogs/0-2-8p1.md)      | `3335`     |
