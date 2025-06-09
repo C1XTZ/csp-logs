@@ -55,14 +55,22 @@ const config = {
         },
         items: [
           {
-            type: 'docSidebar',
-            sidebarId: 'versionSidebar',
-            position: 'left',
-            label: 'Changelogs',
+            to: 'https://acstuff.club/patch/',
+            className: 'navbar-acstuff',
+            position: 'right',
           },
           {
-            to: 'https://github.com/C1XTZ/ac-csp-changelog-archive',
-            "aria-label": 'GitHub',
+            to: 'https://www.patreon.com/x4fab',
+            className: 'navbar-patreon',
+            position: 'right',
+          },
+                    {
+            to: 'https://discord.gg/nM4Xkrt',
+            className: 'navbar-discord',
+            position: 'right',
+          },
+          {
+            to: 'https://github.com/ac-custom-shaders-patch',
             className: 'navbar-github',
             position: 'right',
           },
