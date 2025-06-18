@@ -11,7 +11,7 @@ Hopefully this will help someone in the future.
 # Version ID List
 | Version Name                                   | Version ID |
 |------------------------------------------------|------------|
-| [0.2.12-preview1](./changelogs/0-2-12p1.md)    | `3466`     |
+| [0.2.12-preview1](./changelogs/0-2-12p1.md)    | `3467`     |
 | [0.2.11](./changelogs/0-2-11.md)               | `3465`     |
 | [0.2.11-preview1](./changelogs/0-2-11p1.md)    | `3460`     |
 | [0.2.10](./changelogs/0-2-10.md)               | `3459`     |
