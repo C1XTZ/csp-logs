@@ -1,2 +1,6 @@
-# ac-csp-changelog-archive
-An archive of as many CSP changelogs as I can get my hands on, manually converting them all to Markdown formatting. Hopefully will help someone in the future
+# Custom Shaders Patch Changelog Archive
+An archive of CSP changelogs for versions that were publicly available via [acstuff.club/patch](https://acstuff.club/patch/) or on [x4fab's Patreon](https://www.patreon.com/x4fab) at some point.    
+Internal development builds sent to users for testing purposes are not listed.  
+Hopefully this will help someone in the future.
+
+[Custom Shaders Patch Changelog Archive Website](https://c1xtz.github.io/ac-csp-changelog-archive/)
