@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.8.1">
 <title data-rh="true">v0.1.80-preview218 | Custom Shaders Patch Changelog Archive</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://github.com/ac-csp-changelog-archive/changelogs/0-1-80p218"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="v0.1.80-preview218 | Custom Shaders Patch Changelog Archive"><meta data-rh="true" name="description" content="*   Version ID: 2363"><meta data-rh="true" property="og:description" content="*   Version ID: 2363"><link data-rh="true" rel="icon" href="/ac-csp-changelog-archive/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://github.com/ac-csp-changelog-archive/changelogs/0-1-80p218"><link data-rh="true" rel="alternate" href="https://github.com/ac-csp-changelog-archive/changelogs/0-1-80p218" hreflang="en"><link data-rh="true" rel="alternate" href="https://github.com/ac-csp-changelog-archive/changelogs/0-1-80p218" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"v0.1.80-preview218","item":"https://github.com/ac-csp-changelog-archive/changelogs/0-1-80p218"}]}</script><link rel="stylesheet" href="/ac-csp-changelog-archive/assets/css/styles.c24bc041.css">
-<script src="/ac-csp-changelog-archive/assets/js/runtime~main.e0081389.js" defer="defer"></script>
+<script src="/ac-csp-changelog-archive/assets/js/runtime~main.03038cd2.js" defer="defer"></script>
 <script src="/ac-csp-changelog-archive/assets/js/main.68e78400.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -157,7 +157,7 @@
 </ul>
 </li>
 </ul>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="fixes-and-optimizations">Fixes and optimizations<a href="#fixes-and-optimizations" class="hash-link" aria-label="Direct link to Fixes and optimizations" title="Direct link to Fixes and optimizations">​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="fixes">Fixes<a href="#fixes" class="hash-link" aria-label="Direct link to Fixes" title="Direct link to Fixes">​</a></h2>
 <ul>
 <li>Various physics fixes and improvements.</li>
 <li>New alternative implementation of AI spline lookup grid: more accurate with 1 m resolution, generating faster, about 30% faster, taking a lot less memory and a lot less disk space (120 KB vs 20 MB for Nordscheleife, 2 MB vs 230 MB for Shuto), with better support for AI splines self-intersecting at different heights.</li>
@@ -201,7 +201,7 @@
 <li>Watching track skin directory (default) fixed, now textures are reloading live again (including .PSD ones next to .DDS if a codec is installed in the system).</li>
 <li>YouTube app in Android Auto fixed.</li>
 </ul>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="configs-physics-and-other-things-for-content-creators-and-server-admins">Configs, physics and other things for content creators and server admins<a href="#configs-physics-and-other-things-for-content-creators-and-server-admins" class="hash-link" aria-label="Direct link to Configs, physics and other things for content creators and server admins" title="Direct link to Configs, physics and other things for content creators and server admins">​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="configs">Configs<a href="#configs" class="hash-link" aria-label="Direct link to Configs" title="Direct link to Configs">​</a></h2>
 <ul>
 <li>New method of verifying integrity of important data using asymmetric encryption with a server plugin.</li>
 <li>Setup items added by custom cars physics now can link to controllers the same as regular setup items.</li>
@@ -217,7 +217,7 @@
 <li>Configs <code>video.ini</code> and <code>system/cfg/graphics.ini</code> are monitored for changes to apply some of them live.</li>
 <li>New trees now can use <code>tilt</code> and <code>tilt-variance</code> values to align their direction with the direction of the surface below them. Also, tree lists now can add a low-frequency noise to their <code>variance</code> values with a third number for spread.</li>
 </ul>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="lua-related-stuff">Lua-related stuff<a href="#lua-related-stuff" class="hash-link" aria-label="Direct link to Lua-related stuff" title="Direct link to Lua-related stuff">​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="lua">Lua<a href="#lua" class="hash-link" aria-label="Direct link to Lua" title="Direct link to Lua">​</a></h2>
 <ul>
 <li>New trees: option for Lua apps to reload trees live, including an ability to very quickly update a list with a few trees for live positioning.</li>
 <li>New global functions: <code>ac.isKeyPressed()</code>, <code>ac.isKeyReleased()</code> (sometimes it’s just convenient to use them).</li>
@@ -284,6 +284,6 @@
 <li>Issue with INI serialization doubling slashes fixed.</li>
 <li>Lua apps can be hidden online or offline with <code>HIDDEN_ONLINE</code> or <code>HIDDEN_OFFLINE</code> flags. There is also an API function <code>ac.setAppWindowVisible()</code> allowing to toggle app visibility live.</li>
 <li>Few smaller optimizations for vectors and default libraries.</li>
-</ul></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/ac-csp-changelog-archive/changelogs/0-1-80p346"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">v0.1.80-preview346</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/ac-csp-changelog-archive/changelogs/0-1-80p115"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">v0.1.80-preview115</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#new-features-options-and-improvements" class="table-of-contents__link toc-highlight">New features, options and improvements</a></li><li><a href="#fixes-and-optimizations" class="table-of-contents__link toc-highlight">Fixes and optimizations</a></li><li><a href="#configs-physics-and-other-things-for-content-creators-and-server-admins" class="table-of-contents__link toc-highlight">Configs, physics and other things for content creators and server admins</a></li><li><a href="#lua-related-stuff" class="table-of-contents__link toc-highlight">Lua-related stuff</a></li></ul></div></div></div></div></main></div></div></div></div>
+</ul></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/ac-csp-changelog-archive/changelogs/0-1-80p346"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">v0.1.80-preview346</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/ac-csp-changelog-archive/changelogs/0-1-80p115"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">v0.1.80-preview115</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#new-features-options-and-improvements" class="table-of-contents__link toc-highlight">New features, options and improvements</a></li><li><a href="#fixes" class="table-of-contents__link toc-highlight">Fixes</a></li><li><a href="#configs" class="table-of-contents__link toc-highlight">Configs</a></li><li><a href="#lua" class="table-of-contents__link toc-highlight">Lua</a></li></ul></div></div></div></div></main></div></div></div></div>
 </body>
 </html>
