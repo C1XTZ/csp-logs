@@ -18,7 +18,7 @@
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
-[data-theme='dark'] {
+[data-theme="dark"] {
   --ifm-color-primary: #ff0000;
   --ifm-color-primary-dark: #d00000;
   --ifm-color-primary-darker: #bb0000;
@@ -47,7 +47,7 @@
 }
 
 .navbar-acstuff:before {
-  background-image: url('../../static/img/favicon.ico');
+  background-image: url("../../static/img/favicon.ico");
   background-size: contain;
   background-position: center;
   filter: brightness(0) invert(1);
@@ -67,4 +67,46 @@
 .navbar-patreon:hover,
 .navbar-discord:hover {
   opacity: 0.6;
+}
+
+/* Version table */
+.version-table {
+  border-collapse: collapse;
+  width: 100%;
+  height: 100%;
+  table-layout: fixed;
+}
+
+.version-table thead,
+.version-table tbody,
+.version-table tr,
+.version-table th,
+.version-table td {
+  height: 100%;
+}
+
+.version-table th {
+  padding: 8px;
+  text-align: left;
+}
+
+.version-cell {
+  padding: 8px;
+  vertical-align: top;
+  height: 100%;
+}
+
+.id-cell {
+  text-align: center;
+}
+
+.version-links {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 100%;
+}
+
+.version-links a {
+  align-self: flex-start;
 }
