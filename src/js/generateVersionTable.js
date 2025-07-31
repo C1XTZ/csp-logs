@@ -1,9 +1,9 @@
-const fs = require("fs");
-const path = require("path");
+const fs = require('fs');
+const path = require('path');
 
 const CONFIG = {
-  changelogsDir: path.resolve(__dirname, "../../docs/changelogs"),
-  outputFile: path.resolve(__dirname, "./generatedVersionTable.mdx"),
+  changelogsDir: path.resolve(__dirname, '../../docs/changelogs'),
+  outputFile: path.resolve(__dirname, './generatedVersionTable.mdx'),
 };
 
 const REGEX = {
@@ -14,16 +14,16 @@ const REGEX = {
 const readChangelogFiles = () =>
   fs
     .readdirSync(CONFIG.changelogsDir)
-    .filter((file) => file.endsWith(".md"))
+    .filter((file) => file.endsWith('.md'))
     .map((filename) => {
-      const content = fs.readFileSync(path.join(CONFIG.changelogsDir, filename), "utf8");
+      const content = fs.readFileSync(path.join(CONFIG.changelogsDir, filename), 'utf8');
       const title = content.match(REGEX.title)?.[1]?.trim();
       const versionId = parseInt(content.match(REGEX.versionId)?.[1]) || 0;
       return versionId > 0
         ? {
-            versionName: title || filename.replace(".md", ""),
+            versionName: title || filename.replace('.md', ''),
             versionId,
-            link: `/ac-csp-changelog-archive/changelogs/${filename.replace(/\.md$/, "")}`,
+            link: `/ac-csp-changelog-archive/changelogs/${filename.replace(/\.md$/, '')}`,
           }
         : null;
     })
@@ -35,7 +35,7 @@ const groupByVersionName = (entries) => {
   let current = [];
   for (const entry of entries) {
     current.push(entry);
-    if (!entry.versionName.includes("-preview")) {
+    if (!entry.versionName.includes('-preview')) {
       groups.push({ baseVersion: entry.versionName, entries: current });
       current = [];
     }
@@ -47,14 +47,14 @@ const groupByVersionName = (entries) => {
 const createTable = (groups) => {
   const rows = groups
     .map(({ entries }) => {
-      const links = `<div className="version-links">${entries.map((e) => `<a href="${e.link}">${e.versionName}</a>`).join("")}</div>`;
-      const ids = entries.map((e) => `<code>${e.versionId}</code>`).join("<br/>");
+      const links = `<div className="version-links">${entries.map((e) => `<a href="${e.link}">${e.versionName}</a>`).join('')}</div>`;
+      const ids = entries.map((e) => `<code>${e.versionId}</code>`).join('<br/>');
       return `<tr>
       <td className="version-cell name-cell">${links}</td>
       <td className="version-cell id-cell">${ids}</td>
     </tr>`;
     })
-    .join("\n");
+    .join('\n');
 
   return `<table className="version-table">
     <thead>
@@ -86,7 +86,7 @@ export default function VersionTable() {
 const main = () => {
   try {
     const entries = readChangelogFiles();
-    if (!entries.length) return console.warn("No valid changelog entries found.");
+    if (!entries.length) return console.warn('No valid changelog entries found.');
 
     const grouped = groupByVersionName(entries);
     fs.writeFileSync(CONFIG.outputFile, generateMDXContent(grouped));

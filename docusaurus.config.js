@@ -15,6 +15,7 @@ const config = {
   projectName: 'ac-csp-changelog-archive',
   organizationName: 'C1XTZ',
   deploymentBranch: 'gh-pages',
+  trailingSlash: true,
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   i18n: {
@@ -64,7 +65,7 @@ const config = {
             className: 'navbar-patreon',
             position: 'right',
           },
-                    {
+          {
             to: 'https://discord.gg/nM4Xkrt',
             className: 'navbar-discord',
             position: 'right',

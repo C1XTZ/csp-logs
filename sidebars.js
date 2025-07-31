@@ -2,9 +2,10 @@ const fs = require('fs');
 const path = require('path');
 
 const changelogsDir = path.join(__dirname, 'docs', 'changelogs');
-const changelogFiles = fs.readdirSync(changelogsDir)
-  .filter(file => file.endsWith('.md'))
-  .map(file => `changelogs/${file.replace('.md', '')}`)
+const changelogFiles = fs
+  .readdirSync(changelogsDir)
+  .filter((file) => file.endsWith('.md'))
+  .map((file) => `changelogs/${file.replace('.md', '')}`)
   .sort((a, b) => {
     const regex = /(\d+)-(\d+)-(\d+)(p(\d+))?/;
     const matchA = a.match(regex);
@@ -42,7 +43,6 @@ const sidebars = {
       items: changelogFiles,
     },
   ],
-
 };
 
 export default sidebars;
