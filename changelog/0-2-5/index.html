@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-changelog/0-2-5" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.8.1">
+<title data-rh="true">v0.2.5 | Custom Shaders Patch Changelog Archive</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://github.com/csp-logs/changelog/0-2-5/"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="v0.2.5 | Custom Shaders Patch Changelog Archive"><meta data-rh="true" name="description" content="*   Version ID: 3249"><meta data-rh="true" property="og:description" content="*   Version ID: 3249"><link data-rh="true" rel="icon" href="/csp-logs/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://github.com/csp-logs/changelog/0-2-5/"><link data-rh="true" rel="alternate" href="https://github.com/csp-logs/changelog/0-2-5/" hreflang="en"><link data-rh="true" rel="alternate" href="https://github.com/csp-logs/changelog/0-2-5/" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"v0.2.5","item":"https://github.com/csp-logs/changelog/0-2-5"}]}</script><link rel="stylesheet" href="/csp-logs/assets/css/styles.3a7e7300.css">
+<script src="/csp-logs/assets/js/runtime~main.7c020de2.js" defer="defer"></script>
+<script src="/csp-logs/assets/js/main.4cf4fe23.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t="dark";var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",e||t),document.documentElement.setAttribute("data-theme-choice",e||t)}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/csp-logs/"><div class="navbar__logo"><img src="/csp-logs/img/favicon.ico" alt="Content Manager Icon" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/csp-logs/img/favicon.ico" alt="Content Manager Icon" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">CSP Version Archive</b></a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://acstuff.club/patch/" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link navbar-acstuff"></a><a href="https://www.patreon.com/x4fab" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link navbar-patreon"></a><a href="https://discord.gg/nM4Xkrt" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link navbar-discord"></a><a href="https://github.com/ac-custom-shaders-patch" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link navbar-github"></a><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/csp-logs/">Intro</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/csp-logs/versions/">Version Build ID List</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--active">Changelogs</a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-2-12p1/">v0.2.12-preview1</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-2-11/">v0.2.11</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-2-11p1/">v0.2.11-preview1</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-2-10/">v0.2.10</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-2-10p1/">v0.2.10-preview1</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-2-9/">v0.2.9</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-2-9p1/">v0.2.9-preview1</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-2-8/">v0.2.8</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-2-8p1/">v0.2.8-preview1</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-2-7/">v0.2.7</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-2-7p1/">v0.2.7-preview1</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-2-6/">v0.2.6</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-2-6p1/">v0.2.6-preview1</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/csp-logs/changelog/0-2-5/">v0.2.5</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-2-5p1/">v0.2.5-preview1</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-2-4/">v0.2.4</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-2-4p1/">v0.2.4-preview1</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-2-3/">v0.2.3</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-2-3p211/">v0.2.3-preview211</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-2-3p1/">v0.2.3-preview1</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-2-2/">v0.2.2</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-2-2p1/">v0.2.2-preview1</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-2-1/">v0.2.1</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-2-1p2/">v0.2.1-preview2</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-2-0/">v0.2.0</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-80p442/">v0.1.80-preview442</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-80p428/">v0.1.80-preview428</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-80p346/">v0.1.80-preview346</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-80p218/">v0.1.80-preview218</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-80p115/">v0.1.80-preview115</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-80p108/">v0.1.80-preview108</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-79/">v0.1.79</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-78/">v0.1.78</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-78p1/">v0.1.78-preview1</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-77/">v0.1.77</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-77p1/">v0.1.77-preview1</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-76/">v0.1.76</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-76p136/">v0.1.76-preview136</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-76p92/">v0.1.76-preview92</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-76p63/">v0.1.76-preview63</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-76p1/">v0.1.76-preview1</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-75/">v0.1.75</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-75p1/">v0.1.75-preview1</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-74/">v0.1.74</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-74p98/">v0.1.74-preview98</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-74p33/">v0.1.74-preview33</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-74p3/">v0.1.74-preview3</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-73/">v0.1.73</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-73p1/">v0.1.73-preview1</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-72/">v0.1.72</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-72p1/">v0.1.72-preview1</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-71/">v0.1.71</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-70/">v0.1.70</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-70p1/">v0.1.70-preview1</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-69/">v0.1.69</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-69p1/">v0.1.69-preview1</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-68/">v0.1.68</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-67/">v0.1.67</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-67p1/">v0.1.67-preview1</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-66/">v0.1.66</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-65/">v0.1.65</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-65p1/">v0.1.65-preview1</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-64/">v0.1.64</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-63/">v0.1.63</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-63p47/">v0.1.63-preview47</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-63p32/">v0.1.63-preview32</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-63p15/">v0.1.63-preview15</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-63p3/">v0.1.63-preview3</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-62/">v0.1.62</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-62p19/">v0.1.62-preview19</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-62p15/">v0.1.62-preview15</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-62p13/">v0.1.62-preview13</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-62p4/">v0.1.62-preview4</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-61/">v0.1.61</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-60/">v0.1.60</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-59/">v0.1.59</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-58/">v0.1.58</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-57/">v0.1.57</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-56/">v0.1.56</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-55/">v0.1.55</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-54/">v0.1.54</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-53/">v0.1.53</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-52/">v0.1.52</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-51/">v0.1.51</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-51p8/">v0.1.51-preview8</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-50/">v0.1.50</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-49/">v0.1.49</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-48/">v0.1.48</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-47/">v0.1.47</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-46/">v0.1.46</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-46p12/">v0.1.46-preview12</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-45/">v0.1.45</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-44/">v0.1.44</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-43/">v0.1.43</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-42/">v0.1.42</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-41/">v0.1.41</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-40/">v0.1.40</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-39/">v0.1.39</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-38/">v0.1.38</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-37/">v0.1.37</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-37p7/">v0.1.37-preview7</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-37p6/">v0.1.37-preview6</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-36/">v0.1.36</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-35/">v0.1.35</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-34/">v0.1.34</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-33/">v0.1.33</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-32/">v0.1.32</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-31/">v0.1.31</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-30/">v0.1.30</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-29/">v0.1.29</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-28/">v0.1.28</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-27/">v0.1.27</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-26/">v0.1.26</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/csp-logs/changelog/0-1-25p74/">v0.1.25-preview74</a></li></ul></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/csp-logs/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Changelogs</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">v0.2.5</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><ul>
+<li>Version ID: 3249</li>
+<li>Size: 116.50 MB</li>
+<li>Published: 2024-12-24</li>
+</ul>
+<header><h1>Changelog</h1></header>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="new-features-options-and-improvements">New features, options and improvements<a href="#new-features-options-and-improvements" class="hash-link" aria-label="Direct link to New features, options and improvements" title="Direct link to New features, options and improvements">​</a></h2>
+<ul>
+<li>New Quick Drive mode <code>Drift Challenge</code> made by Neoned for some proper drifting;</li>
+<li>SurfacesFX:<!-- -->
+<ul>
+<li>New ice physics made by Dmitrii, automatically applying to some older tracks with ice surfaces (optional);</li>
+<li>If any ice surface is present, cars get extra tyre sets with spikes;</li>
+</ul>
+</li>
+<li>New Quick Drive mode <code>Frozen Drive</code> turning any track surface into ice (online servers can also activate this mode);</li>
+<li>New KN5 loader:<!-- -->
+<ul>
+<li>Uses files mapping for more efficient loading;</li>
+<li>Skips unused textures (for now optional, disabled by default);</li>
+<li>Shares mesh data and materials across different cars to save RAM and VRAM (mesh compression option also has been moved there);</li>
+<li>Skips meshes removed with <code>[MODEL_REPLACEMENT_…]</code> entirely;</li>
+<li>Strips unnecessary data from physics-only meshes to save RAM;</li>
+<li>A bunch of smaller optimizations for rewritten logic;</li>
+</ul>
+</li>
+<li>Default WeatherFX style:<!-- -->
+<ul>
+<li>Brightness has been reworked for nights, lights, emissives, driver tags, etc.;</li>
+<li>Snow for snowy weathers or low temperatures with rain (currently needs RainFX to operate);</li>
+<li>Ash for smoke weather type (for now, also needs RainFX since they’re sharing the same underlying mechanisms);</li>
+<li>Option to draw nights a bit more blue;</li>
+<li>Some basic tornados in background for tornado weather;</li>
+</ul>
+</li>
+<li>New physics experiments:<!-- -->
+<ul>
+<li>Stalling for cars that don’t have custom physics scripts reactivating stalling (if button is not bound, gas pedal starts the engine);</li>
+<li>New car collision logic (pretty much the same for now, but with a slightly different method to estimate damaged side);</li>
+<li>Fix for surface parameters assignment on tracks with incorrectly named meshes (they were ending up treated like walls);</li>
+</ul>
+</li>
+<li>TyresFX:<!-- -->
+<ul>
+<li>Tyres visually grow with angular velocity to match their physics state;</li>
+<li>Blown tyres visuals and animation improved a bit;</li>
+</ul>
+</li>
+<li>Better Joycon support with an optional buttons remapping to better fit a single piece;</li>
+<li>If selected engine map is linked to something in a car config, its state will be exchanged online and stored in replays;</li>
+<li>Driver model tilts and moves with G-forces using that weird bit of code added earlier for driver weight shifting;</li>
+<li>G-forces now also apply to driver’s head (a bit of extra movement on top of original logic);</li>
+<li>Option to load inactive seatbelt geometry (might mess up some cars using it for some niceties in the showroom, so it’s disabled by default);</li>
+<li>Held parking brake: option to configure speed threshold;</li>
+<li>Experimental AI spline optimizations have been fixed and now enabled by default as proven to work;</li>
+<li>Mumble integration: new adaptive PTT mode for servers (talk freely to people nearby, or hold PTT button to talk to everybody);</li>
+<li>Small Tweaks:<!-- -->
+<ul>
+<li>Option to briefly desaturate image on collisions;</li>
+<li>Option to hide driver in VR and keep only gloves;</li>
+<li>Android Auto screenshots thing has been disabled and moved here;</li>
+<li>Custom driver models: faster loading;</li>
+</ul>
+</li>
+<li>New audio adjustments in General:<!-- -->
+<ul>
+<li>Option to alter track ambience audio: remove all samples but one and instead use it to keep ambience working everywhere (General/Audio/Reposition AC ambience);</li>
+<li>Option to alter AC ambience based on conditions (audio is loaded on-demand, more samples are coming soon; if disabled, audio will simply be lowered at night, kind of like generic config was doing previously for Kunos tracks using <code>AMBIENCE_VOLUME_CONDITION</code>);</li>
+<li>New audio tweak to use actual throttle value (altered by gearbox cutoff or throttle curve) for audio;</li>
+<li>Option to mix in external audio with opened doors or for roofless cars;</li>
+<li>Alternatively, option to always play external audio together with interior audio (has an option to adjust AC reverb intensity);</li>
+<li>An experimental tweak slightly altering engine audio when damaged;</li>
+<li>Option to use external skidmarks audio everywhere;</li>
+</ul>
+</li>
+<li>New WeatherFX tweak automatically computing white reference point based on configured lighting;</li>
+<li>Custom VR mirroring: a few options to quickly adjust brightness/contrast/gamma, just in case;</li>
+<li>New OMSI-like style for mouse steering (look for a script with the same name);</li>
+<li>Photo App: activate flashlight in scene tweaks;</li>
+<li>SkidmarksFX:<!-- -->
+<ul>
+<li>Skidmarks on dirt or gravel from wheels going sideways and spinning create an extra row of stuff thrown out;</li>
+<li>Flipped cars now create indents on gravel and snow;</li>
+</ul>
+</li>
+<li>ParticlesFX:<!-- -->
+<ul>
+<li>Dusty tracks (grip below 90%) now occasionally produce small dust clouds;</li>
+<li>Default settings for arcade brake trails updated thanks to leBluem;</li>
+</ul>
+</li>
+<li>GrassFX: updated shading and spawn logic;</li>
+<li>CSP Showroom:<!-- -->
+<ul>
+<li>Can be switched to fullscreen using Alt+Enter (also, remembers its position and size properly now);</li>
+<li>Uses <code>FLYCAM_…</code> nodes properly;</li>
+<li>Separate save file for opened apps;</li>
+</ul>
+</li>
+<li>Split-screen:<!-- -->
+<ul>
+<li>Automatic gamepads assignment to simplify things;</li>
+<li>F6 camera is supported as well;</li>
+<li>Option to keep HUD active;</li>
+<li>Option to activate traffic;</li>
+<li>Apps using physics API now can be used;</li>
+<li>Separate save file for opened apps;</li>
+<li>Audio from second car is working now;</li>
+<li>Track camera works in split-screen mode as well;</li>
+</ul>
+</li>
+<li>New optimization letting CSP to cache configs in binary format to save time on INIpp processing;</li>
+<li>Proximity indicator can be toggled in-game in View &amp; Video Settings app (or by a launcher, config is being monitored now);</li>
+<li>Box car colliders get more friction with ground contacts if any tyres are blown;</li>
+<li>Collision audio logic updated (samples are still the same for now though);</li>
+<li>Blowing tyres forcefully activate mesh collider;</li>
+<li>Dirt accumulation for car bodies slightly updated, now stored in replays and can include snow;</li>
+<li>Free camera respects cars exposure hints now;</li>
+<li>For wheel inputs, as well as CSP ones, each section in <code>controls.ini</code> now can have an alternate binding in a <code>[__ALT_&lt;NAME&gt;_&lt;N&gt;]</code> section, where <code>&lt;NAME&gt;</code> would be the name of original section (i.e. <code>GLANCELEFT</code>), and <code>&lt;N&gt;</code> is any number (alternate binding could use any other device or whatever; not sure about CM support at this time though);</li>
+<li>G27 lights: option to use AI shifting thresholds;</li>
+<li>A couple of physics experiments are moved to the <code>done</code> section: the one smoothing controls locking and the one that randomizes wheel angles. Few other experiments are now enabled by default;</li>
+<li>Automatic braking deactivation (from that physics experiment) now works in pitlane, but still not available in pit stop;</li>
+<li>Some unnecessary settings have been hidden or removed.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="extended-physics">Extended physics<a href="#extended-physics" class="hash-link" aria-label="Direct link to Extended physics" title="Direct link to Extended physics">​</a></h2>
+<ul>
+<li>Fixed overheating tyres in the rain on some cars when stationary;</li>
+<li>Bug fixes for COSMIC suspension;</li>
+<li>Steering column flex supported by COSMIC (though unlikely to be stable at 333Hz);</li>
+<li>Fixed longitudinal G-input for TC/TC2 controllers with extended physics;</li>
+<li>Tyre thermal model V3 is WIP with some additional features comparing to older models;</li>
+<li>New native MoTeC data logger available (requires extended physics to be enabled) with logging rates up to 333 Hz;</li>
+<li>Use <code>OVERRIDE_BLANKETS_TEMP</code> in <code>tyres.ini/[FRONT/REAR]</code> to override blanket temperature on per-tyre basis;</li>
+<li>In some cases AC requires LUT to be a file and doesn’t accept inlined values, for example, with <code>PERFORMANCE_CURVE</code>. Now, you can use <code>__INLINED:</code> prefix, and the rest will be loaded as an inlined LUT.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="fixes">Fixes<a href="#fixes" class="hash-link" aria-label="Direct link to Fixes" title="Direct link to Fixes">​</a></h2>
+<ul>
+<li>Early colliders activation experiment leading to some cars misbehaving outside of flat surfaces rewritten to be smoother and more conservative, now taking distance to ground into account;</li>
+<li>Issue with AI cars not starting to drive, or smoke at the starts sometimes shooting up, has been fixed;</li>
+<li>Blue flags fixed;</li>
+<li>Door sounds, as well as other audio events introduced by CSP, are fixed;</li>
+<li>Lookless shadows (the ones more stable in VR) leading to flicker at speed fixed;</li>
+<li>Additional reverb messing up audio in some cars fixed;</li>
+<li>Variable Rate Shading (VRS) for VR fixed (there were some occasionally appearing artifacts);</li>
+<li>Physics experiment fixing misplaced spawn points no longer messes up some tracks;</li>
+<li>Look of stars in sky shader improved using proper bicubic interpolation;</li>
+<li>VR mirroring with LCS and custom VR mirroring disabled fixed;</li>
+<li>Issue with Forteny fixed: now meshes named with nothing but digits containing nothing but vertically-aligned triangles won’t affect physics (thresholds are rigid so it should be safe);</li>
+<li>Binding Ctrl, Alt or Shift directly should work again with wheel or keyboard input scheme (since a recent update, it was filtered out due to the modifier state mismatch);</li>
+<li>With gamepad input mode, pressing START button on a gamepad when pause command is not bound to a gamepad button pauses AC again unless that button is used somewhere else;</li>
+<li>Side nets freaking out on replay rewinds are fixed;</li>
+<li>Fireworks volume is linked to track volume, general look with LCS active has been improved;</li>
+<li>Missing water normals texture used for water surface and caustics is fixed;</li>
+<li>Default WeatherFX style:<!-- -->
+<ul>
+<li>Thanks to Tuttertep, a couple of major performance issues have been fixed;</li>
+<li>Snow for snowy weathers and ash for smoke weather type;</li>
+<li>Moonlight is actually noticeable now;</li>
+<li>Stars look for low FOV views improved;</li>
+<li>YEBIS replacement option shouldn’t cause lags with sun rays anymore;</li>
+<li>Tunnels should be a lot smoother now;</li>
+<li>Headlights should activate in tunnels as well, as long as there are VAO samples available;</li>
+<li>Few fixes for rain audio;</li>
+</ul>
+</li>
+<li>Controllers integration for mouse movement:<!-- -->
+<ul>
+<li>No longer freaks out in pause menu with free camera;</li>
+<li>Activates with in-game popup dialogs;</li>
+</ul>
+</li>
+<li>Mouse steering stops if there is a popup dialog within AC;</li>
+<li>Mumble integration:<!-- -->
+<ul>
+<li>Better support for old Mumble servers (previously, all channels were mistakenly marked as closed);</li>
+<li>New adaptive PTT mode for servers: talk freely to people nearby, or hold PTT button to talk to everybody (I hasn’t properly tested this one yet);</li>
+<li>Some errors related to SSL fixed;</li>
+<li>A couple of smaller fixes;</li>
+</ul>
+</li>
+<li>Loaded replays no longer play door sound at the start;</li>
+<li>Improved compatibility with RealAuto Python app and other tools that might simulate key presses by sending key-down event instantly followed by key-up event;</li>
+<li>Custom driver tags (in GUI) positioning fixed (previously they were over the heads of the drivers and not the cars themselves, so it looked somewhat broken);</li>
+<li>Range of local area height and colormap extended to 100 m (resolution remained the same), now used to sync vertex AO with skidmarks too;</li>
+<li>YouTube thing in Android Auto was updated once again;</li>
+<li>Sun shape is drawn into reflection cubemaps;</li>
+<li>Alt+Enter is handled properly with DXGI flip model;</li>
+<li>Car fallback LOD now casts shadows properly;</li>
+<li>Encrypted colliders and LOD D now can be loaded as shadow casters and for CSP Debug collider outline;</li>
+<li>Overly extensive dynamic shadows jumping with nice screenshots fixed;</li>
+<li>The bug with dropdown list opening behind popup dialog fixed;</li>
+<li>Per-skin windscreen UV and rain occlusion would only be computed if skin config actually uses <code>[MODEL_REPLACEMENT_…]</code>, that should help with loading performance;</li>
+<li>Windscreen UV computation will try and reuse results as much as possible between cars in an attempt to speed up loading;</li>
+<li>360° render mode uses its resolution setting instead of Fisheye’s one;</li>
+<li>Photo App: automatic white balance now works with LCS;</li>
+<li>Tab leaderboard online stops mouse from reaching IMGUI controls for better user experience;</li>
+<li>Automatic braking deactivation no longer applies to cars with locked gearbox;</li>
+<li>Water shader with LCS fixed;</li>
+<li>Look of asphalt on Drift track improved;</li>
+<li>AppShelf updates should be more stable now;</li>
+<li>Ambient influence and reflections in rough surfaces are improved;</li>
+<li>Assetto Corsa loads selected audio output device properly even if it contains non-ASCII symbols now;</li>
+<li>New pause menu: pits button is disabled before the race start (it didn’t work anyway);</li>
+<li>SkidmarksFX:<!-- -->
+<ul>
+<li>Few fixes for processing, saving and loading;</li>
+<li>Parallax fixed, other shading improvements;</li>
+</ul>
+</li>
+<li>Context menus in App Switcher (Ctrl+Tab) are fixed;</li>
+<li>Windscreen raindrops behavior and general visuals improved, amount of dirt spawned massively reduced;</li>
+<li>GamepadFX: vibrations deactivation should be fixed now, also includes DualSense triggers resistance, also applies to haptic feedback;</li>
+<li>CSP traffic:<!-- -->
+<ul>
+<li>Cars shouldn’t get flipped anymore, few other smaller fixes;</li>
+<li>Damaged traffic cars now will despawn when far away;</li>
+<li>Can be activated on any track in practice session;</li>
+</ul>
+</li>
+<li>After teleporting, AIs now use surface properties to figure out the target spline, and only after that they fallback to checking the distances;</li>
+<li>Skinned meshes now contribute to car fake shadows;</li>
+<li>Fake car shadows disappearing with LCS with <code>FADE_FAKE_SHADOW</code> lights active fixed;</li>
+<li>NeckFX: added helmet definitions for <code>rss_formula_modern_1</code> and <code>gt-m24</code> driver models, definitions for <code>driver_80</code> fixed;</li>
+<li>Flag materials now cast rain shadows, fixing tents on Skidpad track (they use that flag shader in its tent mode);</li>
+<li>Middle mouse button toggling mouse steering now works only with a proper click and not when being dragged (middle mouse button drag is used by NeckFX);</li>
+<li>Fourth shadow split no longer messes up reflections, using <code>min(shadow, AO)</code> rather than ignoring AO where shadows are available, trees are no longer included;</li>
+<li>Option for trees to receive shadows reworked, now a lot more stable;</li>
+<li>Digital screen shader used for mirrors fixed, now better compatible with LCS;</li>
+<li>CSP previews: blurry reflective ground fixed, showrooms with defined spawn locations no longer crash CSP or limit the number of skins processed at once;</li>
+<li>BrakeDiskFX, including glow, now works on LOD B as well;</li>
+<li>NeckFX: general visual for semi-transparent helmets is more compatible with LCS;</li>
+<li>GrassFX:<!-- -->
+<ul>
+<li>Origin shift no longer messes up grass adjustments;</li>
+<li>Color syncing misbehaving with LCS fixed;</li>
+<li>Width of custom pieces fixed;</li>
+</ul>
+</li>
+<li>Skinned meshes now can receive raindrops;</li>
+<li>RainFX:<!-- -->
+<ul>
+<li>Refraction buffer (mostly used for windscreen drops) fixed, now smoother and not overblowing with LCS, doing MSAA resolving if TAA is disabled as well;</li>
+<li>Raindrop hits and splashes are now properly in sync with rain drops again;</li>
+<li>Intermediate tyres get more accurate rain parameters;</li>
+</ul>
+</li>
+<li>Wind on trees is more pronounced now;</li>
+<li>Cars collisions processing updated, now taking into account weight difference for audio, particles and other effects (so, no more particles spawning when hitting a cone);</li>
+<li>ParticlesFX:<!-- -->
+<ul>
+<li>More sparks on collisions;</li>
+<li>Piece particles shading and aliasing fixed, now properly occluded by track and car fake shadows;</li>
+<li>Piece particles no longer break with many cars on a track, or with origin shift active;</li>
+</ul>
+</li>
+<li>Sun direction jitter with accumulation screenshots reduced;</li>
+<li>Driver weight shift animation now affects seatbelt as well;</li>
+<li>Camera under car (lower 30 cm) is no longer treated as camera inside the cockpit;</li>
+<li>Emissives dimming in reflections adjusted, should help with occasionally breaking tunnels look;</li>
+<li>New 3D trees:<!-- -->
+<ul>
+<li>Shadows are faster, especially when the sun is low;</li>
+<li>General shading and performance improvements;</li>
+<li>Billboards sample shadows better;</li>
+</ul>
+</li>
+<li>Wheel arch shadows and TyresFX spikes work better for cars with SUSP→WHEEL→TYRE nodes arrangement;</li>
+<li>Smart Shadows:<!-- -->
+<ul>
+<li>Biases adjusted a bit;</li>
+<li>Adaptive shadows: option to increase distance based on distance to ground, greatly improves shadows for views from above;</li>
+</ul>
+</li>
+<li>The bug with TyresFX failing to load custom textures from time to time fixed (might also fix other problems where textures weren’t updating properly);</li>
+<li>CSP mechanism for detecting if certain wing animation is used to toggle some geometry got fixed to properly consider scale, so the optional roof of that Honda S2000 mod should hide completely;</li>
+<li>Aero animations toggling geometry now trigger interior shape update, so interior masking cubemap of S2000 updates as it should;</li>
+<li>Nodes used in aero animations toggling geometry now will be included in interior masking cubemap even if they’re outside of COCKPIT_HR (fixing another aspect of S2000);</li>
+<li>Toggleable roof of Honda S2000 now works with RainFX, patching rain occlusion data on-fly;</li>
+<li>Tilting driver (when using weight shift) now also tilts when casting a shadow;</li>
+<li>Rare issue with extended car physics leading to car skin configs being ignored should be fixed now;</li>
+<li>Crash when loading replays with track objects limit option in Small Tweaks active fixed;</li>
+<li>Cars using <code>carpaint_detail.dds</code> for car paint color now can be recolored live as well;</li>
+<li>Other small fixes and security improvements.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="configs">Configs<a href="#configs" class="hash-link" aria-label="Direct link to Configs" title="Direct link to Configs">​</a></h2>
+<ul>
+<li>Online:<!-- -->
+<ul>
+<li>Custom server loading background images no longer use forced caching allowing servers to update contents live (please remember to set caching headers appropriately if your image is static, or I’m going to be very upset);</li>
+<li>New <code>[EXTRA_RULES] AFK_AUTOKICK = &lt;TIME&gt;, [INPUT/SPEED]</code> option for online servers (time in minutes, <code>SPEED</code> means stationary cars will be kicked, while <code>INPUT</code> is tracking car inputs and mouse position);</li>
+<li>New option for online configs disabling snapping to the ground for specific cars (in case somebody would want to fly planes or something like that);</li>
+<li>Disable autobraking with <code>[EXTRA_RULES] DISABLE_AUTOBRAKING=1</code>;</li>
+</ul>
+</li>
+<li>Car configs:<!-- -->
+<ul>
+<li>New <code>INPUT=DATE</code>, format can be tweaked with <code>DIGITAL_ITEM_NUMBER_FORMAT=DATE, &#x27;%d.%m.%Y&#x27;</code>;</li>
+<li>F1 rain lights behavior can be activated for pitlane lights with <code>[DATA] RAIN_LIGHT_&lt;meshname&gt;=1</code>, automatically activates if mesh contains <code>rain</code> (ignoring case);</li>
+<li>Digital instruments can be added using <code>[DI_…] INPUT=GAS</code> syntax, as alternative to <code>[DI_GAS_…]</code>;</li>
+<li>Configure throttle value to use for audio using <code>[AUDIO_TWEAKS] USE_ACTUAL_THROTTLE=&lt;0/1/FULL/CUTOFF,CURVE,LIMITER,TC&gt;</code> (<code>1</code> or <code>FULL</code> fully syncs up throttle with physics);</li>
+<li>Configure rate of change for some audio values, specifying max change per frame;</li>
+<li>Explicitly configure toggling animations to alter CPU heightmap;</li>
+<li>Set an animation to alter rain occlusion data (currently, only a single geometry on/off animation can do that);</li>
+<li>Setting <code>INTERIOR_FAKE_UPPER_SHADOW_FADE</code> or <code>INTERIOR_FAKE_SHADOW_FADE</code> to a negative value now forces CSP to ignore all <code>INTERIOR_FAKE_…</code> settings except <code>INTERIOR_FAKE_SHADOW_OPACITY</code>. Defaults depend on if car has a roof or not;</li>
+<li>New <code>[LIGHT_HEADLIGHTS] LOWBEAM_MULT=0.5</code> value specifying intensity of low beams comparing to high beams;</li>
+<li>Logic for <code>FADE_FAKE_SHADOW</code> improved, now taking into account dynamic lights intensity (please only use <code>FADE_FAKE_SHADOW</code> for extra lights that might point under the car);</li>
+<li>Real Mirrors: use <code>CAMERA_POS</code> and <code>CAMERA_LOOK</code> in a <code>[REAL_MIRROR_…]</code> config to alter the camera position for rear view displays;</li>
+<li>Car skins car override driver position and animations;</li>
+<li>New <code>TORQUE_OFFSET</code> for shaking exhausts (Porsche cars automatically get value of 1 to match their engine orientations and get exhausts to shift a bit with a lot of torque coming from the engine);</li>
+<li>Bind extra car lights with <code>BIND_TO_HIGHBEAM</code> or <code>BIND_TO_LOWBEAM</code>;</li>
+<li>Redirecting car audio (<code>[AUDIO_REDIRECT] CARS=…</code>) fixed;</li>
+<li>Cars can use shared loaded on-demand soundbanks (<code>[AUDIO_REDIRECT] SHARED=…</code>), currently available: <code>x4fab.test_peugeot_504</code> (CUPv2 users with certain permission can upload new soundbanks), could be useful for traffic;</li>
+<li><code>car::</code> and <code>track::</code> textures use skin textures if they’re overwriting the ones in KN5;</li>
+<li>New <code>BLIND_SPOT</code> input for cars, a quick estimation of blind spot behaviour (use <code>INPUT_SELECTOR=0</code> for left and <code>INPUT_SELECTOR=1</code> for right, returns distance to the car);</li>
+<li>Different flame types can be assigned to different flame points source groups, up to three groups in total;</li>
+<li>CSP now uses <code>GRAPHICS_OFFSETS</code> from <code>suspensions.ini</code>. for default visual wheel and rim offsets for cars without animated suspension;</li>
+<li>Digital instruments: switch blend modes using <code>[DATA] DI_0_BLEND_MODE = ADD</code> (for HUD of M4 to switch to additive blending);</li>
+<li>Cars with a prefix <code>rss_</code> can no longer use <code>FADE_FAKE_SHADOW=0.8</code> value (it was meant for extra lights illuminating ground under a car);</li>
+</ul>
+</li>
+<li>Tracks:<!-- -->
+<ul>
+<li>Track coordinates and time zone are loaded from <code>surfaces.ini</code> first;</li>
+<li>New <code>_EXT_WEAR_MULT</code> for <code>surfaces.ini</code>;</li>
+<li><code>kn5::</code> textures (using strictly original textures) are now available to tracks as well;</li>
+<li>If not explicitly configured, track heightmap now includes all renderable physics surfaces, not just the ones adding dirt;</li>
+</ul>
+</li>
+<li>New inputs for both car and track configs: <code>LIGHT_SUGGESTION</code> (1 if WeatherFX style suggests AIs to activate headlights, 0 otherwise, smooth transition in-between), <code>RACE_STARTED</code>, <code>RACE_FINISHED</code>, <code>SESSION_TYPE</code>, <code>ROAD_GRIP</code>;</li>
+<li>Light bounceback is available for <code>ksPerPixel</code>, <code>ksPerPixelAT</code>, <code>ksMultilayer_fresnel_nm</code> (great for track lines), adjusted to work better with LCS;</li>
+<li>Lua libraries loaded by configs are working properly now;</li>
+<li>New developer option to crash when F12 is pressed (if loading is getting stuck, use it and send me the crash report please);</li>
+<li>Hidden option for extensive FMOD logging;</li>
+<li>ReflectionsFX debug app: brightness slider to help debug reflections with LCS active;</li>
+<li>Flags for CSP configs to change logic based on LCS presence (not recommended to use).</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="lua">Lua<a href="#lua" class="hash-link" aria-label="Direct link to Lua" title="Direct link to Lua">​</a></h2>
+<ul>
+<li>Common:<!-- -->
+<ul>
+<li><code>ac.debug()</code> fixed, now can handle change of the value type (previously, it would, for example, ignore <code>nil</code> as a value, if at first it saw a number);</li>
+<li>Timeouts for <code>web.</code> can be adjusted, defaults are lower to better reflect the fact that we’re in 21st century now;</li>
+<li>New parameter for <code>ac.trackProgressToWorldCoordinate()</code> to use linear interpolation;</li>
+<li>New functions <code>ac.distanceToRender()</code> and alike to quickly compute distance to main camera (handles case with multiple main cameras better);</li>
+<li>Typo in <code>ac.setClipboadText()</code> fixed (old name still works);</li>
+<li><code>web.</code> API asks Windows to use HTTP2 and TLS1.3 (requires Windows 11 to work though);</li>
+<li>Similar to cars, Lua scripts now can refer to track textures with <code>track::kn5::…</code> (to load explicitly from KN5) and <code>track::track::…</code> (to load from a skin if present);</li>
+<li>Pass <code>true</code> to <code>ac.iterateCars.ordered()</code> for an inverse order;</li>
+<li>New <code>ac.AudioEvent():setVolumeChannel()</code> method linking audio event to one of existing volume channels;</li>
+<li><code>ac.setSystemMessage()</code> has been deprecated since there is <code>ac.setMessage()</code> doing the same but better;</li>
+<li>New <code>ac.StateWheel.surfaceSectionIndex</code> storing index of a surface section from <code>surfaces.ini</code>, or <code>-1</code> if not available;</li>
+<li>New fields in <code>ac.StateSim</code>: <code>.lightSuggestion</code>, <code>.isSessionFinished</code>;</li>
+</ul>
+</li>
+<li>New <code>ac.TrackPaint()</code> to easily draw lines (solid, dashed, parallel, etc.), shapes (convex and concave), text and images on track surface in an easy and efficient way, automatically aligning things with track surface, integrating RainFX effects, VAO syncing and more;</li>
+<li>New API for any gameplay-altering or track script to tweak color correction of post-processing in a super simple and efficient way (see <code>ac.setColorCorrection()</code>), now with access to LDR color corrections as well;</li>
+<li>New <code>ac.areCarsColliding()</code> for gameplay scripts working even if collisions are disabled by checking colliders directly (could help if you’re looking into re-enabling disabled collisions without jumps, for example);</li>
+<li>New Modes can load car state properly;</li>
+<li>UI:<!-- -->
+<ul>
+<li><code>ui.GIFPlayer()</code> got an option to instead stream raw RGBA data directly for unusual animated images;</li>
+<li><code>ui.toast()</code>: add an extra button to the toast;</li>
+<li><code>ui.onDriverNameTag()</code> got an option to change item size, as well as a few fixes;</li>
+<li><code>ui.onExclusiveHUD()</code> is compatible with camera shift of new pause menu (that also fixes splitscreen mode);</li>
+<li><code>ui.MediaPlayer()</code> tries to direct audio into configured audio output;</li>
+<li><code>ui.toast()</code>: function to add an extra button fixed;</li>
+<li><code>ui.begin/endTonemapping()</code> fixed, got an option to apply LCS-aware LDR/HDR conversion;</li>
+<li><code>ac.ControlButton():control()</code> works if more than one window draws a control for the same command;</li>
+<li><code>ui.windowResizing()</code> should react to window being resized by its side;</li>
+<li>New <code>ui.imageState()</code> function;</li>
+</ul>
+</li>
+<li>I/O:<!-- -->
+<ul>
+<li><code>io.move()</code> got an option to replace original file;</li>
+<li><code>io.save()</code> got an option to ensure safe proceedings without data loss;</li>
+<li>OpenSSL library <code>https://github.com/wahern/luaossl</code> is available in <code>shared/…</code> for scripts with I/O access (possibly temporary limitation);</li>
+</ul>
+</li>
+<li>Scene API:<!-- -->
+<ul>
+<li>Lights and audio sources can be linked to <code>ac.SceneReference</code> with <code>:linkTo()</code> method;</li>
+<li>Loading KN5 into the scene without wrapping it into a bounding sphere will create a bounding sphere automatically;</li>
+<li>Functions to load KN5s now take an optional filter (something like <code>{ ! renderable:no }</code>) can be useful if you want to use a single KN5 for both visuals and physics collider;</li>
+<li>Extra models loaded into <code>staticRoot</code> or <code>dynamicRoot</code> now cast shadows properly;</li>
+<li><code>:applySkin()</code> improved, now can be used multiple times;</li>
+<li><code>:resetSkin()</code> can undo the entire car skin as expected;</li>
+<li>Compiled Lua shaders now will be cached even without <code>cacheKey</code> parameter, unless <code>cacheKey</code> is set to <code>false</code>;</li>
+</ul>
+</li>
+<li>Car scripts:<!-- -->
+<ul>
+<li><code>display.mirror()</code> for car scripts fixed, now applies LDR conversion;</li>
+<li>Also, now <code>display.mirror()</code> returns a helper allowing to easily project world coordinates onto mirror, to recreate stuff like Bosch CAS-M3;</li>
+<li>New <code>ac.CarAudioTweak.setDSP()</code> allowing to quickly add some extra DSPs to car audio;</li>
+<li><code>ac.CarAudioTweak.setParameter()</code> can block a parameter from being changed by AC;</li>
+</ul>
+</li>
+<li>Car physics scripts:<!-- -->
+<ul>
+<li>New <code>ac.allowCarDRS()</code> allowing to block DRS entirely;</li>
+<li>New <code>ac.setTyresBlankets()</code> for some special cases;</li>
+<li>New <code>ac.overrideCarState()</code> allowing to entirely replace a certain aspect of car state as it’s being sent to the graphics thread;</li>
+<li>New <code>ac.setTurboExtras2()</code> which is actually usable (treats lags properly);</li>
+<li>New <code>ac.setTyreWearMultiplier()</code> just in case;</li>
+<li>Reloading script resets extra weights properly, weights properly integrate with chassis flex;</li>
+</ul>
+</li>
+<li>Physics API:<!-- -->
+<ul>
+<li><code>physics.RigidBody()</code> can be used by track scripts (with <code>surfaces.ini</code> tweak, or mentioned in <code>surfaces.ini</code>) as it should’ve been, that was an unfortunate bug;</li>
+<li>When using KN5 for <code>physics.RigidBody()</code>, it is now possible to specify mesh name or filter, respect mesh transform in KN5 and highlight mesh wireframe for debugging;</li>
+<li><code>physics.RigidBody()</code> is now allowed in sessions where teleport and such are allowed;</li>
+<li><code>physics.setTyresTemperature()</code> can alter inner, middle, outer or core parts only;</li>
+<li><code>physics.startPhysicsWorker()</code> can be used by online scripts;</li>
+<li>New <code>physics.lockUserControlsFor()</code> for stopping controls entirely;</li>
+<li>New <code>physics.lockUserGearboxFor()</code> acting similar to how car acts before the race starts;</li>
+<li>If stalling has been reenabled by a script, pressing backspace no longer activates starter, custom physics scripts can instead apply custom starter torque;</li>
+</ul>
+</li>
+<li>New Modes:<!-- -->
+<ul>
+<li>Use <code>[RULES] ALLOW_PHYSICS_ALTERATIONS=1</code> to allow apps to use Physics API;</li>
+<li>Force activate extended physics with <code>[TWEAKS] FORCE_EXTENDED_PHYSICS=1</code>;</li>
+<li>Turn all surfaces icy with <code>[TWEAKS] ICE_EVERYWHERE=1</code>;</li>
+<li>Force a certain season with <code>[TWEAKS] SEASON_FORCE=&lt;WINTER/AUTUMN&gt;</code>;</li>
+</ul>
+</li>
+<li>WeatherFX:<!-- -->
+<ul>
+<li>Sun specular multiplier is working with LCS;</li>
+<li>Use <code>ac.configureGrassShading()</code> to alter grass shading;</li>
+<li>Use <code>ac.setSnowMix()</code> to replace rain drops with snow;</li>
+<li>Use <code>ac.setWeatherParticles()</code> to add extra particles;</li>
+<li>New <code>ac.setRainWindscreenDropsMultiplier()</code> just in case;</li>
+<li>New <code>ac.getPostProcessingLDRColorMatrix()</code> to support LDR color corrections set from <code>ac.setColorCorrection()</code> (if not used, will be applied automatically);</li>
+<li>Set <code>[COMPATIBILITY] DISABLE_WHITE_REF_POINT_FIX=1</code> in <code>manifest.ini</code> to force deactivate automatic white reference point computation;</li>
+<li>New simple tornado effect (<code>render.tornado()</code>);</li>
+</ul>
+</li>
+<li>Libraries:<!-- -->
+<ul>
+<li>New <code>require(&#x27;shared/utils/signing&#x27;).verify()</code> function to quickly verify integrity of many files, including integrity of the script itself (works if script is not stored in a file as well), <code>signing.blob()</code> can be used to securely transfer the result to the backend (now its docs store an example on how to use it on backend);</li>
+<li>New <code>shared/sim/ambience</code> library for altering track ambience audio based on conditions;</li>
+<li>New <code>shared/utils/ioext</code> library with a function for recursive directory scanning (more functions coming soon);</li>
+<li>New <code>shared/math/cubic</code> library for quickly doing cubic interpolation;</li>
+<li>Library <code>shared/sim/ghost</code> got functions to get time, state and transform of a ghost;</li>
+<li>Writer in <code>shared/utils/binary</code> got an <code>:append()</code> method (can take other readers and writers too if needed);</li>
+<li>New <code>shared/utils/diagnostics</code> library with <code>.renderStats()</code> function;</li>
+<li>New <code>shared/sim/traffic</code> library for easily adding traffic to new modes, mechanism allowing to load traffic configuration from a remote server for Kunos tracks;</li>
+<li>New <code>shared/sim/motec</code> library for recording telemetry in MoTeC format;</li>
+<li>New <code>surfaces.propertyAccessor()</code> in <code>shared/sim/surfaces</code> to quickly access extra properties of <code>surfaces.ini</code> for certain wheels;</li>
+<li>WebBrowser library: example fixed;</li>
+<li>Weather library: intensity of suggested rain for tornado weather style massively decreased;</li>
+</ul>
+</li>
+<li>New <code>[CORE] DISABLE_IF=condition</code> for Lua apps, for more advanced logic;</li>
+<li>Lua Debug app: button to measure garbage generation and total memory taken;</li>
+<li>Textures can be quickly encoded using command-line parameters as well;</li>
+<li><code>ac.setTextureKey()</code> now can be used by other scripts without conflicting with WeatherFX style;</li>
+<li><code>ac.startBackgroundWorker()</code> and <code>physics.startPhysicsWorker()</code> can take source code as input instead of filename;</li>
+<li>Crash when trying to access <code>dynamic::mirror</code> fixed;</li>
+<li>New <code>SCRIPT</code> flame type for cars, can be controlled by car scripts (<code>ac.setScriptFlamesIntensity()</code>);</li>
+<li>New <code>ac.setExteriorAudioMix()</code> for mixing exterior audio into interior (for things like opening windows);</li>
+<li>Issue with Lua bytecode precompilation sometimes producing broken outputs or crashing AC fixed, other stability improvements;</li>
+<li>LuaJIT interpreter updated with the latest commits from the official repo.</li>
+</ul></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/csp-logs/changelog/0-2-6p1/"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">v0.2.6-preview1</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/csp-logs/changelog/0-2-5p1/"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">v0.2.5-preview1</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#new-features-options-and-improvements" class="table-of-contents__link toc-highlight">New features, options and improvements</a></li><li><a href="#extended-physics" class="table-of-contents__link toc-highlight">Extended physics</a></li><li><a href="#fixes" class="table-of-contents__link toc-highlight">Fixes</a></li><li><a href="#configs" class="table-of-contents__link toc-highlight">Configs</a></li><li><a href="#lua" class="table-of-contents__link toc-highlight">Lua</a></li></ul></div></div></div></div></main></div></div></div></div>
+</body>
+</html>
