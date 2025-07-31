@@ -3,4 +3,4 @@ An archive of CSP changelogs for versions that were publicly available via [acst
 Internal development builds sent to users for testing purposes are not listed.  
 Hopefully this will help someone in the future.
 
-[Custom Shaders Patch Changelog Archive Website](https://c1xtz.github.io/ac-csp-changelog-archive/)
+[Custom Shaders Patch Changelog Archive Website](https://c1xtz.github.io/csp-logs/)
