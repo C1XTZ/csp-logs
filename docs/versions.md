@@ -1,6 +1,6 @@
 ---
 slug: /versions
-title: Version Build ID List
+title: Version List
 hide_title: true
 ---
 
