@@ -10,9 +10,4 @@ import VersionTable from '@site/src/js/generatedVersionTable.mdx'
 An archive of CSP changelogs for versions that were publicly available via [acstuff.club/patch](https://acstuff.club/patch/) or on [x4fab's Patreon](https://www.patreon.com/x4fab) at some point.  
 Internal development builds sent to users for testing purposes are not listed.
 
-# Version ID List
-
-Quick lookup table for version build IDs.  
-Preview versions are grouped with the latest public release available at the time.
-
 <VersionTable />

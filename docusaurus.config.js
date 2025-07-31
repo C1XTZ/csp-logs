@@ -15,7 +15,7 @@ const config = {
   projectName: 'csp-logs',
   organizationName: 'C1XTZ',
   deploymentBranch: 'gh-pages',
-  trailingSlash: true,
+  trailingSlash: false,
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   i18n: {

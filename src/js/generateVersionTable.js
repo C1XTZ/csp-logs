@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const CONFIG = {
-  changelogsDir: path.resolve(__dirname, '../../docs/changelogs'),
+  changelogsDir: path.resolve(__dirname, '../../docs/changelog'),
   outputFile: path.resolve(__dirname, './generatedVersionTable.mdx'),
 };
 
@@ -23,7 +23,7 @@ const readChangelogFiles = () =>
         ? {
             versionName: title || filename.replace('.md', ''),
             versionId,
-            link: `/ac-csp-changelog-archive/changelogs/${filename.replace(/\.md$/, '')}`,
+            link: `/csp-logs/changelog/${filename.replace(/\.md$/, '')}`,
           }
         : null;
     })
@@ -60,7 +60,7 @@ const createTable = (groups) => {
     <thead>
       <tr>
         <th>Version Name</th>
-        <th>Version ID</th>
+        <th>Build ID</th>
       </tr>
     </thead>
     <tbody>
@@ -78,6 +78,8 @@ import React from 'react';
 export default function VersionTable() {
   return (
     <div>
+      <h1>Version Build ID List</h1>
+      <p>Quick lookup table for version build IDs.<br/>Preview versions are grouped with the latest public release available at the time.</p>
       ${createTable(groups)}
     </div>
   );
