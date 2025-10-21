@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.9.2">
 <title data-rh="true">v0.3.0-preview110 | Custom Shaders Patch Changelog Archive</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://github.com/csp-logs/changelog/0-3-0p110"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="v0.3.0-preview110 | Custom Shaders Patch Changelog Archive"><meta data-rh="true" name="description" content="*   Version ID: 3637"><meta data-rh="true" property="og:description" content="*   Version ID: 3637"><link data-rh="true" rel="icon" href="/csp-logs/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://github.com/csp-logs/changelog/0-3-0p110"><link data-rh="true" rel="alternate" href="https://github.com/csp-logs/changelog/0-3-0p110" hreflang="en"><link data-rh="true" rel="alternate" href="https://github.com/csp-logs/changelog/0-3-0p110" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"v0.3.0-preview110","item":"https://github.com/csp-logs/changelog/0-3-0p110"}]}</script><link rel="stylesheet" href="/csp-logs/assets/css/styles.cc6a8166.css">
-<script src="/csp-logs/assets/js/runtime~main.dd84cef9.js" defer="defer"></script>
+<script src="/csp-logs/assets/js/runtime~main.88fc1285.js" defer="defer"></script>
 <script src="/csp-logs/assets/js/main.6d3fc67a.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -44,7 +44,7 @@
 <li class="">Loaded best lap time shouldn’t show up in shared memory or in race output;</li>
 <li class="">Ghost recording stops on messed up laps;</li>
 <li class="">Most of these things won’t be available with RSR app present, to be safe (akin to other physical experiments);</li>
-<li class="">Option “Use original materials” loads the skin as well;</li>
+<li class="">Option <code>Use original materials</code> loads the skin as well;</li>
 <li class="">Ghost advantage can be loaded live&#x27;.</li>
 </ul>
 </li>
@@ -77,10 +77,10 @@
 <p>Online-related:</p>
 <ul>
 <li class="">Conditions for session voting (for new menu and API) are closer matching original (now can’t cast a session vote in the last 30 seconds of a non-race session);</li>
-<li class="">“Set ballast” confirm button fixed;</li>
+<li class=""><code>Set ballast</code> confirm button fixed;</li>
 <li class="">Disabling entries in chat settings fixed;</li>
 <li class="">Cheats detection improved a bit;</li>
-<li class="">New <code>[EXTRA_RULES] NO_BACK_TO_PITS_SESSIONS=Q, R</code> parameter to forbid teleporting to pits in qualify and race sessions only (“P” for practice);</li>
+<li class="">New <code>[EXTRA_RULES] NO_BACK_TO_PITS_SESSIONS=Q, R</code> parameter to forbid teleporting to pits in qualify and race sessions only (<code>P</code> for practice);</li>
 <li class="">New <code>[EXTRA_RULES] DISALLOW_DEV_BUILDS=1</code> parameter blocking WIP builds, just in case;</li>
 <li class="">CSP syncs server features and background image URL when jumping through a portal;</li>
 <li class="">Custom loading screen script is working even if the server is using a custom loading image.</li>
@@ -92,7 +92,7 @@
 <li class="">Rare physics collapse with rain physics enabled fixed (best way to recreate is to drive on bumpy surface making sure rear wheels follow front wheels);</li>
 <li class="">New physics experiment for time transponder to operate with 1 ms precision;</li>
 <li class="">New physics experiment to start counting the first lap when crossing the starting line first time in practice sessions with hotlap start;</li>
-<li class="">AC no longer crashes if “power.lut” in “data.acd” is damaged, instead it’ll use CSP LUT loader (but only if there’d be a crash otherwise);</li>
+<li class="">AC no longer crashes if <code>power.lut</code> in <code>data.acd</code> is damaged, instead it’ll use CSP LUT loader (but only if there’d be a crash otherwise);</li>
 <li class="">Experiment fixing spawn points moved to completed section;</li>
 <li class="">Unpausing offline races no longer causes simulation to jump forward in time.</li>
 </ul>
@@ -103,8 +103,8 @@
 <li class="">Raw mouse input rewritten, actually operates at mouse frequency;</li>
 <li class="">New keyboard &amp; mouse script for analog inputs of Wooting keyboards;</li>
 <li class="">Pausing mouse steering resets accumulated angle;</li>
-<li class="">Axis remapping removed from Gamepad FX module, please use Controller Tweaks app instead so it’d be properly stored in “controls.ini”;</li>
-<li class="">Script “Mobile” from Gamepad FX updated, works again (Expo keeps changing things), wizard includes a link to an APK which should work until Google blocks sideloading APKs.</li>
+<li class="">Axis remapping removed from Gamepad FX module, please use Controller Tweaks app instead so it’d be properly stored in <code>controls.ini</code>;</li>
+<li class="">Script <code>Mobile</code> from Gamepad FX updated, works again (Expo keeps changing things), wizard includes a link to an APK which should work until Google blocks sideloading APKs.</li>
 </ul>
 </li>
 <li class="">
@@ -130,10 +130,10 @@
 <p>Car audio is entirely rewritten:</p>
 <ul>
 <li class="">Should be faster, better logic when it comes to silencing distant cars;</li>
-<li class="">Car soundbanks can’t redefine events without “/cars/” prefix anymore (but can define the ones that weren’t seen before);</li>
+<li class="">Car soundbanks can’t redefine events without <code>/cars/</code> prefix anymore (but can define the ones that weren’t seen before);</li>
 <li class="">Wind audio is more intense with an opened door;</li>
 <li class="">Limit for cars producing audio at once is set at 25;</li>
-<li class="">Extra parameter “throttle” for turbo event now uses correct throttle value (taking cutting off into account);</li>
+<li class="">Extra parameter <code>throttle</code> for turbo event now uses correct throttle value (taking cutting off into account);</li>
 <li class="">CSP exhaust flame particles are linked to backfire audio, audio fixed;</li>
 <li class="">When engine explodes, backfire audio uses a simple DSP to sound a bit differently;</li>
 <li class="">CSP car audio refreshed a bit, useless clutch event is dropped;</li>
@@ -186,7 +186,7 @@
 <li class="">Render scale adjustment is done by CSP now, should resolve some potential issues with variable rate shading and looks better too (quality can be adjusted in Graphics Adjustments);</li>
 <li class="">HDR rendering is compatible with YEBIS replacement;</li>
 <li class="">Compatibility with variable refresh rate improved, no longer optional;</li>
-<li class="">New option “Pace frames better” (disabled by default) helps to reduce latency by asking GPU to time when to start rendering the next frame;</li>
+<li class="">New option <code>Pace frames better</code> (disabled by default) helps to reduce latency by asking GPU to time when to start rendering the next frame;</li>
 <li class="">Shaders cache purging on CSP updates no longer clears out cache of other games;</li>
 <li class="">Option to select brand of target GPU in DXGI Tweaks settings;</li>
 <li class="">When GPU asks to slow down (for example, when screen is off), AC will listen;</li>
@@ -241,7 +241,7 @@
 <ul>
 <li class="">Enabled by default;</li>
 <li class="">Drive button changes icon based on setup test status;</li>
-<li class="">“Randomize setup name” button turned into a menu for extra functionality, dragging menu blocks fixed not saving across sessions properly fixed;</li>
+<li class=""><code>Randomize setup name</code> button turned into a menu for extra functionality, dragging menu blocks fixed not saving across sessions properly fixed;</li>
 <li class="">Chat settings are available;</li>
 <li class="">Telemetry and Lap Times buttons are available with all window sizes;</li>
 <li class="">Infinite sessions are shown as such;</li>
@@ -266,7 +266,7 @@
 <ul>
 <li class="">Ctrl+Tab: outline style updated, sizing fixed;</li>
 <li class="">New taskbar: when icons are hovered, windows are highlighted;</li>
-<li class="">“Simplified render” UI option replaced with a dropdown to choose between a default, a simple style or some visual improvements;</li>
+<li class=""><code>Simplified render</code> UI option replaced with a dropdown to choose between a default, a simple style or some visual improvements;</li>
 <li class="">New pause menu: camera shift improved, added nearby clipping, better rotation controls, better camera positioning, force deactivates TAA when paused to get dynamic motion blur to work properly;</li>
 <li class="">Translucent IMGUI windows blur Python apps and AC UI as well;</li>
 <li class="">Blurring for translucent IMGUI windows is better and faster;</li>
@@ -288,7 +288,7 @@
 <p>CSP showroom:</p>
 <ul>
 <li class="">Opened apps will be saved again;</li>
-<li class="">Rare crash with “acos.ini” missing fixed;</li>
+<li class="">Rare crash with <code>acos.ini</code> missing fixed;</li>
 <li class="">Camera bindings, flying trajectory and main menu showing up for a frame fixed;</li>
 <li class="">Previews generation is fixed, configs updated to speed things up a bit.</li>
 </ul>
@@ -301,11 +301,11 @@
 <li class="">Use <code>[BASIC] KEEP_SEATBELT_WITHOUT_DRIVER=1</code> to keep <code>CINTURE_ON</code> node visible when hiding driver model;</li>
 <li class="">New option <code>[BASIC] LOAD_SEATBELT_OFF=1</code>;</li>
 <li class="">Shader <code>smSticker</code> is compatible with Rain FX;</li>
-<li class="">Rotating car components (“extra_animations.ini”) pause when AC is paused;</li>
+<li class="">Rotating car components (<code>extra_animations.ini</code>) pause when AC is paused;</li>
 <li class="">Live reloading for digital instruments showing odometer values fixed;</li>
 <li class="">CSP digital instrument values are rounded down;</li>
 <li class="">Formatting for CSP digital instruments shouldn&#x27;t crash AC anymore (switched to a custom implementation);</li>
-<li class="">New <code>[ENGINE_DATA] BODY_TORQUE_MULT=0</code> for “engine.ini” (just in case somebody is working on some silly car where engine is a different thing altogether), sets a multiplier for how much changes in RPM rock the car (use <code>[ENGINE_DATA] ORIENTATION=0,0,-1</code> to specify engine orientation);</li>
+<li class="">New <code>[ENGINE_DATA] BODY_TORQUE_MULT=0</code> for <code>engine.ini</code> (just in case somebody is working on some silly car where engine is a different thing altogether), sets a multiplier for how much changes in RPM rock the car (use <code>[ENGINE_DATA] ORIENTATION=0,0,-1</code> to specify engine orientation);</li>
 <li class="">Inputs <code>KERS_MAX_KJ</code> and <code>KERS_LOAD</code> now act like <code>ac.StateCar.kersLoad</code>, taking both ERS and KERS into account;</li>
 <li class="">If your car is using <code>transmission_ext</code> event, add <code>[AUDIO] TRANSMISSION_EXT_VOLUME_MULT=1</code> to compute its volume in the same way as AC computes exterior engine volume (boosted for track cameras);</li>
 <li class="">New <code>[SHADER_REPLACEMENT_…]</code> flags: <code>EXTRA_FX_SKIP_GBUFFER=0/1</code>, <code>EXTRA_FX_MASK_GBUFFER=0/1</code>, <code>EXTRA_FX_BLEND_GBUFFER=0/1</code>, <code>EXTRA_FX_DELAYED_RENDER=0/1</code>.</li>
@@ -316,7 +316,7 @@
 <ul>
 <li class="">Accurate projection works in a case of several mirrors sharing the same mesh and both visible at once (for example, Ferrari SF70H);</li>
 <li class="">Accurate projection is better compatible with virtual mirrors;</li>
-<li class="">Option “draw center piece only” better handles a case with two side mirrors.</li>
+<li class="">Option <code>draw center piece only</code> better handles a case with two side mirrors.</li>
 </ul>
 </li>
 <li class="">
@@ -342,7 +342,7 @@
 <ul>
 <li class="">White balance slider (instead of that another one);</li>
 <li class="">Scrolling for saved positions;</li>
-<li class="">Default grid mode changed to “compact”;</li>
+<li class="">Default grid mode changed to <code>compact</code>;</li>
 <li class="">Grid is shown only when the camera is rotating.</li>
 </ul>
 </li>
@@ -382,7 +382,7 @@
 <li class="">CSP Debug: button on Render tab for checking baked rain occlusion;</li>
 <li class="">Triple screen configuration saving is a lot more reliable (rewritten, saves automatically a few seconds later, or more reliably on exit);</li>
 <li class="">Skidmarks no longer dent local heightmap (overly complicated, looks messy, and resolution is not quite enough anyway);</li>
-<li class="">“Idle in background” fixed, can be changed live;</li>
+<li class=""><code>Idle in background</code> fixed, can be changed live;</li>
 <li class="">Some crash messages are more informative;</li>
 <li class="">Full reloading process reworked a bit: now changes in car or track configs triggering full reload won’t touch unrelated modules (like, adding <code>[A] B=C</code> to a car config should no longer force Weather FX to restart);</li>
 <li class="">Few small issues related to CSP holding some files opened for a bit fixed;</li>
@@ -410,7 +410,7 @@
 <li class="">Car door opens only once loading is finished;</li>
 <li class="">Checking if AC window is in foreground improved, samples a few points in the center of AC to see if at least one of them is not covered;</li>
 <li class="">RSR app detection (used to stop physics experiments and such) is more robust;</li>
-<li class="">“Awake physics in pits”: wheels no longer rotate (while it makes sense physically, it looks weird);</li>
+<li class=""><code>Awake physics in pits</code>: wheels no longer rotate (while it makes sense physically, it looks weird);</li>
 <li class="">Old menu: look of new chat is improved;</li>
 <li class="">Transparent flag is removed from rear view mirror geometry, fixing possible issues with VR and such;</li>
 <li class="">New generic fix for all cars switching windscreen materials from alpha test to alpha blend;</li>
@@ -418,7 +418,7 @@
 <li class="">Triple screen with Extra FX supports live pixel density changes;</li>
 <li class="">Controlling AC with two mice in split-screen mode works better;</li>
 <li class="">Ctrl+C pressed in the main menu no longer activates AI;</li>
-<li class="">Rare crash related to cars storing custom physics values in replays with “car.ini” config fixed;</li>
+<li class="">Rare crash related to cars storing custom physics values in replays with <code>car.ini</code> config fixed;</li>
 <li class="">Positioning of sun origin for sun rays fixed (could get messed up with origin shift), might have affected other on-screen projections;</li>
 <li class="">Occasional loading screen flicker with FSR fixed;</li>
 <li class="">Visual bug with HDR enabled but not available occuring after resizing CSP fixed;</li>
@@ -435,17 +435,17 @@
 <li class="">Free camera: mouse pointer won’t be grabbed if left mouse button is pressed (fixes issue with CSP Debug not being able to pin a force);</li>
 <li class="">Transparent helmet meshes going out of alignment because of driver bending in some specific cases fixed;</li>
 <li class="">File monitoring fixed, listening to a folder recursively after it’s been set in non-recursive mode actually works;</li>
-<li class="">Missing or damaged “triple_screen.ini” no longer crashes AC;</li>
+<li class="">Missing or damaged <code>triple_screen.ini</code> no longer crashes AC;</li>
 <li class="">Baking of some stuff during loading should be a bit more reliable;</li>
 <li class="">IMGUI windows saving fixed, changes that occur shortly before exit are saved as well;</li>
 <li class="">Randomizer used by CSP reworked, should be a bit faster and a bit more random;</li>
 <li class="">Ghost no longer jumps for a frame with scene origin change;</li>
 <li class="">Active free camera stops keyboard arrows from moving mouse pointer;</li>
 <li class="">Fonts rasterization scale is clamped by 3 to prevent crashes with huge UI scale;</li>
-<li class="">CSP cache cleaning routine picks up “.tmp” files as well;</li>
+<li class="">CSP cache cleaning routine picks up <code>.tmp</code> files as well;</li>
 <li class="">AC shutdown should be a bit more stable;</li>
 <li class="">AC runs properly when starting folder is not set correctly;</li>
-<li class="">More crashes should be caught by CSP without the need to go to “Local/CrashDumps”;</li>
+<li class="">More crashes should be caught by CSP without the need to go to <code>Local/CrashDumps</code>;</li>
 <li class="">Memory consumption should be slightly reduced;</li>
 <li class="">A bunch of smaller fixes and optimizations.</li>
 </ul>
@@ -464,7 +464,7 @@
 <li class="">New <code>sim.isHDR</code>, <code>sim.isMouseDeltaActive</code>, <code>sim.isMouseCursorHidden</code> flags;</li>
 <li class=""><code>ac.getSim().frame</code> and <code>ac.getSim().systemTime</code> are regular numbers;</li>
 <li class="">New <code>ac.isControllerBrakePressed()</code>;</li>
-<li class="">INI parser no longer does INIpp stuff when loading “controls.ini”, meaning that <code>ac.ControlButton()</code> can use more characters for custom names;</li>
+<li class="">INI parser no longer does INIpp stuff when loading <code>controls.ini</code>, meaning that <code>ac.ControlButton()</code> can use more characters for custom names;</li>
 <li class="">New <code>ac.onReplay()</code> function;</li>
 <li class=""><code>mat4x4.look()</code> no longer crashes if third argument (<code>up</code>) is not set;</li>
 <li class=""><code>rgb:hex()</code> fixed;</li>
@@ -474,7 +474,7 @@
 <li class="">CSP string functions can parse math.huge as limit to disable it;</li>
 <li class=""><code>ac.isControllerGasPressed()</code> and such respect gamepad axis remapping;</li>
 <li class=""><code>ac.onOnlineWelcome()</code> returns message even with the new main menu enabled;</li>
-<li class=""><code>ac.readDataFile()</code> fixed, car scripts can load files from “data.acd” without using absolute paths;</li>
+<li class=""><code>ac.readDataFile()</code> fixed, car scripts can load files from <code>data.acd</code> without using absolute paths;</li>
 <li class="">Conflict between <code>ac.getCarColliders()</code> and <code>ac.getCarDataFiles()</code> should be fixed;</li>
 <li class="">List of countries updated and fixed (old entries, such as <code>ac.NationCode.Turkey</code>, <code>ac.NationCode.USA</code> or <code>ac.NationCode.Northern</code>, still work, but are not documented and won’t show up if the list is iterated).</li>
 </ul>
@@ -495,7 +495,7 @@
 <li class="">
 <p>UI:</p>
 <ul>
-<li class="">CEF: engine update, fixing a few JS↔Lua communication issues and “ac://” scheme, with a new “acs://” scheme that can be used in secure context (also, disabled paste protection for developer tools), installation and reinstall are more robust;</li>
+<li class="">CEF: engine update, fixing a few JS↔Lua communication issues and <code>ac://</code> scheme, with a new <code>acs://</code> scheme that can be used in secure context (also, disabled paste protection for developer tools), installation and reinstall are more robust;</li>
 <li class=""><code>ui.columns()</code> takes flags;</li>
 <li class="">New <code>ui.bringWindowToBack()</code>;</li>
 <li class=""><code>ui.setItemDefaultFocus()</code> can be used to hint where buttons would move the mouse initially.</li>
@@ -528,7 +528,7 @@
 <li class=""><code>:setVisible()</code> got a parameter to disable motion reset on re-appearance;</li>
 <li class="">Updating textures with a callback now checks texture size to prevent crashes;</li>
 <li class="">Dynamic textures no longer crash if target materials stop existing;</li>
-<li class="">VAO patch, if present, will be applied when loading extra KN5s (same filename, but with “.vao-patch” extension).</li>
+<li class="">VAO patch, if present, will be applied when loading extra KN5s (same filename, but with <code>.vao-patch</code> extension).</li>
 </ul>
 </li>
 <li class="">
@@ -578,7 +578,7 @@
 <li class="">
 <p>Mouse steering:</p>
 <ul>
-<li class="">A few new functions to override keyboard inputs as well (look for “wooting” script).</li>
+<li class="">A few new functions to override keyboard inputs as well (look for <code>wooting</code> script).</li>
 </ul>
 </li>
 <li class="">
@@ -605,13 +605,13 @@
 <li class="">Scripts stop outputting things in CSP log after 1000 lines, the log includes their names so it’d be easier to track down spammers;</li>
 <li class="">Scripts lifetime management updated, should help with some crashes on reloads;</li>
 <li class="">Scripts with UI/scene access sorted out, from now on all such scripts have full access to scene, UI, render, particles, lights, audio, etc. (apart from car scripts);</li>
-<li class="">When looking for <code>shared/…</code> Lua libraries, CSP is going to check its “lua-shared” modules first to speed things up, and fallback to default search only if there isn’t anything (might break compatibility if your script also has “shared/…” folder with the same file names);</li>
+<li class="">When looking for <code>shared/…</code> Lua libraries, CSP is going to check its <code>lua-shared</code> modules first to speed things up, and fallback to default search only if there isn’t anything (might break compatibility if your script also has <code>shared/…</code> folder with the same file names);</li>
 <li class="">Checking if <code>ui</code> functions can be used should be more reliable, properly raising an error if used outside of IMGUI context;</li>
 <li class="">Exceptions on C++ side when in Lua API now stop Lua scripts entirely, which hopefully should prevent some of crashes (sadly, it’s the only way to get it to somehow work without sacrificing performance);</li>
 <li class="">Using <code>ac.overrideWeatherConditions()</code> or the old function for overriding replay conditions makes sure to restore actual conditions when deactivated even if controller is not pushing new conditions every frame;</li>
 <li class="">Lua Debug app got colorful marks to help distinguish many items (shows up when there are too many, or you can use <code>ac.debug(&#x27;name\t#ff0&#x27;, …)</code> to specify color explicitly);</li>
 <li class="">Background workers can return values directly using return without losing the first value now (previously, the only way was to use <code>worker.result = …</code>);</li>
-<li class="">Scripts loading CSP textures with paths relative to “extension/textures” folder fixed;</li>
+<li class="">Scripts loading CSP textures with paths relative to <code>extension/textures</code> folder fixed;</li>
 <li class="">LuaJIT panic crashes now should include dumps;</li>
 <li class="">LuaJIT synced with the latest changes upstream;</li>
 <li class="">Some documentation fixes and improvements.</li>
