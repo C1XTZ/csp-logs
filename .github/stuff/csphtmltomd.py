@@ -5,7 +5,7 @@ import zipfile
 from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
-from typing import Iterator, Optional
+from typing import Optional
 
 from bs4 import BeautifulSoup, Tag
 
@@ -16,6 +16,7 @@ OUTPUT_FOLDER = "csp-logs"
 PUNCTUATION_PATTERN = re.compile(r" ([;.,:])$")
 PREVIEW_REGEX = re.compile(r"preview(\d+)", re.IGNORECASE)
 
+
 @dataclass
 class VersionInfo:
     title: str
@@ -23,6 +24,7 @@ class VersionInfo:
     size: str
     is_preview: bool = False
     preview_number: str = "1"
+
 
 class CSPLogProcessor:
     def __init__(self):
@@ -40,7 +42,7 @@ class CSPLogProcessor:
                 content_parts.append(html.unescape(str(child)))
 
         text = "".join(content_parts)
-        text = re.sub(r'(`.*?`)(/)(`.*?`)', r'\1 \2 \3', text)
+        text = re.sub(r"(`.*?`)(/)(`.*?`)", r"\1 \2 \3", text)
         text = " ".join(text.split())
         text = PUNCTUATION_PATTERN.sub(r"\1", text)
         return text.replace("\u201c", "`").replace("\u201d", "`")
@@ -54,7 +56,7 @@ class CSPLogProcessor:
                 parts.append(self._parse_ul_node(nested_ul, indent + "    "))
         return "".join(parts)
 
-    def _parse_changelog_nodes(self, nodes: Iterator[Tag]) -> str:
+    def _parse_changelog_nodes(self, nodes: list[Tag]) -> str:
         parts = []
         for node in nodes:
             if node.name in {"h1", "h3", "h4", "p"}:
@@ -89,14 +91,9 @@ class CSPLogProcessor:
         return VersionInfo(title, version_id, size)
 
     def _find_preview_zip(self) -> Optional[Path]:
-        try:
-            return next(self.desktop_path.glob(ZIP_PATTERN), None)
-        except StopIteration:
-            return None
+        return next(self.desktop_path.glob(ZIP_PATTERN), None)
 
-    def _read_manifest_from_zip(
-        self, zip_path: Path
-    ) -> Optional[tuple[str, str]]:
+    def _read_manifest_from_zip(self, zip_path: Path) -> Optional[tuple[str, str]]:
         try:
             with zipfile.ZipFile(zip_path, "r") as zf:
                 manifest_content = zf.read(MANIFEST_PATH).decode("utf-8")
@@ -110,20 +107,23 @@ class CSPLogProcessor:
             if version and build:
                 print(f"Found preview version: {version}, build: {build}")
                 return version, build
-        except (zipfile.BadZipFile, KeyError, configparser.Error, FileNotFoundError) as e:
+        except (
+            zipfile.BadZipFile,
+            KeyError,
+            configparser.Error,
+            FileNotFoundError,
+        ) as e:
             print(f"Warning: Could not read manifest from {zip_path}: {e}")
         return None
 
-    def _create_preview_version_info(
-        self, zip_path: Path
-    ) -> Optional[VersionInfo]:
+    def _create_preview_version_info(self, zip_path: Path) -> Optional[VersionInfo]:
         if not (manifest_data := self._read_manifest_from_zip(zip_path)):
             return None
 
         version, build = manifest_data
         preview_match = PREVIEW_REGEX.search(zip_path.name)
         preview_num = preview_match.group(1) if preview_match else "1"
-        
+
         try:
             size_bytes = zip_path.stat().st_size
             size_mb = f"{size_bytes / (1024 * 1024):.2f} MB"
@@ -142,7 +142,7 @@ class CSPLogProcessor:
     def _format_filename(self, version_info: VersionInfo) -> str:
         name = version_info.title.lstrip("v")
         if version_info.is_preview:
-            name = re.sub(r'-?preview\d*', '', name, flags=re.IGNORECASE)
+            name = re.sub(r"-?preview\d*", "", name, flags=re.IGNORECASE)
             name = name.replace(".", "-")
             name += f"p{version_info.preview_number}"
         else:
@@ -157,10 +157,9 @@ class CSPLogProcessor:
             "## New features, options and improvements"
         ):
             changelog_content = (
-                "\n## New features, options and improvements\n\n"
-                + changelog_content
+                "\n## New features, options and improvements\n\n" + changelog_content
             )
-        
+
         title_esc = html.unescape(version_info.title)
         id_esc = html.unescape(version_info.version_id)
         size_esc = html.unescape(version_info.size)
@@ -206,12 +205,16 @@ title: {title_esc}
         if with_preview:
             if zip_path := self._find_preview_zip():
                 preview_info = self._create_preview_version_info(zip_path)
-                if not self._process_and_save_version(
-                    preview_info, changelog_content
-                ):
-                    print("Failed to process preview version.")
+                if preview_info:
+                    if not self._process_and_save_version(
+                        preview_info, changelog_content
+                    ):
+                        print("Failed to process preview version.")
+                else:
+                    print("Failed to create preview version info.")
             else:
                 print("No preview zip file found on desktop.")
+
 
 def main():
     processor = CSPLogProcessor()
@@ -226,6 +229,7 @@ def main():
         )
     except Exception as e:
         print(f"An unexpected error occurred: {e}")
+
 
 if __name__ == "__main__":
     main()
