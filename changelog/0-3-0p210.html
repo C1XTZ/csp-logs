@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.9.2">
 <title data-rh="true">v0.3.0-preview210 | Custom Shaders Patch Changelog Archive</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://github.com/csp-logs/changelog/0-3-0p210"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="v0.3.0-preview210 | Custom Shaders Patch Changelog Archive"><meta data-rh="true" name="description" content="*   Version ID: 3747"><meta data-rh="true" property="og:description" content="*   Version ID: 3747"><link data-rh="true" rel="icon" href="/csp-logs/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://github.com/csp-logs/changelog/0-3-0p210"><link data-rh="true" rel="alternate" href="https://github.com/csp-logs/changelog/0-3-0p210" hreflang="en"><link data-rh="true" rel="alternate" href="https://github.com/csp-logs/changelog/0-3-0p210" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"v0.3.0-preview210","item":"https://github.com/csp-logs/changelog/0-3-0p210"}]}</script><link rel="stylesheet" href="/csp-logs/assets/css/styles.ab8c05e1.css">
-<script src="/csp-logs/assets/js/runtime~main.cc40c1e5.js" defer="defer"></script>
+<script src="/csp-logs/assets/js/runtime~main.50cad541.js" defer="defer"></script>
 <script src="/csp-logs/assets/js/main.1e33b49c.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -284,8 +284,8 @@
 <li class="">Some instabilities related to GPU processing fixed.</li>
 </ul>
 </li>
-<li class="">
-<p>Car &amp; track configs:</p>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="configs">Configs<a href="#configs" class="hash-link" aria-label="Direct link to Configs" title="Direct link to Configs" translate="no">​</a></h2>
 <ul>
 <li class="">New <code>[SHADER_REPLACEMENT_…] STICKERS_FIX=1</code> for stickers mesh to overlay any mesh below it (should work the best with <code>DEPTH_MODE = LESSEQUAL</code>);</li>
 <li class="">Track audio: <code>RELATIVE</code> accounts for the entire transform, not just for the local offset relative to parent;</li>
@@ -307,8 +307,6 @@
 <li class="">Track shader replacements are loaded only once at the start (previously, they were loaded for each KN5 again and again);</li>
 <li class="">Trees surface alignment is forced to recompute if one of tree meshes doesn’t have data cached (and not if cache contains data for a mesh that isn’t present like it was before);</li>
 <li class="">Objects Inspector shows static status of track meshes (static meshes are faster to draw).</li>
-</ul>
-</li>
 </ul>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="lua">Lua<a href="#lua" class="hash-link" aria-label="Direct link to Lua" title="Direct link to Lua" translate="no">​</a></h2>
 <ul>
@@ -417,6 +415,6 @@
 <li class="">Some crashes related to Lua resource management, causing, for example, crashes on restarts for some apps using <code>ui.GIFPlayer</code> to play static GIFs, fixed.</li>
 </ul>
 </li>
-</ul></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/csp-logs/changelog/0-3-0p211"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">v0.3.0-preview211</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/csp-logs/changelog/0-3-0p140"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">v0.3.0-preview140</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#new-features-options-and-improvements" class="table-of-contents__link toc-highlight">New features, options and improvements</a></li><li><a href="#lua" class="table-of-contents__link toc-highlight">Lua</a></li></ul></div></div></div></div></main></div></div></div></div>
+</ul></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/csp-logs/changelog/0-3-0p211"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">v0.3.0-preview211</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/csp-logs/changelog/0-3-0p140"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">v0.3.0-preview140</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#new-features-options-and-improvements" class="table-of-contents__link toc-highlight">New features, options and improvements</a></li><li><a href="#configs" class="table-of-contents__link toc-highlight">Configs</a></li><li><a href="#lua" class="table-of-contents__link toc-highlight">Lua</a></li></ul></div></div></div></div></main></div></div></div></div>
 </body>
 </html>
