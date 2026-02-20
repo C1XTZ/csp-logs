@@ -1,46 +1,21 @@
 {
-  "name": "gh-page",
-  "version": "0.0.0",
-  "private": true,
+  "name": "csp-logs",
+  "type": "module",
+  "version": "0.0.1",
   "scripts": {
-    "docusaurus": "docusaurus",
-    "generate:version-table": "node src/js/generateVersionTable.js",
-    "start": "npm run generate:version-table && docusaurus start",
-    "build": "npm run generate:version-table && docusaurus build",
-    "swizzle": "docusaurus swizzle",
-    "deploy": "npm run generate:version-table && docusaurus deploy",
-    "clear": "docusaurus clear",
-    "serve": "docusaurus serve",
-    "write-translations": "docusaurus write-translations",
-    "write-heading-ids": "docusaurus write-heading-ids"
+    "generate": "node src/js/generateVersionTable.cjs",
+    "dev": "npm run generate && astro dev",
+    "build": "npm run generate && astro build",
+    "start": "astro dev",
+    "preview": "astro preview",
+    "astro": "astro"
   },
   "dependencies": {
-    "@docusaurus/core": "^3.9.2",
-    "@docusaurus/preset-classic": "^3.9.2",
-    "@mdx-js/react": "^3.0.0",
-    "clsx": "^2.0.0",
-    "prism-react-renderer": "^2.3.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0"
-  },
-  "devDependencies": {
-    "@docusaurus/module-type-aliases": "^3.9.2",
-    "@docusaurus/types": "^3.9.2",
-    "baseline-browser-mapping": "^2.9.11"
-  },
-  "browserslist": {
-    "production": [
-      ">0.5%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 3 chrome version",
-      "last 3 firefox version",
-      "last 5 safari version"
-    ]
-  },
-  "engines": {
-    "node": ">=18.0"
+    "@astrojs/starlight": "^0.37.6",
+    "@fontsource/geist-mono": "^5.2.7",
+    "@fontsource/geist-sans": "^5.2.5",
+    "astro": "^5.6.1",
+    "sharp": "^0.34.2",
+    "starlight-theme-black": "^0.6.0"
   }
 }
