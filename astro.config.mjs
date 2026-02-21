@@ -11,8 +11,7 @@ const changelogFiles = fs
   .filter((f) => f.endsWith('.md') || f.endsWith('.mdx'))
   .map((f) => {
     const content = fs.readFileSync(path.join(changelogsDir, f), 'utf8');
-    let title = content.match(/title:\s*(.+)/)?.[1]?.trim() || f.replace(/\.mdx?$/, '');
-    title = title.replace(/^v(?=\d)/, '');
+    const title = content.match(/title:\s*(.+)/)?.[1]?.trim() || f.replace(/\.mdx?$/, '');
     const slug = f.replace(/\.mdx?$/, '');
     return { slug, title };
   })

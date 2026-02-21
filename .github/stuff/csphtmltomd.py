@@ -160,7 +160,7 @@ class CSPLogProcessor:
                 "\n## New features, options and improvements\n\n" + changelog_content
             )
 
-        title_esc = html.unescape(version_info.title)
+        title_esc = html.unescape(version_info.title).lstrip("v")
         id_esc = html.unescape(version_info.version_id)
         size_esc = html.unescape(version_info.size)
 
