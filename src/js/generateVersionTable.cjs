@@ -85,6 +85,10 @@ const groupByRelease = (entries) => {
   return groups;
 };
 
+const CARET_LEFT = `<svg class="vt-name-caret" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>`;
+const CARET_RIGHT = `<svg class="vt-name-caret" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>`;
+const ICON_COPY = `<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>`;
+
 const createTimeline = (groups) => {
   let currentYear = null;
   return groups
@@ -97,35 +101,15 @@ const createTimeline = (groups) => {
           const year = e.published?.slice(0, 4);
           if (year && year !== currentYear) {
             currentYear = year;
-            markers.push(`
-              <div class="vt-year-stem" style="top:${i * ROW_HEIGHT + 16}px">
-                <span>${year}</span>
-                <svg
-                  aria-hidden="true"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="vt-caret"
-                >
-                    <path d="m6 9 6 6 6-6"></path>
-                </svg>
-              </div>
-            `);
+            markers.push(`<div class="vt-year-stem" style="top:${i * ROW_HEIGHT + 16}px"><span>${year}</span></div>`);
           }
 
           const isRel = !e.versionName.includes('-preview');
           const id = e.versionIdNumeric ?? e.versionIdRaw;
           return `<div class="vt-entry ${isRel ? 'vt-release' : 'vt-preview'}">
-            <a href="${e.link}" class="vt-name">${e.versionName}</a>
+            <a href="${e.link}" class="vt-name">${side === 'vt-left' ? CARET_LEFT : ''}${e.versionName}${side === 'vt-right' ? CARET_RIGHT : ''}</a>
             <span class="vt-id"><code data-copy="${id}">${id}</code>
-            <button class="vt-copy" data-copy="${id}" title="Copy ID">
-              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-            </button></span></div>`;
+            <button class="vt-copy" data-copy="${id}">${ICON_COPY}</button></span></div>`;
         })
         .join('');
 
@@ -147,37 +131,52 @@ const generateAstroContent = (groups) => `---
 </div>
 
 <script>
-document.addEventListener('click', (e) => {
-  const target = e.target as Element;
-  const el = target?.closest('[data-copy]') as HTMLElement;
+let toast: HTMLElement | null = null;
 
+function getToast() {
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.className = 'vt-toast';
+    document.body.appendChild(toast);
+  }
+  return toast;
+}
+
+function positionToast(el: HTMLElement) {
+  const r = el.getBoundingClientRect();
+  Object.assign(getToast().style, { position: 'fixed', top: \`\${r.top - 32}px\`, left: \`\${r.left + r.width / 2}px\`, transform: 'translateX(-50%)', margin: '0' });
+}
+
+document.addEventListener('click', (e) => {
+  const el = (e.target as Element)?.closest('[data-copy]') as HTMLElement;
   if (!el) return;
 
   navigator.clipboard.writeText(el.dataset.copy || '');
 
-  let t = document.getElementById('vt-toast');
-  if (!t) {
-    t = document.createElement('div');
-    t.id = 'vt-toast';
-    t.className = 'vt-toast';
-    t.textContent = 'Copied!';
-    document.body.appendChild(t);
-  }
-
-  const r = el.getBoundingClientRect();
-
-  Object.assign(t.style, {
-    position: 'fixed',
-    top: \`\${r.top - 32}px\`,
-    left: \`\${r.left + r.width / 2}px\`,
-    transform: 'translateX(-50%)',
-    margin: '0'
-  });
-
-  t.classList.remove('vt-toast-show');
+  const anchor = el.closest('.vt-id') as HTMLElement || el;
+  const t = getToast();
+  t.textContent = 'Copied!';
+  t.classList.remove('vt-toast-hover', 'vt-toast-show');
+  positionToast(anchor);
   void t.offsetWidth;
   t.classList.add('vt-toast-show');
   setTimeout(() => t.classList.remove('vt-toast-show'), 900);
+});
+
+document.addEventListener('mouseover', (e: MouseEvent) => {
+  const el = (e.target as Element)?.closest('.vt-id') as HTMLElement;
+  if (!el) return;
+  const t = getToast();
+  if (t.classList.contains('vt-toast-show')) return;
+  t.textContent = 'Copy ID';
+  positionToast(el);
+  t.classList.add('vt-toast-hover');
+});
+
+document.addEventListener('mouseout', (e) => {
+  const el = (e.target as Element)?.closest('.vt-id') as HTMLElement;
+  if (!el || (e.relatedTarget as Element)?.closest('.vt-id')) return;
+  getToast().classList.remove('vt-toast-hover');
 });
 </script>`;
 

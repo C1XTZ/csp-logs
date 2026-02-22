@@ -39,7 +39,7 @@ export default defineConfig({
   integrations: [
     starlight({
       defaultLocale: 'en',
-      title: 'CSP Version Archive',
+      title: 'CSP Changelog Archive',
       customCss: ['./src/styles/custom.css'],
       tableOfContents: { minHeadingLevel: 1 },
       components: {

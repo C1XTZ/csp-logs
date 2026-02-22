@@ -130,6 +130,18 @@
     }
 }
 
+.vt-right .vt-entry {
+    flex-direction: row-reverse;
+
+    .vt-name {
+        justify-content: flex-end;
+    }
+
+    .vt-id {
+        flex-direction: row-reverse;
+    }
+}
+
 .vt-release {
     background: var(--accent);
     font-weight: 600;
@@ -151,12 +163,20 @@
     white-space: nowrap;
     transition: color 0.15s;
     color: inherit;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
 
     &:hover {
         color: var(--muted-foreground);
         .vt-preview & {
             color: var(--accent-foreground);
         }
+    }
+
+    .vt-name-caret {
+        flex-shrink: 0;
+        transition: color 0.15s;
     }
 }
 
@@ -177,14 +197,14 @@
     }
 
     &:hover {
-        code {
-            color: var(--accent-foreground);
-        }
-        .vt-release & code {
-            color: var(--muted-foreground);
-        }
+        code,
         .vt-copy {
-            opacity: 1;
+            color: var(--accent-foreground);
+            transition: color 0.15s;
+        }
+        .vt-release & code,
+        .vt-release & .vt-copy {
+            color: var(--muted-foreground);
         }
     }
 }
@@ -193,25 +213,15 @@
     background: none;
     border: none;
     cursor: pointer;
-    color: var(--muted-foreground);
+    color: inherit;
     padding: 0.15rem;
     display: flex;
     align-items: center;
     border-radius: calc(var(--radius) - 2px);
-    opacity: 0;
-    transition:
-        opacity 0.15s,
-        color 0.15s;
-
-    &:hover {
-        color: var(--foreground);
-    }
 }
 
 .vt-toast {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    position: fixed;
     background: var(--popover);
     border: 1px solid var(--border);
     color: var(--popover-foreground);
@@ -222,6 +232,11 @@
     opacity: 0;
     z-index: 100;
     white-space: nowrap;
+    transition: opacity 0.15s;
+
+    &.vt-toast-hover {
+        opacity: 1;
+    }
 
     &.vt-toast-show {
         animation: vt-fade 0.9s forwards;
