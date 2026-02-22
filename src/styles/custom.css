@@ -107,18 +107,18 @@
 
     .vt-left & {
         right: calc(var(--vt-offset) * -1);
-        transform: translate(50%, 10%);
+        transform: translate(50%, 12%);
     }
 
     .vt-right & {
         left: calc(var(--vt-offset) * -1);
-        transform: translate(-50%, 10%);
+        transform: translate(-50%, 12%);
     }
 }
 
 .vt-entry {
     display: flex;
-    min-width: 13rem;
+    min-width: 14rem;
     align-items: center;
     justify-content: space-between;
     padding: 0.4rem 0.75rem;
@@ -257,4 +257,58 @@
 :is(starlight-toc, mobile-starlight-toc) li:has(a[href='#_top']),
 p[id^='starlight__on-this-page'] {
     display: none;
+}
+
+@media (max-width: 47.95rem) {
+    .vt-timeline {
+        max-width: 100%;
+        gap: 0.4rem;
+
+        &::before {
+            left: 1.475rem;
+            transform: none;
+        }
+    }
+
+    .vt-card-wrap {
+        width: calc(100% - 1rem - var(--vt-offset));
+        margin-inline-start: calc(1rem + var(--vt-offset)) !important;
+        margin-inline-end: 0 !important;
+
+        .vt-card {
+            margin-top: 0 !important;
+        }
+
+        .vt-card::after {
+            left: calc(var(--vt-offset) * -1) !important;
+            right: auto !important;
+            width: var(--vt-offset);
+        }
+    }
+
+    .vt-year-stem {
+        left: calc((1.475rem + var(--vt-offset)) * -1) !important;
+        right: auto !important;
+        transform: translate(10%, -48%) !important;
+    }
+
+    .vt-entry {
+        min-width: 14rem;
+    }
+
+    .vt-right .vt-entry {
+        flex-direction: row;
+
+        .vt-name {
+            flex-direction: row-reverse;
+
+            .vt-name-caret {
+                transform: scaleX(-1);
+            }
+        }
+
+        .vt-id {
+            flex-direction: row;
+        }
+    }
 }
