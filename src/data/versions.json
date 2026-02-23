@@ -1,0 +1,2187 @@
+{
+  "counts": {
+    "total": 254,
+    "previews": 182,
+    "releases": 72
+  },
+  "groups": [
+    [
+      {
+        "versionName": "0.3.0-preview212",
+        "versionId": "3749",
+        "published": "2025-12-26",
+        "link": "/csp-logs/changelog/0-3-0p212",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.3.0-preview211",
+        "versionId": "3748",
+        "published": "2025-12-25",
+        "link": "/csp-logs/changelog/0-3-0p211",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.3.0-preview210",
+        "versionId": "3747",
+        "published": "2025-12-25",
+        "link": "/csp-logs/changelog/0-3-0p210",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.3.0-preview140",
+        "versionId": "3676",
+        "published": "2025-10-29",
+        "link": "/csp-logs/changelog/0-3-0p140",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.3.0-preview132",
+        "versionId": "3667",
+        "published": "2025-10-28",
+        "link": "/csp-logs/changelog/0-3-0p132",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.3.0-preview120",
+        "versionId": "3650",
+        "published": "2025-10-22",
+        "link": "/csp-logs/changelog/0-3-0p120",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.3.0-preview110",
+        "versionId": "3637",
+        "published": "2025-10-17",
+        "link": "/csp-logs/changelog/0-3-0p110",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.2.12-preview1",
+        "versionId": "3467",
+        "published": "2025-06-12",
+        "link": "/csp-logs/changelog/0-2-12p1",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.2.11",
+        "versionId": "3465",
+        "published": "2025-06-11",
+        "link": "/csp-logs/changelog/0-2-11",
+        "isPreview": false,
+        "yearMarker": null
+      }
+    ],
+    [
+      {
+        "versionName": "0.2.11-preview1",
+        "versionId": "3460",
+        "published": "2025-06-11",
+        "link": "/csp-logs/changelog/0-2-11p1",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.2.10",
+        "versionId": "3459",
+        "published": "2025-06-11",
+        "link": "/csp-logs/changelog/0-2-10",
+        "isPreview": false,
+        "yearMarker": null
+      }
+    ],
+    [
+      {
+        "versionName": "0.2.10-preview1",
+        "versionId": "3436",
+        "published": "2025-05-21",
+        "link": "/csp-logs/changelog/0-2-10p1",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.2.9",
+        "versionId": "3435",
+        "published": "2025-05-21",
+        "link": "/csp-logs/changelog/0-2-9",
+        "isPreview": false,
+        "yearMarker": null
+      }
+    ],
+    [
+      {
+        "versionName": "0.2.9-preview1",
+        "versionId": "3425",
+        "published": "2025-05-13",
+        "link": "/csp-logs/changelog/0-2-9p1",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.2.8",
+        "versionId": "3424",
+        "published": "2025-05-13",
+        "link": "/csp-logs/changelog/0-2-8",
+        "isPreview": false,
+        "yearMarker": null
+      }
+    ],
+    [
+      {
+        "versionName": "0.2.8-preview1",
+        "versionId": "3335",
+        "published": "2025-02-27",
+        "link": "/csp-logs/changelog/0-2-8p1",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.2.7",
+        "versionId": "3334",
+        "published": "2025-02-27",
+        "link": "/csp-logs/changelog/0-2-7",
+        "isPreview": false,
+        "yearMarker": null
+      }
+    ],
+    [
+      {
+        "versionName": "0.2.7-preview1",
+        "versionId": "3282",
+        "published": "2025-01-08",
+        "link": "/csp-logs/changelog/0-2-7p1",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.2.6",
+        "versionId": "3281",
+        "published": "2025-01-08",
+        "link": "/csp-logs/changelog/0-2-6",
+        "isPreview": false,
+        "yearMarker": "2025"
+      }
+    ],
+    [
+      {
+        "versionName": "0.2.6-preview1",
+        "versionId": "3250",
+        "published": "2024-12-24",
+        "link": "/csp-logs/changelog/0-2-6p1",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.2.5",
+        "versionId": "3249",
+        "published": "2024-12-24",
+        "link": "/csp-logs/changelog/0-2-5",
+        "isPreview": false,
+        "yearMarker": null
+      }
+    ],
+    [
+      {
+        "versionName": "0.2.5-preview1",
+        "versionId": "3117",
+        "published": "2024-07-27",
+        "link": "/csp-logs/changelog/0-2-5p1",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.2.4",
+        "versionId": "3116",
+        "published": "2024-07-27",
+        "link": "/csp-logs/changelog/0-2-4",
+        "isPreview": false,
+        "yearMarker": null
+      }
+    ],
+    [
+      {
+        "versionName": "0.2.4-preview1",
+        "versionId": "3045",
+        "published": "2024-05-14",
+        "link": "/csp-logs/changelog/0-2-4p1",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.2.3",
+        "versionId": "3044",
+        "published": "2024-05-14",
+        "link": "/csp-logs/changelog/0-2-3",
+        "isPreview": false,
+        "yearMarker": null
+      }
+    ],
+    [
+      {
+        "versionName": "0.2.3-preview211",
+        "versionId": "2974",
+        "published": "2024-04-06",
+        "link": "/csp-logs/changelog/0-2-3p211",
+        "isPreview": true,
+        "yearMarker": "2024"
+      },
+      {
+        "versionName": "0.2.3-preview1",
+        "versionId": "2745",
+        "published": "2023-12-22",
+        "link": "/csp-logs/changelog/0-2-3p1",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.2.2",
+        "versionId": "2744",
+        "published": "2023-12-22",
+        "link": "/csp-logs/changelog/0-2-2",
+        "isPreview": false,
+        "yearMarker": null
+      }
+    ],
+    [
+      {
+        "versionName": "0.2.2-preview1",
+        "versionId": "2736",
+        "published": "2023-12-16",
+        "link": "/csp-logs/changelog/0-2-2p1",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.2.1",
+        "versionId": "2735",
+        "published": "2023-12-16",
+        "link": "/csp-logs/changelog/0-2-1",
+        "isPreview": false,
+        "yearMarker": null
+      }
+    ],
+    [
+      {
+        "versionName": "0.2.1-preview2",
+        "versionId": "2654",
+        "published": "2023-11-12",
+        "link": "/csp-logs/changelog/0-2-1p2",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.2.0",
+        "versionId": "2651",
+        "published": "2023-11-12",
+        "link": "/csp-logs/changelog/0-2-0",
+        "isPreview": false,
+        "yearMarker": null
+      }
+    ],
+    [
+      {
+        "versionName": "0.1.80-preview442",
+        "versionId": "2597",
+        "published": null,
+        "link": "/csp-logs/changelog/0-1-80p442",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.80-preview428",
+        "versionId": "2583",
+        "published": "2023-10-17",
+        "link": "/csp-logs/changelog/0-1-80p428",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.80-preview346",
+        "versionId": "2501",
+        "published": "2023-07-15",
+        "link": "/csp-logs/changelog/0-1-80p346",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.80-preview218",
+        "versionId": "2363",
+        "published": "2023-04-24",
+        "link": "/csp-logs/changelog/0-1-80p218",
+        "isPreview": true,
+        "yearMarker": "2023"
+      },
+      {
+        "versionName": "0.1.80-preview115",
+        "versionId": "2259",
+        "published": "2022-12-31",
+        "link": "/csp-logs/changelog/0-1-80p115",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.80-preview108",
+        "versionId": "2252",
+        "published": "2022-12-24",
+        "link": "/csp-logs/changelog/0-1-80p108",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.79",
+        "versionId": "2144",
+        "published": "2022-10-20",
+        "link": "/csp-logs/changelog/0-1-79",
+        "isPreview": false,
+        "yearMarker": null
+      }
+    ],
+    [
+      {
+        "versionName": "0.1.78",
+        "versionId": "2051",
+        "published": "2022-06-08",
+        "link": "/csp-logs/changelog/0-1-78",
+        "isPreview": false,
+        "yearMarker": null
+      }
+    ],
+    [
+      {
+        "versionName": "0.1.78-preview1",
+        "versionId": "1938",
+        "published": "2022-02-28",
+        "link": "/csp-logs/changelog/0-1-78p1",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.77",
+        "versionId": "1937",
+        "published": "2022-02-28",
+        "link": "/csp-logs/changelog/0-1-77",
+        "isPreview": false,
+        "yearMarker": "2022"
+      }
+    ],
+    [
+      {
+        "versionName": "0.1.77-preview1",
+        "versionId": "1820",
+        "published": "2021-12-22",
+        "link": "/csp-logs/changelog/0-1-77p1",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.76",
+        "versionId": "1819",
+        "published": "2021-12-22",
+        "link": "/csp-logs/changelog/0-1-76",
+        "isPreview": false,
+        "yearMarker": null
+      }
+    ],
+    [
+      {
+        "versionName": "0.1.76-preview136",
+        "versionId": "1753",
+        "published": "2021-10-22",
+        "link": "/csp-logs/changelog/0-1-76p136",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.76-preview92",
+        "versionId": "1709",
+        "published": "2021-09-21",
+        "link": "/csp-logs/changelog/0-1-76p92",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.76-preview63",
+        "versionId": "1680",
+        "published": "2021-09-11",
+        "link": "/csp-logs/changelog/0-1-76p63",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.76-preview1",
+        "versionId": "1617",
+        "published": "2021-07-11",
+        "link": "/csp-logs/changelog/0-1-76p1",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.75",
+        "versionId": "1614",
+        "published": "2021-07-11",
+        "link": "/csp-logs/changelog/0-1-75",
+        "isPreview": false,
+        "yearMarker": null
+      }
+    ],
+    [
+      {
+        "versionName": "0.1.75-preview1",
+        "versionId": "1555",
+        "published": "2021-05-08",
+        "link": "/csp-logs/changelog/0-1-75p1",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.74",
+        "versionId": "1553",
+        "published": "2021-05-08",
+        "link": "/csp-logs/changelog/0-1-74",
+        "isPreview": false,
+        "yearMarker": null
+      }
+    ],
+    [
+      {
+        "versionName": "0.1.74-preview98",
+        "versionId": "1531",
+        "published": "2021-04-29",
+        "link": "/csp-logs/changelog/0-1-74p98",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.74-preview33",
+        "versionId": "1466",
+        "published": "2021-03-21",
+        "link": "/csp-logs/changelog/0-1-74p33",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.74-preview3",
+        "versionId": "1434",
+        "published": "2021-02-24",
+        "link": "/csp-logs/changelog/0-1-74p3",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.73",
+        "versionId": "1430",
+        "published": "2021-02-24",
+        "link": "/csp-logs/changelog/0-1-73",
+        "isPreview": false,
+        "yearMarker": null
+      }
+    ],
+    [
+      {
+        "versionName": "0.1.73-preview1",
+        "versionId": "1387",
+        "published": "2021-02-07",
+        "link": "/csp-logs/changelog/0-1-73p1",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.72",
+        "versionId": "1386",
+        "published": "2021-02-07",
+        "link": "/csp-logs/changelog/0-1-72",
+        "isPreview": false,
+        "yearMarker": null
+      }
+    ],
+    [
+      {
+        "versionName": "0.1.72-preview1",
+        "versionId": "1320",
+        "published": "2021-01-08",
+        "link": "/csp-logs/changelog/0-1-72p1",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.71",
+        "versionId": "1319",
+        "published": "2021-01-08",
+        "link": "/csp-logs/changelog/0-1-71",
+        "isPreview": false,
+        "yearMarker": null
+      }
+    ],
+    [
+      {
+        "versionName": "0.1.70",
+        "versionId": "1316",
+        "published": "2021-01-08",
+        "link": "/csp-logs/changelog/0-1-70",
+        "isPreview": false,
+        "yearMarker": "2021"
+      }
+    ],
+    [
+      {
+        "versionName": "0.1.70-preview1",
+        "versionId": "1293",
+        "published": "2020-12-31",
+        "link": "/csp-logs/changelog/0-1-70p1",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.69",
+        "versionId": "1291",
+        "published": "2020-12-31",
+        "link": "/csp-logs/changelog/0-1-69",
+        "isPreview": false,
+        "yearMarker": null
+      }
+    ],
+    [
+      {
+        "versionName": "0.1.69-preview1",
+        "versionId": "1260",
+        "published": "2020-12-09",
+        "link": "/csp-logs/changelog/0-1-69p1",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.68",
+        "versionId": "1259",
+        "published": "2020-12-09",
+        "link": "/csp-logs/changelog/0-1-68",
+        "isPreview": false,
+        "yearMarker": null
+      }
+    ],
+    [
+      {
+        "versionName": "0.1.67",
+        "versionId": "1255",
+        "published": "2020-12-09",
+        "link": "/csp-logs/changelog/0-1-67",
+        "isPreview": false,
+        "yearMarker": null
+      }
+    ],
+    [
+      {
+        "versionName": "0.1.67-preview1",
+        "versionId": "1230",
+        "published": "2020-09-30",
+        "link": "/csp-logs/changelog/0-1-67p1",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.66",
+        "versionId": "1228",
+        "published": "2020-09-30",
+        "link": "/csp-logs/changelog/0-1-66",
+        "isPreview": false,
+        "yearMarker": null
+      }
+    ],
+    [
+      {
+        "versionName": "0.1.65",
+        "versionId": "1224",
+        "published": "2020-09-30",
+        "link": "/csp-logs/changelog/0-1-65",
+        "isPreview": false,
+        "yearMarker": null
+      }
+    ],
+    [
+      {
+        "versionName": "0.1.65-preview1",
+        "versionId": "1153",
+        "published": "2020-09-16",
+        "link": "/csp-logs/changelog/0-1-65p1",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.64",
+        "versionId": "1152",
+        "published": "2020-09-16",
+        "link": "/csp-logs/changelog/0-1-64",
+        "isPreview": false,
+        "yearMarker": null
+      }
+    ],
+    [
+      {
+        "versionName": "0.1.63",
+        "versionId": "1149",
+        "published": "2020-09-16",
+        "link": "/csp-logs/changelog/0-1-63",
+        "isPreview": false,
+        "yearMarker": null
+      }
+    ],
+    [
+      {
+        "versionName": "0.1.63-preview47",
+        "versionId": "1129",
+        "published": "2020-09-08",
+        "link": "/csp-logs/changelog/0-1-63p47",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.63-preview32",
+        "versionId": "1113",
+        "published": "2020-08-27",
+        "link": "/csp-logs/changelog/0-1-63p32",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.63-preview15",
+        "versionId": "1094",
+        "published": "2020-08-22",
+        "link": "/csp-logs/changelog/0-1-63p15",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.63-preview3",
+        "versionId": "1082",
+        "published": "2020-07-31",
+        "link": "/csp-logs/changelog/0-1-63p3",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.62",
+        "versionId": "1079",
+        "published": "2020-07-29",
+        "link": "/csp-logs/changelog/0-1-62",
+        "isPreview": false,
+        "yearMarker": null
+      }
+    ],
+    [
+      {
+        "versionName": "0.1.62-preview19",
+        "versionId": "1073",
+        "published": "2020-07-27",
+        "link": "/csp-logs/changelog/0-1-62p19",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.62-preview15",
+        "versionId": "1068",
+        "published": "2020-07-15",
+        "link": "/csp-logs/changelog/0-1-62p15",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.62-preview13",
+        "versionId": "1066",
+        "published": "2020-07-12",
+        "link": "/csp-logs/changelog/0-1-62p13",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.62-preview4",
+        "versionId": "1057",
+        "published": "2020-06-15",
+        "link": "/csp-logs/changelog/0-1-62p4",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.61",
+        "versionId": "1053",
+        "published": null,
+        "link": "/csp-logs/changelog/0-1-61",
+        "isPreview": false,
+        "yearMarker": null
+      }
+    ],
+    [
+      {
+        "versionName": "0.1.60",
+        "versionId": "1048",
+        "published": "2020-05-23",
+        "link": "/csp-logs/changelog/0-1-60",
+        "isPreview": false,
+        "yearMarker": null
+      }
+    ],
+    [
+      {
+        "versionName": "0.1.59",
+        "versionId": "1045",
+        "published": "2020-05-19",
+        "link": "/csp-logs/changelog/0-1-59",
+        "isPreview": false,
+        "yearMarker": null
+      }
+    ],
+    [
+      {
+        "versionName": "0.1.58",
+        "versionId": "1044",
+        "published": "2020-05-19",
+        "link": "/csp-logs/changelog/0-1-58",
+        "isPreview": false,
+        "yearMarker": null
+      }
+    ],
+    [
+      {
+        "versionName": "0.1.57",
+        "versionId": "1043",
+        "published": "2020-05-17",
+        "link": "/csp-logs/changelog/0-1-57",
+        "isPreview": false,
+        "yearMarker": null
+      }
+    ],
+    [
+      {
+        "versionName": "0.1.56",
+        "versionId": "1042",
+        "published": "2020-05-16",
+        "link": "/csp-logs/changelog/0-1-56",
+        "isPreview": false,
+        "yearMarker": null
+      }
+    ],
+    [
+      {
+        "versionName": "0.1.55",
+        "versionId": "1035",
+        "published": "2020-05-10",
+        "link": "/csp-logs/changelog/0-1-55",
+        "isPreview": false,
+        "yearMarker": null
+      }
+    ],
+    [
+      {
+        "versionName": "0.1.54",
+        "versionId": "1031",
+        "published": "2020-05-10",
+        "link": "/csp-logs/changelog/0-1-54",
+        "isPreview": false,
+        "yearMarker": null
+      }
+    ],
+    [
+      {
+        "versionName": "0.1.53",
+        "versionId": "1028",
+        "published": "2020-05-09",
+        "link": "/csp-logs/changelog/0-1-53",
+        "isPreview": false,
+        "yearMarker": null
+      }
+    ],
+    [
+      {
+        "versionName": "0.1.52",
+        "versionId": "1017",
+        "published": "2020-04-11",
+        "link": "/csp-logs/changelog/0-1-52",
+        "isPreview": false,
+        "yearMarker": null
+      }
+    ],
+    [
+      {
+        "versionName": "0.1.51",
+        "versionId": "1016",
+        "published": "2020-04-05",
+        "link": "/csp-logs/changelog/0-1-51",
+        "isPreview": false,
+        "yearMarker": null
+      }
+    ],
+    [
+      {
+        "versionName": "0.1.51-preview8",
+        "versionId": "1010",
+        "published": "2020-04-05",
+        "link": "/csp-logs/changelog/0-1-51p8",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.50",
+        "versionId": "999",
+        "published": "2020-03-26",
+        "link": "/csp-logs/changelog/0-1-50",
+        "isPreview": false,
+        "yearMarker": null
+      }
+    ],
+    [
+      {
+        "versionName": "0.1.49",
+        "versionId": "997",
+        "published": "2020-03-25",
+        "link": "/csp-logs/changelog/0-1-49",
+        "isPreview": false,
+        "yearMarker": null
+      }
+    ],
+    [
+      {
+        "versionName": "0.1.48",
+        "versionId": "977",
+        "published": "2020-03-06",
+        "link": "/csp-logs/changelog/0-1-48",
+        "isPreview": false,
+        "yearMarker": null
+      }
+    ],
+    [
+      {
+        "versionName": "0.1.47",
+        "versionId": "975",
+        "published": "2020-03-06",
+        "link": "/csp-logs/changelog/0-1-47",
+        "isPreview": false,
+        "yearMarker": null
+      }
+    ],
+    [
+      {
+        "versionName": "0.1.46",
+        "versionId": "969",
+        "published": "2020-02-21",
+        "link": "/csp-logs/changelog/0-1-46",
+        "isPreview": false,
+        "yearMarker": null
+      }
+    ],
+    [
+      {
+        "versionName": "0.1.46-preview12",
+        "versionId": "966",
+        "published": "2020-02-19",
+        "link": "/csp-logs/changelog/0-1-46p12",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.45",
+        "versionId": "950",
+        "published": "2020-02-15",
+        "link": "/csp-logs/changelog/0-1-45",
+        "isPreview": false,
+        "yearMarker": null
+      }
+    ],
+    [
+      {
+        "versionName": "0.1.44",
+        "versionId": "947",
+        "published": "2020-02-14",
+        "link": "/csp-logs/changelog/0-1-44",
+        "isPreview": false,
+        "yearMarker": null
+      }
+    ],
+    [
+      {
+        "versionName": "0.1.43",
+        "versionId": "946",
+        "published": "2020-02-13",
+        "link": "/csp-logs/changelog/0-1-43",
+        "isPreview": false,
+        "yearMarker": null
+      }
+    ],
+    [
+      {
+        "versionName": "0.1.42",
+        "versionId": "943",
+        "published": "2020-02-09",
+        "link": "/csp-logs/changelog/0-1-42",
+        "isPreview": false,
+        "yearMarker": null
+      }
+    ],
+    [
+      {
+        "versionName": "0.1.41",
+        "versionId": "942",
+        "published": "2020-02-09",
+        "link": "/csp-logs/changelog/0-1-41",
+        "isPreview": false,
+        "yearMarker": null
+      }
+    ],
+    [
+      {
+        "versionName": "0.1.40",
+        "versionId": "937",
+        "published": "2020-02-03",
+        "link": "/csp-logs/changelog/0-1-40",
+        "isPreview": false,
+        "yearMarker": null
+      }
+    ],
+    [
+      {
+        "versionName": "0.1.39",
+        "versionId": "930",
+        "published": "2020-01-28",
+        "link": "/csp-logs/changelog/0-1-39",
+        "isPreview": false,
+        "yearMarker": null
+      }
+    ],
+    [
+      {
+        "versionName": "0.1.38",
+        "versionId": "925",
+        "published": "2020-01-26",
+        "link": "/csp-logs/changelog/0-1-38",
+        "isPreview": false,
+        "yearMarker": null
+      }
+    ],
+    [
+      {
+        "versionName": "0.1.37",
+        "versionId": "919",
+        "published": "2020-01-26",
+        "link": "/csp-logs/changelog/0-1-37",
+        "isPreview": false,
+        "yearMarker": null
+      }
+    ],
+    [
+      {
+        "versionName": "0.1.37-preview7",
+        "versionId": "901",
+        "published": "2020-01-16",
+        "link": "/csp-logs/changelog/0-1-37p7",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.37-preview6",
+        "versionId": "900",
+        "published": "2020-01-08",
+        "link": "/csp-logs/changelog/0-1-37p6",
+        "isPreview": true,
+        "yearMarker": "2020"
+      },
+      {
+        "versionName": "0.1.36",
+        "versionId": "893",
+        "published": "2019-12-25",
+        "link": "/csp-logs/changelog/0-1-36",
+        "isPreview": false,
+        "yearMarker": null
+      }
+    ],
+    [
+      {
+        "versionName": "0.1.35",
+        "versionId": "883",
+        "published": "2019-12-13",
+        "link": "/csp-logs/changelog/0-1-35",
+        "isPreview": false,
+        "yearMarker": null
+      }
+    ],
+    [
+      {
+        "versionName": "0.1.34",
+        "versionId": "882",
+        "published": "2019-12-12",
+        "link": "/csp-logs/changelog/0-1-34",
+        "isPreview": false,
+        "yearMarker": null
+      }
+    ],
+    [
+      {
+        "versionName": "0.1.33",
+        "versionId": "881",
+        "published": "2019-12-11",
+        "link": "/csp-logs/changelog/0-1-33",
+        "isPreview": false,
+        "yearMarker": null
+      }
+    ],
+    [
+      {
+        "versionName": "0.1.32",
+        "versionId": "874",
+        "published": "2019-12-09",
+        "link": "/csp-logs/changelog/0-1-32",
+        "isPreview": false,
+        "yearMarker": null
+      }
+    ],
+    [
+      {
+        "versionName": "0.1.31",
+        "versionId": "872",
+        "published": "2019-12-09",
+        "link": "/csp-logs/changelog/0-1-31",
+        "isPreview": false,
+        "yearMarker": null
+      }
+    ],
+    [
+      {
+        "versionName": "0.1.30",
+        "versionId": "841",
+        "published": "2019-11-05",
+        "link": "/csp-logs/changelog/0-1-30",
+        "isPreview": false,
+        "yearMarker": null
+      }
+    ],
+    [
+      {
+        "versionName": "0.1.29",
+        "versionId": "840",
+        "published": "2019-11-05",
+        "link": "/csp-logs/changelog/0-1-29",
+        "isPreview": false,
+        "yearMarker": null
+      }
+    ],
+    [
+      {
+        "versionName": "0.1.28",
+        "versionId": "838",
+        "published": "2019-11-04",
+        "link": "/csp-logs/changelog/0-1-28",
+        "isPreview": false,
+        "yearMarker": null
+      }
+    ],
+    [
+      {
+        "versionName": "0.1.27",
+        "versionId": "837",
+        "published": "2019-11-05",
+        "link": "/csp-logs/changelog/0-1-27",
+        "isPreview": false,
+        "yearMarker": null
+      }
+    ],
+    [
+      {
+        "versionName": "0.1.26",
+        "versionId": "836",
+        "published": "2019-11-04",
+        "link": "/csp-logs/changelog/0-1-26",
+        "isPreview": false,
+        "yearMarker": null
+      }
+    ],
+    [
+      {
+        "versionName": "0.1.25-preview245",
+        "versionId": "???",
+        "published": "2019-10-28",
+        "link": "/csp-logs/changelog/0-1-25p245",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.25-preview205",
+        "versionId": "???",
+        "published": "2019-08-26",
+        "link": "/csp-logs/changelog/0-1-25p205",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.25-preview198",
+        "versionId": "???",
+        "published": "2019-08-17",
+        "link": "/csp-logs/changelog/0-1-25p198",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.25-preview197",
+        "versionId": "???",
+        "published": "2019-08-16",
+        "link": "/csp-logs/changelog/0-1-25p197",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.25-preview194",
+        "versionId": "???",
+        "published": "2019-08-16",
+        "link": "/csp-logs/changelog/0-1-25p194",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.25-preview185",
+        "versionId": "???",
+        "published": "2019-07-26",
+        "link": "/csp-logs/changelog/0-1-25p185",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.25-preview183",
+        "versionId": "???",
+        "published": "2019-07-26",
+        "link": "/csp-logs/changelog/0-1-25p183",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.25-preview164",
+        "versionId": "???",
+        "published": "2019-07-02",
+        "link": "/csp-logs/changelog/0-1-25p164",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.25-preview146",
+        "versionId": "???",
+        "published": "2019-06-21",
+        "link": "/csp-logs/changelog/0-1-25p146",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.25-preview140",
+        "versionId": "???",
+        "published": "2019-06-03",
+        "link": "/csp-logs/changelog/0-1-25p140",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.25-preview139",
+        "versionId": "???",
+        "published": "2019-06-02",
+        "link": "/csp-logs/changelog/0-1-25p139",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.25-preview135",
+        "versionId": "???",
+        "published": "2019-05-29",
+        "link": "/csp-logs/changelog/0-1-25p135",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.25-preview134",
+        "versionId": "???",
+        "published": "2019-05-28",
+        "link": "/csp-logs/changelog/0-1-25p134",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.25-preview133",
+        "versionId": "???",
+        "published": "2019-05-28",
+        "link": "/csp-logs/changelog/0-1-25p133",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.25-preview132",
+        "versionId": "???",
+        "published": "2019-05-28",
+        "link": "/csp-logs/changelog/0-1-25p132",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.25-preview129",
+        "versionId": "???",
+        "published": "2019-05-23",
+        "link": "/csp-logs/changelog/0-1-25p129",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.25-preview128",
+        "versionId": "???",
+        "published": "2019-05-20",
+        "link": "/csp-logs/changelog/0-1-25p128",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.25-preview127",
+        "versionId": "???",
+        "published": "2019-05-19",
+        "link": "/csp-logs/changelog/0-1-25p127",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.25-preview125",
+        "versionId": "???",
+        "published": "2019-05-18",
+        "link": "/csp-logs/changelog/0-1-25p125",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.25-preview123",
+        "versionId": "???",
+        "published": "2019-05-18",
+        "link": "/csp-logs/changelog/0-1-25p123",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.25-preview114",
+        "versionId": "???",
+        "published": "2019-05-14",
+        "link": "/csp-logs/changelog/0-1-25p114",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.25-preview112",
+        "versionId": "???",
+        "published": "2019-05-13",
+        "link": "/csp-logs/changelog/0-1-25p112",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.25-preview74",
+        "versionId": "632",
+        "published": "2019-03-27",
+        "link": "/csp-logs/changelog/0-1-25p74",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.25-preview69",
+        "versionId": "???",
+        "published": "2019-03-25",
+        "link": "/csp-logs/changelog/0-1-25p69",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.25-preview63",
+        "versionId": "???",
+        "published": "2019-03-18",
+        "link": "/csp-logs/changelog/0-1-25p63",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.25-preview49",
+        "versionId": "???",
+        "published": "2019-02-14",
+        "link": "/csp-logs/changelog/0-1-25p49",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.25-preview48",
+        "versionId": "???",
+        "published": "2019-02-13",
+        "link": "/csp-logs/changelog/0-1-25p48",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.25-preview47",
+        "versionId": "???",
+        "published": "2019-02-06",
+        "link": "/csp-logs/changelog/0-1-25p47",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.25-preview46",
+        "versionId": "???",
+        "published": "2019-02-03",
+        "link": "/csp-logs/changelog/0-1-25p46",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.25-preview44",
+        "versionId": "???",
+        "published": "2019-01-26",
+        "link": "/csp-logs/changelog/0-1-25p44",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.25-preview43",
+        "versionId": "???",
+        "published": "2019-01-26",
+        "link": "/csp-logs/changelog/0-1-25p43",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.25-preview42",
+        "versionId": "???",
+        "published": "2019-01-21",
+        "link": "/csp-logs/changelog/0-1-25p42",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.25-preview41",
+        "versionId": "???",
+        "published": "2019-01-20",
+        "link": "/csp-logs/changelog/0-1-25p41",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.25-preview40",
+        "versionId": "???",
+        "published": "2019-01-12",
+        "link": "/csp-logs/changelog/0-1-25p40",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.25-preview39",
+        "versionId": "???",
+        "published": "2019-01-11",
+        "link": "/csp-logs/changelog/0-1-25p39",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.25-preview38",
+        "versionId": "???",
+        "published": "2019-01-11",
+        "link": "/csp-logs/changelog/0-1-25p38",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.25-preview36",
+        "versionId": "???",
+        "published": "2019-01-10",
+        "link": "/csp-logs/changelog/0-1-25p36",
+        "isPreview": true,
+        "yearMarker": "2019"
+      },
+      {
+        "versionName": "0.1.25-preview32",
+        "versionId": "???",
+        "published": "2018-12-11",
+        "link": "/csp-logs/changelog/0-1-25p32",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.25-preview31",
+        "versionId": "???",
+        "published": "2018-12-10",
+        "link": "/csp-logs/changelog/0-1-25p31",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.25-preview30",
+        "versionId": "???",
+        "published": "2018-12-08",
+        "link": "/csp-logs/changelog/0-1-25p30",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.25-preview29",
+        "versionId": "???",
+        "published": "2018-12-06",
+        "link": "/csp-logs/changelog/0-1-25p29",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.25-preview28",
+        "versionId": "???",
+        "published": "2018-12-04",
+        "link": "/csp-logs/changelog/0-1-25p28",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.25-preview27",
+        "versionId": "???",
+        "published": "2018-12-03",
+        "link": "/csp-logs/changelog/0-1-25p27",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.25-preview23",
+        "versionId": "???",
+        "published": "2018-11-25",
+        "link": "/csp-logs/changelog/0-1-25p23",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.25-preview22",
+        "versionId": "???",
+        "published": "2018-11-23",
+        "link": "/csp-logs/changelog/0-1-25p22",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.25-preview15",
+        "versionId": "???",
+        "published": "2018-11-11",
+        "link": "/csp-logs/changelog/0-1-25p15",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.25-preview14",
+        "versionId": "???",
+        "published": "2018-11-11",
+        "link": "/csp-logs/changelog/0-1-25p14",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.25-preview13",
+        "versionId": "???",
+        "published": "2018-11-10",
+        "link": "/csp-logs/changelog/0-1-25p13",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.25-preview12",
+        "versionId": "???",
+        "published": "2018-11-10",
+        "link": "/csp-logs/changelog/0-1-25p12",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.24",
+        "versionId": "???",
+        "published": "2018-10-26",
+        "link": "/csp-logs/changelog/0-1-24",
+        "isPreview": false,
+        "yearMarker": null
+      }
+    ],
+    [
+      {
+        "versionName": "0.1.23",
+        "versionId": "???",
+        "published": "2018-10-26",
+        "link": "/csp-logs/changelog/0-1-23",
+        "isPreview": false,
+        "yearMarker": null
+      }
+    ],
+    [
+      {
+        "versionName": "0.1.23-preview92",
+        "versionId": "???",
+        "published": "2018-09-24",
+        "link": "/csp-logs/changelog/0-1-23p92",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.23-preview91",
+        "versionId": "???",
+        "published": "2018-09-17",
+        "link": "/csp-logs/changelog/0-1-23p91",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.23-preview90",
+        "versionId": "???",
+        "published": "2018-09-17",
+        "link": "/csp-logs/changelog/0-1-23p90",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.23-preview89",
+        "versionId": "???",
+        "published": "2018-09-17",
+        "link": "/csp-logs/changelog/0-1-23p89",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.23-preview88",
+        "versionId": "???",
+        "published": "2018-09-15",
+        "link": "/csp-logs/changelog/0-1-23p88",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.23-preview87",
+        "versionId": "???",
+        "published": "2018-09-15",
+        "link": "/csp-logs/changelog/0-1-23p87",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.23-preview86",
+        "versionId": "???",
+        "published": "2018-09-13",
+        "link": "/csp-logs/changelog/0-1-23p86",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.23-preview84",
+        "versionId": "???",
+        "published": "2018-09-13",
+        "link": "/csp-logs/changelog/0-1-23p84",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.23-preview83",
+        "versionId": "???",
+        "published": "2018-09-12",
+        "link": "/csp-logs/changelog/0-1-23p83",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.23-preview81",
+        "versionId": "???",
+        "published": "2018-09-07",
+        "link": "/csp-logs/changelog/0-1-23p81",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.23-preview79",
+        "versionId": "???",
+        "published": "2018-09-03",
+        "link": "/csp-logs/changelog/0-1-23p79",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.23-preview77",
+        "versionId": "???",
+        "published": "2018-09-03",
+        "link": "/csp-logs/changelog/0-1-23p77",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.23-preview73",
+        "versionId": "???",
+        "published": "2018-09-01",
+        "link": "/csp-logs/changelog/0-1-23p73",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.23-preview70",
+        "versionId": "???",
+        "published": "2018-08-31",
+        "link": "/csp-logs/changelog/0-1-23p70",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.23-preview68",
+        "versionId": "???",
+        "published": "2018-08-30",
+        "link": "/csp-logs/changelog/0-1-23p68",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.23-preview67",
+        "versionId": "???",
+        "published": "2018-08-29",
+        "link": "/csp-logs/changelog/0-1-23p67",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.23-preview66",
+        "versionId": "???",
+        "published": "2018-08-27",
+        "link": "/csp-logs/changelog/0-1-23p66",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.23-preview65",
+        "versionId": "???",
+        "published": "2018-08-26",
+        "link": "/csp-logs/changelog/0-1-23p65",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.23-preview59",
+        "versionId": "???",
+        "published": "2018-08-25",
+        "link": "/csp-logs/changelog/0-1-23p59",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.23-preview58",
+        "versionId": "???",
+        "published": "2018-08-25",
+        "link": "/csp-logs/changelog/0-1-23p58",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.23-preview54",
+        "versionId": "???",
+        "published": "2018-08-23",
+        "link": "/csp-logs/changelog/0-1-23p54",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.23-preview51",
+        "versionId": "???",
+        "published": "2018-08-22",
+        "link": "/csp-logs/changelog/0-1-23p51",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.23-preview50",
+        "versionId": "???",
+        "published": "2018-08-21",
+        "link": "/csp-logs/changelog/0-1-23p50",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.23-preview49",
+        "versionId": "???",
+        "published": "2018-08-21",
+        "link": "/csp-logs/changelog/0-1-23p49",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.23-preview48",
+        "versionId": "???",
+        "published": "2018-08-19",
+        "link": "/csp-logs/changelog/0-1-23p48",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.23-preview47",
+        "versionId": "???",
+        "published": "2018-08-19",
+        "link": "/csp-logs/changelog/0-1-23p47",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.23-preview46",
+        "versionId": "???",
+        "published": "2018-08-19",
+        "link": "/csp-logs/changelog/0-1-23p46",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.23-preview45",
+        "versionId": "???",
+        "published": "2018-08-19",
+        "link": "/csp-logs/changelog/0-1-23p45",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.23-preview44",
+        "versionId": "???",
+        "published": "2018-08-19",
+        "link": "/csp-logs/changelog/0-1-23p44",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.23-preview43",
+        "versionId": "???",
+        "published": "2018-08-18",
+        "link": "/csp-logs/changelog/0-1-23p43",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.23-preview42",
+        "versionId": "???",
+        "published": "2018-08-17",
+        "link": "/csp-logs/changelog/0-1-23p42",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.23-preview41",
+        "versionId": "???",
+        "published": "2018-08-16",
+        "link": "/csp-logs/changelog/0-1-23p41",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.23-preview40",
+        "versionId": "???",
+        "published": "2018-08-16",
+        "link": "/csp-logs/changelog/0-1-23p40",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.23-preview39",
+        "versionId": "???",
+        "published": "2018-08-16",
+        "link": "/csp-logs/changelog/0-1-23p39",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.23-preview38",
+        "versionId": "???",
+        "published": "2018-08-16",
+        "link": "/csp-logs/changelog/0-1-23p38",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.23-preview35",
+        "versionId": "???",
+        "published": "2018-08-12",
+        "link": "/csp-logs/changelog/0-1-23p35",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.23-preview34",
+        "versionId": "???",
+        "published": "2018-08-12",
+        "link": "/csp-logs/changelog/0-1-23p34",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.23-preview32",
+        "versionId": "???",
+        "published": "2018-08-05",
+        "link": "/csp-logs/changelog/0-1-23p32",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.23-preview31",
+        "versionId": "???",
+        "published": "2018-08-04",
+        "link": "/csp-logs/changelog/0-1-23p31",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.23-preview30",
+        "versionId": "???",
+        "published": "2018-08-04",
+        "link": "/csp-logs/changelog/0-1-23p30",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.23-preview28",
+        "versionId": "???",
+        "published": "2018-08-04",
+        "link": "/csp-logs/changelog/0-1-23p28",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.23-preview27",
+        "versionId": "???",
+        "published": "2018-07-31",
+        "link": "/csp-logs/changelog/0-1-23p27",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.23-preview25",
+        "versionId": "???",
+        "published": "2018-07-25",
+        "link": "/csp-logs/changelog/0-1-23p25",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.23-preview24",
+        "versionId": "???",
+        "published": "2018-07-24",
+        "link": "/csp-logs/changelog/0-1-23p24",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.23-preview20",
+        "versionId": "???",
+        "published": "2018-07-20",
+        "link": "/csp-logs/changelog/0-1-23p20",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.23-preview19",
+        "versionId": "???",
+        "published": "2018-07-20",
+        "link": "/csp-logs/changelog/0-1-23p19",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.23-preview16",
+        "versionId": "???",
+        "published": "2018-07-17",
+        "link": "/csp-logs/changelog/0-1-23p16",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.23-preview15",
+        "versionId": "???",
+        "published": "2018-07-17",
+        "link": "/csp-logs/changelog/0-1-23p15",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.23-preview11",
+        "versionId": "???",
+        "published": "2018-07-07",
+        "link": "/csp-logs/changelog/0-1-23p11",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.23-preview10",
+        "versionId": "???",
+        "published": "2018-07-06",
+        "link": "/csp-logs/changelog/0-1-23p10",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.23-preview5",
+        "versionId": "???",
+        "published": "2018-07-04",
+        "link": "/csp-logs/changelog/0-1-23p5",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.23-preview4",
+        "versionId": "???",
+        "published": "2018-07-03",
+        "link": "/csp-logs/changelog/0-1-23p4",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.23-preview3",
+        "versionId": "???",
+        "published": "2018-07-02",
+        "link": "/csp-logs/changelog/0-1-23p3",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.23-preview2",
+        "versionId": "???",
+        "published": "2018-07-02",
+        "link": "/csp-logs/changelog/0-1-23p2",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.22",
+        "versionId": "???",
+        "published": "2018-07-01",
+        "link": "/csp-logs/changelog/0-1-22",
+        "isPreview": false,
+        "yearMarker": null
+      }
+    ],
+    [
+      {
+        "versionName": "0.1.22-preview32",
+        "versionId": "???",
+        "published": "2018-07-01",
+        "link": "/csp-logs/changelog/0-1-22p32",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.22-preview31",
+        "versionId": "???",
+        "published": "2018-06-30",
+        "link": "/csp-logs/changelog/0-1-22p31",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.22-preview30",
+        "versionId": "???",
+        "published": "2018-06-30",
+        "link": "/csp-logs/changelog/0-1-22p30",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.22-preview29",
+        "versionId": "???",
+        "published": "2018-06-29",
+        "link": "/csp-logs/changelog/0-1-22p29",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.22-preview28",
+        "versionId": "???",
+        "published": "2018-06-27",
+        "link": "/csp-logs/changelog/0-1-22p28",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.22-preview27",
+        "versionId": "???",
+        "published": "2018-06-27",
+        "link": "/csp-logs/changelog/0-1-22p27",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.22-preview26",
+        "versionId": "???",
+        "published": "2018-06-26",
+        "link": "/csp-logs/changelog/0-1-22p26",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.22-preview25",
+        "versionId": "???",
+        "published": "2018-06-26",
+        "link": "/csp-logs/changelog/0-1-22p25",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.22-preview24",
+        "versionId": "???",
+        "published": "2018-06-26",
+        "link": "/csp-logs/changelog/0-1-22p24",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.22-preview22",
+        "versionId": "???",
+        "published": "2018-06-25",
+        "link": "/csp-logs/changelog/0-1-22p22",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.22-preview21",
+        "versionId": "???",
+        "published": "2018-06-25",
+        "link": "/csp-logs/changelog/0-1-22p21",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.22-preview20",
+        "versionId": "???",
+        "published": "2018-06-24",
+        "link": "/csp-logs/changelog/0-1-22p20",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.22-preview19",
+        "versionId": "???",
+        "published": "2018-06-24",
+        "link": "/csp-logs/changelog/0-1-22p19",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.22-preview15",
+        "versionId": "???",
+        "published": "2018-06-24",
+        "link": "/csp-logs/changelog/0-1-22p15",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.22-preview14",
+        "versionId": "???",
+        "published": "2018-06-23",
+        "link": "/csp-logs/changelog/0-1-22p14",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.22-preview13",
+        "versionId": "???",
+        "published": "2018-06-23",
+        "link": "/csp-logs/changelog/0-1-22p13",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.22-preview12",
+        "versionId": "???",
+        "published": "2018-06-23",
+        "link": "/csp-logs/changelog/0-1-22p12",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.22-preview11",
+        "versionId": "???",
+        "published": "2018-06-19",
+        "link": "/csp-logs/changelog/0-1-22p11",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.21-preview11",
+        "versionId": "???",
+        "published": "2018-06-16",
+        "link": "/csp-logs/changelog/0-1-21p11",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.21-preview7",
+        "versionId": "???",
+        "published": "2018-06-14",
+        "link": "/csp-logs/changelog/0-1-21p7",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.21-preview6",
+        "versionId": "???",
+        "published": "2018-06-14",
+        "link": "/csp-logs/changelog/0-1-21p6",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.21-preview2",
+        "versionId": "???",
+        "published": "2018-06-13",
+        "link": "/csp-logs/changelog/0-1-21p2",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.21-preview1",
+        "versionId": "???",
+        "published": "2018-06-13",
+        "link": "/csp-logs/changelog/0-1-21p1",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.20",
+        "versionId": "???",
+        "published": "2018-06-13",
+        "link": "/csp-logs/changelog/0-1-20",
+        "isPreview": false,
+        "yearMarker": null
+      }
+    ],
+    [
+      {
+        "versionName": "0.1.19",
+        "versionId": "???",
+        "published": "2018-06-07",
+        "link": "/csp-logs/changelog/0-1-19",
+        "isPreview": false,
+        "yearMarker": null
+      }
+    ],
+    [
+      {
+        "versionName": "0.1.18",
+        "versionId": "???",
+        "published": "2018-06-06",
+        "link": "/csp-logs/changelog/0-1-18",
+        "isPreview": false,
+        "yearMarker": null
+      }
+    ],
+    [
+      {
+        "versionName": "0.1.18-preview2",
+        "versionId": "???",
+        "published": "2018-06-06",
+        "link": "/csp-logs/changelog/0-1-18p2",
+        "isPreview": true,
+        "yearMarker": null
+      },
+      {
+        "versionName": "0.1.18-preview1",
+        "versionId": "???",
+        "published": "2018-06-05",
+        "link": "/csp-logs/changelog/0-1-18p1",
+        "isPreview": true,
+        "yearMarker": "2018"
+      }
+    ]
+  ]
+}

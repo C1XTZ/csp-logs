@@ -1,6 +1,7 @@
 :root {
     --vt-offset: 3rem;
     --vt-line-width: 1px;
+    --vt-row-height: 33px;
 }
 
 /* Page widths */
@@ -85,7 +86,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    top: 50%;
+    top: calc(var(--vt-i, 0) * var(--vt-row-height) + 16px);
     pointer-events: none;
     user-select: none;
 
@@ -101,8 +102,9 @@
     }
 
     .vt-caret {
-        color: var(--muted-foreground);
-        margin-top: -2px;
+        color: var(--accent);
+        margin-top: -1rem;
+        margin-bottom: -0.15rem;
     }
 
     .vt-left & {
@@ -172,11 +174,6 @@
         .vt-preview & {
             color: var(--accent-foreground);
         }
-    }
-
-    .vt-name-caret {
-        flex-shrink: 0;
-        transition: color 0.15s;
     }
 }
 
@@ -259,6 +256,7 @@ p[id^='starlight__on-this-page'] {
     display: none;
 }
 
+/* Handle thin display widths*/
 @media (max-width: 47.95rem) {
     .vt-timeline {
         max-width: 100%;

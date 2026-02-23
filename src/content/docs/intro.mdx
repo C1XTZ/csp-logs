@@ -3,8 +3,12 @@ slug: /
 title: CSP Changelog Archive
 ---
 
+import versionsData from '../../data/versions.json';
+
 An archive of CSP changelogs for versions that were publicly available via [acstuff.club/patch](https://acstuff.club/patch/) or on [x4fab's Patreon](https://www.patreon.com/x4fab) at some point.  
 The "Dev Logs" style texts from the patreon releases are not included, unless no other changelog was available.
+
+There are currently changelogs are available for **{versionsData.counts.total}** versions, of which **{versionsData.counts.previews}** are previews and **{versionsData.counts.releases}** are public releases.
 
 import VersionTable from '../../components/VersionTable.astro';
 

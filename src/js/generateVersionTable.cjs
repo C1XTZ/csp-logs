@@ -3,7 +3,7 @@ const path = require('path');
 
 const CONFIG = {
   changelogsDir: path.resolve(__dirname, '../content/docs/changelog'),
-  outputFile: path.resolve(__dirname, '../components/VersionTable.astro'),
+  outputFile: path.resolve(__dirname, '../data/versions.json'),
 };
 
 const REGEX = {
@@ -13,181 +13,93 @@ const REGEX = {
   semver: /^v?(\d+)\.(\d+)\.(\d+)(?:-([a-zA-Z]+)(\d+)?)?/,
 };
 
-const ROW_HEIGHT = 33;
-
 function parseVersion(name) {
   const m = String(name).trim().match(REGEX.semver);
   if (!m) return { major: 0, minor: 0, patch: 0, preLabel: '', preNum: 0 };
-  return {
-    major: +m[1],
-    minor: +m[2],
-    patch: +m[3],
-    preLabel: m[4] || '',
-    preNum: m[5] ? +m[5] : 0,
-  };
+  return { major: +m[1], minor: +m[2], patch: +m[3], preLabel: m[4] || '', preNum: m[5] ? +m[5] : 0 };
 }
 
 function compareEntries(a, b) {
-  if (a.versionIdNumeric !== b.versionIdNumeric && a.versionIdNumeric != null && b.versionIdNumeric != null) {
-    return b.versionIdNumeric - a.versionIdNumeric;
-  }
-
-  const va = a.parsed;
-  const vb = b.parsed;
-
+  if (a._versionIdNumeric != null && b._versionIdNumeric != null) return b._versionIdNumeric - a._versionIdNumeric;
+  const va = a._parsed,
+    vb = b._parsed;
   if (va.major !== vb.major) return vb.major - va.major;
   if (va.minor !== vb.minor) return vb.minor - va.minor;
   if (va.patch !== vb.patch) return vb.patch - va.patch;
-
   if (!va.preLabel && vb.preLabel) return -1;
   if (va.preLabel && !vb.preLabel) return 1;
   if (va.preLabel !== vb.preLabel) return vb.preLabel.localeCompare(va.preLabel);
   if (va.preNum !== vb.preNum) return vb.preNum - va.preNum;
-
-  if (a.versionIdNumeric != null && b.versionIdNumeric == null) return -1;
-  if (a.versionIdNumeric == null && b.versionIdNumeric != null) return 1;
-
+  if (a._versionIdNumeric != null) return -1;
+  if (b._versionIdNumeric != null) return 1;
   return 0;
 }
 
-const readChangelogFiles = () =>
-  fs
+const readChangelogFiles = () => {
+  const entries = fs
     .readdirSync(CONFIG.changelogsDir)
     .filter((f) => f.endsWith('.md') || f.endsWith('.mdx'))
     .map((filename) => {
       const content = fs.readFileSync(path.join(CONFIG.changelogsDir, filename), 'utf8');
       const title = content.match(REGEX.title)?.[1]?.trim();
       const versionIdRaw = content.match(REGEX.versionId)?.[1]?.trim() ?? null;
+      const versionIdNumeric = /^\d+$/.test(versionIdRaw) ? parseInt(versionIdRaw, 10) : null;
       const versionName = title || filename.replace(/\.mdx?$/, '');
-
       return {
         versionName,
-        versionIdRaw: versionIdRaw ?? '???',
-        versionIdNumeric: /^\d+$/.test(versionIdRaw) ? parseInt(versionIdRaw, 10) : null,
-        published: content.match(REGEX.published)?.[1] || null,
+        versionId: versionIdRaw ?? '???',
+        published: content.match(REGEX.published)?.[1] ?? null,
         link: `/csp-logs/changelog/${filename.replace(/\.mdx?$/, '')}`,
-        parsed: parseVersion(versionName),
+        isPreview: versionName.includes('-preview'),
+        yearMarker: null,
+        _versionIdNumeric: versionIdNumeric,
+        _parsed: parseVersion(versionName),
       };
     })
     .sort(compareEntries);
+
+  const seenYears = new Set();
+  for (let i = entries.length - 1; i >= 0; i--) {
+    const year = entries[i].published?.slice(0, 4);
+    if (year && !seenYears.has(year)) {
+      seenYears.add(year);
+      entries[i].yearMarker = year;
+    }
+  }
+
+  return entries;
+};
 
 const groupByRelease = (entries) => {
   const groups = [];
   let current = [];
   for (const entry of entries) {
     current.push(entry);
-    if (!entry.versionName.includes('-preview')) {
-      groups.push({ entries: current, published: current[0].published });
+    if (!entry.isPreview) {
+      groups.push(current);
       current = [];
     }
   }
-  if (current.length) groups.push({ entries: current, published: current[0].published });
+  if (current.length) groups.push(current);
   return groups;
 };
-
-const CARET_LEFT = `<svg class="vt-name-caret" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>`;
-const CARET_RIGHT = `<svg class="vt-name-caret" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>`;
-const ICON_COPY = `<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>`;
-
-const createTimeline = (groups) => {
-  let currentYear = null;
-  return groups
-    .map((group, idx) => {
-      const side = idx % 2 === 0 ? 'vt-left' : 'vt-right';
-      const markers = [];
-
-      const rows = group.entries
-        .map((e, i) => {
-          const year = e.published?.slice(0, 4);
-          if (year && year !== currentYear) {
-            currentYear = year;
-            markers.push(`<div class="vt-year-stem" style="top:${i * ROW_HEIGHT + 16}px"><span>${year}</span></div>`);
-          }
-
-          const isRel = !e.versionName.includes('-preview');
-          const id = e.versionIdNumeric ?? e.versionIdRaw;
-          return `<div class="vt-entry ${isRel ? 'vt-release' : 'vt-preview'}">
-            <a href="${e.link}" class="vt-name">${side === 'vt-left' ? CARET_LEFT : ''}${e.versionName}${side === 'vt-right' ? CARET_RIGHT : ''}</a>
-            <span class="vt-id"><code data-copy="${id}">${id}</code>
-            <button class="vt-copy" data-copy="${id}">${ICON_COPY}</button></span></div>`;
-        })
-        .join('');
-
-      return `<div class="vt-card-wrap ${side}">${markers.join('')}<div class="vt-card">${rows}</div></div>`;
-    })
-    .join('\n');
-};
-
-const generateAstroContent = (groups) => `---
-// This file is auto-generated by generateVersionTable.cjs
----
-<div class="vt-wrapper">
-  <p>Below is a lookup table for versions and their respective build IDs.<br/>
-  Preview versions are grouped with the latest public release available at the time of release.<br/>
-  Click the version name to read the changelog or click the version build ID to copy it.</p>
-  <div class="vt-timeline">
-    ${createTimeline(groups)}
-  </div>
-</div>
-
-<script>
-let toast: HTMLElement | null = null;
-
-function getToast() {
-  if (!toast) {
-    toast = document.createElement('div');
-    toast.className = 'vt-toast';
-    document.body.appendChild(toast);
-  }
-  return toast;
-}
-
-function positionToast(el: HTMLElement) {
-  const r = el.getBoundingClientRect();
-  Object.assign(getToast().style, { position: 'fixed', top: \`\${r.top - 32}px\`, left: \`\${r.left + r.width / 2}px\`, transform: 'translateX(-50%)', margin: '0' });
-}
-
-document.addEventListener('click', (e) => {
-  const el = (e.target as Element)?.closest('[data-copy]') as HTMLElement;
-  if (!el) return;
-
-  navigator.clipboard.writeText(el.dataset.copy || '');
-
-  const anchor = el.closest('.vt-id') as HTMLElement || el;
-  const t = getToast();
-  t.textContent = 'Copied!';
-  t.classList.remove('vt-toast-hover', 'vt-toast-show');
-  positionToast(anchor);
-  void t.offsetWidth;
-  t.classList.add('vt-toast-show');
-  setTimeout(() => t.classList.remove('vt-toast-show'), 900);
-});
-
-document.addEventListener('mouseover', (e: MouseEvent) => {
-  const el = (e.target as Element)?.closest('.vt-id') as HTMLElement;
-  if (!el) return;
-  const t = getToast();
-  if (t.classList.contains('vt-toast-show')) return;
-  t.textContent = 'Copy ID';
-  positionToast(el);
-  t.classList.add('vt-toast-hover');
-});
-
-document.addEventListener('mouseout', (e) => {
-  const el = (e.target as Element)?.closest('.vt-id') as HTMLElement;
-  if (!el || (e.relatedTarget as Element)?.closest('.vt-id')) return;
-  getToast().classList.remove('vt-toast-hover');
-});
-</script>`;
 
 const main = () => {
   try {
     const entries = readChangelogFiles();
     if (!entries.length) return console.warn('No valid entries.');
-    const grouped = groupByRelease(entries);
+
+    const groups = groupByRelease(entries);
+    const previews = entries.filter((e) => e.isPreview).length;
+
+    const output = {
+      counts: { total: entries.length, previews, releases: entries.length - previews },
+      groups: groups.map((groupEntries) => groupEntries.map(({ _versionIdNumeric, _parsed, ...entry }) => entry)),
+    };
+
     fs.mkdirSync(path.dirname(CONFIG.outputFile), { recursive: true });
-    fs.writeFileSync(CONFIG.outputFile, generateAstroContent(grouped));
-    console.log(`Generated ${entries.length} versions in ${grouped.length} groups.`);
+    fs.writeFileSync(CONFIG.outputFile, JSON.stringify(output, null, 2));
+    console.log(`Generated versions.json with ${entries.length} versions across ${groups.length} groups.`);
   } catch (err) {
     console.error(err.message);
     process.exit(1);
