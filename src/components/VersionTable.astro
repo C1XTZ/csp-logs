@@ -1,5 +1,6 @@
 ---
 import data from '../data/versions.json';
+import { timeAgo } from '../js/timeAgo.js';
 
 const CARET_UP = `<svg class="vt-caret" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>`;
 const CARET_LEFT = `<svg class="vt-name-caret" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>`;
@@ -37,6 +38,7 @@ const { counts, groups } = data;
                                         {entry.versionName}
                                         {side === 'vt-right' && <Fragment set:html={CARET_RIGHT} />}
                                     </a>
+                                    <span class="vt-time">{timeAgo(entry.published)}</span>
                                     <span class="vt-id">
                                         <code data-copy={entry.versionId}>{entry.versionId}</code>
                                         <button class="vt-copy" data-copy={entry.versionId}>

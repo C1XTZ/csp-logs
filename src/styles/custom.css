@@ -88,7 +88,6 @@
     justify-content: center;
     top: calc(var(--vt-i, 0) * var(--vt-row-height) + 16px);
     pointer-events: none;
-    user-select: none;
 
     span {
         background: var(--card);
@@ -204,6 +203,18 @@
             color: var(--muted-foreground);
         }
     }
+}
+
+.vt-time {
+    font-size: 0.65rem;
+    color: var(--ring);
+    white-space: nowrap;
+    flex-shrink: 0;
+    pointer-events: none;
+}
+
+.vt-release .vt-time {
+    color: var(--muted-foreground);
 }
 
 .vt-copy {
