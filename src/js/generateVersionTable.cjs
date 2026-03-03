@@ -21,18 +21,15 @@ function parseVersion(name) {
 
 function compareEntries(a, b) {
   if (a._versionIdNumeric != null && b._versionIdNumeric != null) return b._versionIdNumeric - a._versionIdNumeric;
-  const va = a._parsed,
-    vb = b._parsed;
-  if (va.major !== vb.major) return vb.major - va.major;
-  if (va.minor !== vb.minor) return vb.minor - va.minor;
-  if (va.patch !== vb.patch) return vb.patch - va.patch;
+  const va = a._parsed, vb = b._parsed;
+  for (const key of ['major', 'minor', 'patch']) {
+    if (va[key] !== vb[key]) return vb[key] - va[key];
+  }
   if (!va.preLabel && vb.preLabel) return -1;
   if (va.preLabel && !vb.preLabel) return 1;
   if (va.preLabel !== vb.preLabel) return vb.preLabel.localeCompare(va.preLabel);
   if (va.preNum !== vb.preNum) return vb.preNum - va.preNum;
-  if (a._versionIdNumeric != null) return -1;
-  if (b._versionIdNumeric != null) return 1;
-  return 0;
+  return (b._versionIdNumeric != null) - (a._versionIdNumeric != null);
 }
 
 const readChangelogFiles = () => {
@@ -101,7 +98,7 @@ const main = () => {
 
     const output = {
       counts: { total: entries.length, previews, releases: entries.length - previews },
-      groups: groups.map((groupEntries) => groupEntries.map(({ _versionIdNumeric, _parsed, ...entry }) => entry)),
+      groups: groups.map((g) => g.map(({ _versionIdNumeric, _parsed, ...entry }) => entry)),
     };
 
     fs.mkdirSync(path.dirname(CONFIG.outputFile), { recursive: true });

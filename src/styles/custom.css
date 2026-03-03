@@ -306,11 +306,16 @@ a[href$='/latest/public'][aria-current='page'] .entry-badge {
     gap: 1rem !important;
 }
 
-/* Hide "on this page" and "overview" table of content items */
-:is(starlight-toc, mobile-starlight-toc) li:has(a[href='#_top']),
+/* Hide "on this page" table of content item */
 p[id^='starlight__on-this-page'] {
     display: none;
 }
+
+/* Fix table of content top margin */
+.toc > div {
+    margin-top: 0 !important;
+}
+
 
 /* Fix padding without table of contents */
 body:not(:has(.container-main)) .breadcrumb {
