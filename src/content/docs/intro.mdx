@@ -10,12 +10,12 @@ export const allVersions = versionsData.groups.flat();
 export const latestPublic = allVersions.find((v) => !v.isPreview);
 export const latestPreview = allVersions.find((v) => v.isPreview);
 
-import { timeAgo } from '../../js/timeAgo.js';
+import TimeAgo from '../../components/TimeAgo.astro';
 
 An archive of CSP changelogs for versions that were available to the public via patreon, acstuff.club or for really old versions the CSP discord.
 
 There are currently changelogs available for **{versionsData.counts.total}** versions, of which **{versionsData.counts.previews}** are **previews** and **{versionsData.counts.releases}** are **public** releases.  
-Latest versions: **Public:** <a href={latestPublic.link}>{latestPublic.versionName}</a> released {timeAgo(latestPublic.published)} - **Preview:** <a href={latestPreview.link}>{latestPreview.versionName}</a> released {timeAgo(latestPreview.published)}.
+Latest versions: **Public:** <a href={latestPublic.link}>{latestPublic.versionName}</a> released <TimeAgo date={latestPublic.published} /> - **Preview:** <a href={latestPreview.link}>{latestPreview.versionName}</a> released <TimeAgo date={latestPreview.published} />.
 
 **Preview** versions are exclusive to $1 patreons on [x4fab's Patreon](https://www.patreon.com/x4fab) and typically include additional features, most notably the RainFX module.  
 **Public** versions are available for free via [acstuff.club/patch](https://acstuff.club/patch/) or directly through [Content Manager](https://acstuff.club/app/).
