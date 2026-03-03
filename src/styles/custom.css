@@ -2,6 +2,7 @@
     --vt-offset: 3rem;
     --vt-line-width: 1px;
     --vt-row-height: 33px;
+    --vt-stem-left: 1.3rem;
 }
 
 /* Page widths */
@@ -9,11 +10,16 @@
 .container-wrapper {
     max-width: 120rem !important;
 }
+
 .container-main .main {
     max-width: none !important;
 }
 
 /* Version List Tree */
+.vt-wrapper {
+    overflow-x: auto;
+}
+
 .vt-desc {
     color: var(--muted-foreground);
     font-size: 0.9rem;
@@ -22,28 +28,29 @@
 
 .vt-timeline {
     position: relative;
-    max-width: 50rem;
     display: flex;
     flex-direction: column;
     gap: 0.4rem;
+    max-width: 50rem;
+    min-width: 43.5rem;
 
     &::before {
         content: '';
         position: absolute;
         inset-block: 0;
         left: 50%;
-        width: var(--vt-line-width);
-        transform: translateX(-50%);
-        background: var(--border);
         z-index: 0;
+        width: var(--vt-line-width);
+        background: var(--border);
+        transform: translateX(-50%);
     }
 }
 
 .vt-card-wrap {
     display: flex;
-    width: calc(50% - var(--vt-offset));
     position: relative;
     z-index: 1;
+    width: calc(50% - var(--vt-offset));
 
     &.vt-left {
         margin-inline-end: auto;
@@ -55,9 +62,9 @@
     .vt-card {
         position: relative;
         width: 100%;
+        overflow: hidden;
         border: 1px solid var(--border);
         border-radius: var(--radius);
-        overflow: hidden;
 
         &::after {
             content: '';
@@ -80,23 +87,23 @@
 
 .vt-year-stem {
     position: absolute;
-    white-space: nowrap;
     z-index: 2;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     top: calc(var(--vt-i, 0) * var(--vt-row-height) + 16px);
+    white-space: nowrap;
     pointer-events: none;
 
     span {
         background: var(--card);
         border: 1px solid var(--border);
+        border-radius: 0.5rem;
+        padding: 0.35rem 0.4rem;
         color: var(--muted-foreground);
         font-size: 0.9rem;
         font-weight: 600;
-        padding: 0.35rem 0.4rem;
-        border-radius: 0.5rem;
         line-height: 1;
     }
 
@@ -119,11 +126,10 @@
 
 .vt-entry {
     display: flex;
-    min-width: 14rem;
     align-items: center;
     justify-content: space-between;
-    padding: 0.4rem 0.75rem;
     gap: 1rem;
+    padding: 0.4rem 0.75rem;
     margin-top: 0 !important;
 
     & + & {
@@ -137,7 +143,6 @@
     .vt-name {
         justify-content: flex-end;
     }
-
     .vt-id {
         flex-direction: row-reverse;
     }
@@ -155,18 +160,17 @@
 }
 
 .vt-name {
-    text-decoration: none;
-    font-size: 0.8rem;
-    flex: 1;
-    min-width: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    transition: color 0.15s;
-    color: inherit;
     display: flex;
     align-items: center;
     gap: 0.25rem;
+    flex: 1;
+    overflow: hidden;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: inherit;
+    font-size: 0.8rem;
+    transition: color 0.15s;
 
     &:hover {
         color: var(--muted-foreground);
@@ -180,14 +184,15 @@
     display: flex;
     align-items: center;
     gap: 0.4rem;
+    flex-shrink: 0;
     white-space: nowrap;
 
     code {
-        font-size: 0.8rem;
-        background: none;
         padding: 0;
         border: none;
+        background: none;
         color: inherit;
+        font-size: 0.8rem;
         cursor: pointer;
         transition: color 0.15s;
     }
@@ -196,7 +201,6 @@
         code,
         .vt-copy {
             color: var(--accent-foreground);
-            transition: color 0.15s;
         }
         .vt-release & code,
         .vt-release & .vt-copy {
@@ -206,46 +210,45 @@
 }
 
 .vt-time {
-    font-size: 0.65rem;
-    color: var(--ring);
-    white-space: nowrap;
     flex-shrink: 0;
+    color: var(--ring);
+    font-size: 0.65rem;
+    white-space: nowrap;
     pointer-events: none;
-}
 
-.vt-release .vt-time {
-    color: var(--muted-foreground);
+    .vt-release & {
+        color: var(--muted-foreground);
+    }
 }
 
 .vt-copy {
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: inherit;
-    padding: 0.15rem;
     display: flex;
     align-items: center;
+    padding: 0.15rem;
+    border: none;
     border-radius: calc(var(--radius) - 2px);
+    background: none;
+    color: inherit;
+    cursor: pointer;
 }
 
 .vt-toast {
     position: fixed;
-    background: var(--popover);
+    z-index: 100;
+    padding: 0.2rem 0.5rem;
     border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--popover);
     color: var(--popover-foreground);
     font-size: 0.75rem;
-    padding: 0.2rem 0.5rem;
-    border-radius: var(--radius);
-    pointer-events: none;
-    opacity: 0;
-    z-index: 100;
     white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
     transition: opacity 0.15s;
 
     &.vt-toast-hover {
         opacity: 1;
     }
-
     &.vt-toast-show {
         animation: vt-fade 0.9s forwards;
     }
@@ -261,48 +264,56 @@
     }
 }
 
-/* Hide on this page and overview table of content items */
+/* Hide "on this page" and "overview" table of content items */
 :is(starlight-toc, mobile-starlight-toc) li:has(a[href='#_top']),
 p[id^='starlight__on-this-page'] {
     display: none;
 }
 
-/* Handle thin display widths*/
-@media (max-width: 47.95rem) {
+/* Handle thin display widths */
+@media (max-width: calc(43.5rem + 20rem)) {
+    aside.aside {
+        display: none !important;
+    }
+    .container-wrapper-main {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+@media (max-width: 46rem) {
     .vt-timeline {
+        overflow-x: auto;
         max-width: 100%;
-        gap: 0.4rem;
+        min-width: 0;
+        width: 100%;
 
         &::before {
-            left: 1.475rem;
+            left: calc(var(--vt-stem-left) + 5px);
             transform: none;
         }
     }
 
     .vt-card-wrap {
         width: calc(100% - 1rem - var(--vt-offset));
+        min-width: 19rem;
         margin-inline-start: calc(1rem + var(--vt-offset)) !important;
         margin-inline-end: 0 !important;
 
         .vt-card {
             margin-top: 0 !important;
-        }
 
-        .vt-card::after {
-            left: calc(var(--vt-offset) * -1) !important;
-            right: auto !important;
-            width: var(--vt-offset);
+            &::after {
+                left: calc(var(--vt-offset) * -1) !important;
+                right: auto !important;
+                width: var(--vt-offset);
+            }
         }
     }
 
     .vt-year-stem {
-        left: calc((1.475rem + var(--vt-offset)) * -1) !important;
+        left: calc((var(--vt-stem-left) + var(--vt-offset)) * -1) !important;
         right: auto !important;
         transform: translate(10%, -48%) !important;
-    }
-
-    .vt-entry {
-        min-width: 14rem;
     }
 
     .vt-right .vt-entry {
@@ -310,7 +321,6 @@ p[id^='starlight__on-this-page'] {
 
         .vt-name {
             flex-direction: row-reverse;
-
             .vt-name-caret {
                 transform: scaleX(-1);
             }
