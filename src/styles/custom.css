@@ -149,12 +149,13 @@
 }
 
 .vt-release {
-    background: var(--accent);
     font-weight: 600;
+    background: var(--accent);
     color: var(--accent-foreground);
 }
 
 .vt-preview {
+    font-weight: 500;
     background: var(--card);
     color: var(--muted-foreground);
 }
@@ -170,6 +171,7 @@
     white-space: nowrap;
     color: inherit;
     font-size: 0.8rem;
+    font-weight: inherit;
     transition: color 0.15s;
 
     &:hover {
@@ -180,12 +182,26 @@
     }
 }
 
+.vt-time {
+    flex-shrink: 0;
+    color: var(--ring);
+    font-size: 0.65rem;
+    font-weight: inherit;
+    white-space: nowrap;
+    cursor: default;
+
+    .vt-release & {
+        color: var(--muted-foreground);
+    }
+}
+
 .vt-id {
     display: flex;
     align-items: center;
     gap: 0.4rem;
     flex-shrink: 0;
     white-space: nowrap;
+    font-weight: inherit;
 
     code {
         padding: 0;
@@ -193,6 +209,7 @@
         background: none;
         color: inherit;
         font-size: 0.8rem;
+        font-weight: inherit;
         cursor: pointer;
         transition: color 0.15s;
     }
@@ -206,18 +223,6 @@
         .vt-release & .vt-copy {
             color: var(--muted-foreground);
         }
-    }
-}
-
-.vt-time {
-    flex-shrink: 0;
-    color: var(--ring);
-    font-size: 0.65rem;
-    white-space: nowrap;
-    cursor: default;
-
-    .vt-release & {
-        color: var(--muted-foreground);
     }
 }
 
