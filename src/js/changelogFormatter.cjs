@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const dir = path.join(__dirname, '../content/docs/changelog');
+const dir = path.join(__dirname, '../content/docs');
 
 function filenameToTitle(name) {
   const m = name.match(/^(\d+)-(\d+)-(\d+)(?:p(\d+))?$/);

@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const CONFIG = {
-  changelogsDir: path.resolve(__dirname, '../content/docs/changelog'),
+  changelogsDir: path.resolve(__dirname, '../content/docs'),
   outputFile: path.resolve(__dirname, '../data/versions.json'),
 };
 
@@ -38,7 +38,7 @@ function compareEntries(a, b) {
 const readChangelogFiles = () => {
   const entries = fs
     .readdirSync(CONFIG.changelogsDir)
-    .filter((f) => f.endsWith('.md') || f.endsWith('.mdx'))
+    .filter((f) => (f.endsWith('.md') || f.endsWith('.mdx')) && !['intro.mdx', 'versions.mdx'].includes(f))
     .map((filename) => {
       const content = fs.readFileSync(path.join(CONFIG.changelogsDir, filename), 'utf8');
       const title = content.match(REGEX.title)?.[1]?.trim();
@@ -49,7 +49,7 @@ const readChangelogFiles = () => {
         versionName,
         versionId: versionIdRaw ?? '???',
         published: content.match(REGEX.published)?.[1] ?? null,
-        link: `/csp-logs/changelog/${filename.replace(/\.mdx?$/, '')}`,
+        link: `/csp-logs/${filename.replace(/\.mdx?$/, '')}`,
         isPreview: versionName.includes('-preview'),
         yearMarker: null,
         _versionIdNumeric: versionIdNumeric,
