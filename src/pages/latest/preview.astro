@@ -1,0 +1,29 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import versions from '../../data/versions.json';
+
+const flat = versions.groups.flat();
+const latest = flat.find((v) => v.isPreview === true);
+
+if (!latest) {
+    return new Response(null, { status: 404, statusText: 'Not found' });
+}
+
+const slug = latest.link.split('/').pop();
+
+interface MarkdownDoc {
+    Content: any;
+    frontmatter: Record<string, any>;
+}
+
+const pages = import.meta.glob<MarkdownDoc>('../../content/docs/*.md');
+
+const pagePath = `../../content/docs/${slug}.md`;
+const pageResolver = pages[pagePath];
+
+const { Content, frontmatter } = await pageResolver();
+---
+
+<StarlightPage frontmatter={{ title: frontmatter.title }}>
+    <Content />
+</StarlightPage>
