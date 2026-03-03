@@ -8,7 +8,7 @@ import path from 'path';
 const changelogsDir = path.join(process.cwd(), 'src', 'content', 'docs');
 const changelogFiles = fs
   .readdirSync(changelogsDir)
-  .filter((f) => (f.endsWith('.md') || f.endsWith('.mdx')) && !['intro.mdx', 'versions.mdx'].includes(f))
+  .filter((f) => (f.endsWith('.md') || f.endsWith('.mdx')) && !['home.mdx', 'versions.mdx'].includes(f))
   .map((f) => {
     const content = fs.readFileSync(path.join(changelogsDir, f), 'utf8');
     const title = content.match(/title:\s*(.+)/)?.[1]?.trim() || f.replace(/\.mdx?$/, '');

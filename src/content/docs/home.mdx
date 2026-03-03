@@ -1,6 +1,6 @@
 ---
 slug: /
-title: CSP Changelog Archive
+title: Home
 tableOfContents: false
 ---
 
@@ -13,11 +13,13 @@ export const latestPreview = allVersions.find((v) => v.isPreview);
 An archive of CSP changelogs for versions that were available to the Public via patreon, acstuff.club or for really old versions the CSP discord.
 
 There are currently changelogs available for **{versionsData.counts.total}** versions, of which **{versionsData.counts.previews}** are **Previews** and **{versionsData.counts.releases}** are **Public** releases.  
-The latest **Public** version <a href={latestPublic.link}>{latestPublic.versionName}</a> was released <span data-timeago={latestPublic.published}></span>, the latest **Preview** version <a href={latestPreview.link}>{latestPreview.versionName}</a> was released <span data-timeago={latestPreview.published}></span>.
+The latest **Public** version <a href="/csp-logs/latest/public">{latestPublic.versionName}</a> was released <span data-timeago={latestPublic.published}></span>, the latest **Preview** version <a href="/csp-logs/latest/preview">{latestPreview.versionName}</a> was released <span data-timeago={latestPreview.published}></span>.
 
 **Preview** versions are exclusive to $1 patreons on [x4fab's Patreon](https://www.patreon.com/x4fab) and typically include additional features, most notably the RainFX module.  
 **Public** versions are available for free via [acstuff.club/patch](https://acstuff.club/patch/) or directly through [Content Manager](https://acstuff.club/app/).
 
 import VersionTable from '../../components/VersionTable.astro';
 
-<VersionTable />
+<div style="margin-top: -0.5rem">
+  <VersionTable />
+</div>

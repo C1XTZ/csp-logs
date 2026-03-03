@@ -38,7 +38,7 @@ function compareEntries(a, b) {
 const readChangelogFiles = () => {
   const entries = fs
     .readdirSync(CONFIG.changelogsDir)
-    .filter((f) => (f.endsWith('.md') || f.endsWith('.mdx')) && !['intro.mdx', 'versions.mdx'].includes(f))
+    .filter((f) => (f.endsWith('.md') || f.endsWith('.mdx')) && !['home.mdx', 'versions.mdx'].includes(f))
     .map((filename) => {
       const content = fs.readFileSync(path.join(CONFIG.changelogsDir, filename), 'utf8');
       const title = content.match(REGEX.title)?.[1]?.trim();
