@@ -1,11 +1,19 @@
 {
   "counts": {
-    "total": 254,
-    "previews": 182,
+    "total": 255,
+    "previews": 183,
     "releases": 72
   },
   "groups": [
     [
+      {
+        "versionName": "0.3.0-preview302",
+        "versionId": "3839",
+        "published": "2026-03-02",
+        "link": "/csp-logs/changelog/0-3-0p302",
+        "isPreview": true,
+        "yearMarker": "2026"
+      },
       {
         "versionName": "0.3.0-preview212",
         "versionId": "3749",
