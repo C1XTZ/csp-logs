@@ -85,9 +85,16 @@ const groupByRelease = (entries) => {
 };
 
 const main = () => {
+  console.log('\x1b[36m[Version Table Generator]\x1b[0m');
+
+  const files = fs.readdirSync(CONFIG.changelogsDir).filter((f) => f.endsWith('.md') || f.endsWith('.mdx'));
+  const newestSrc = Math.max(...files.map((f) => fs.statSync(path.join(CONFIG.changelogsDir, f)).mtimeMs));
+  const outMtime = fs.existsSync(CONFIG.outputFile) ? fs.statSync(CONFIG.outputFile).mtimeMs : 0;
+  if (outMtime >= newestSrc) return console.log(`\x1b[1m\x1b[32m  OK\x1b[0m versions.json is up to date`);
+
   try {
     const entries = readChangelogFiles();
-    if (!entries.length) return console.warn('No valid entries.');
+    if (!entries.length) return console.warn('\x1b[1m\x1b[33mWARN\x1b[0m No valid entries.');
 
     const groups = groupByRelease(entries);
     const previews = entries.filter((e) => e.isPreview).length;
@@ -99,9 +106,9 @@ const main = () => {
 
     fs.mkdirSync(path.dirname(CONFIG.outputFile), { recursive: true });
     fs.writeFileSync(CONFIG.outputFile, JSON.stringify(output, null, 2));
-    console.log(`Generated versions.json with ${entries.length} versions across ${groups.length} groups.`);
+    console.log(`\x1b[1m\x1b[32m  OK\x1b[0m versions.json → \x1b[1m${entries.length}\x1b[0m versions, \x1b[1m${groups.length}\x1b[0m groups (\x1b[1m${previews}\x1b[0m previews, \x1b[1m${output.counts.releases}\x1b[0m releases)`);
   } catch (err) {
-    console.error(err.message);
+    console.error(`\x1b[1m\x1b[31m ERR\x1b[0m ${err.message}`);
     process.exit(1);
   }
 };

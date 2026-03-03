@@ -4,8 +4,9 @@
   "version": "0.0.1",
   "scripts": {
     "generate": "node src/js/generateVersionTable.cjs",
-    "dev": "npm run generate && astro dev",
-    "build": "npm run generate && astro build",
+    "formatter": "node src/js/changelogFormatter.cjs",
+    "dev": "npm run formatter && npm run generate && astro dev",
+    "build": "npm run formatter && npm run generate && astro build",
     "start": "astro dev",
     "preview": "astro preview",
     "astro": "astro"
