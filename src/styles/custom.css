@@ -3,6 +3,8 @@
     --vt-line-width: 1px;
     --vt-row-height: 33px;
     --vt-stem-left: 1.3rem;
+    --sl-font: 'Google Sans', sans-serif !important;
+    --sl-font-mono: 'Google Sans Code', monospace !important;
 }
 
 /* Page widths */
@@ -267,6 +269,41 @@
     100% {
         opacity: 0;
     }
+}
+
+/* Sidebar timeAgo */
+a[href$='/latest/preview'] .entry-badge,
+a[href$='/latest/public'] .entry-badge {
+    margin-inline-start: auto;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    background: none;
+    color: var(--ring);
+    font-size: 0.65rem;
+    font-weight: inherit;
+    white-space: nowrap;
+    cursor: default;
+    text-transform: none;
+    letter-spacing: normal;
+}
+
+a[href$='/latest/preview'][aria-current='page'] .entry-badge,
+a[href$='/latest/public'][aria-current='page'] .entry-badge {
+    color: var(--accent-foreground);
+}
+
+/* Fix sidebar padding */
+.entry-title {
+    font-size: 1.2rem !important;
+}
+
+.sidebar {
+    padding-top: 1rem !important;
+}
+
+.container-sidebar {
+    gap: 1rem !important;
 }
 
 /* Hide "on this page" and "overview" table of content items */

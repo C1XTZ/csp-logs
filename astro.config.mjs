@@ -32,6 +32,14 @@ const changelogFiles = fs
   .reverse()
   .map(({ slug, title }) => ({ label: title, link: `/${slug}` }));
 
+//timeAgo for Sidebar
+import versions from './src/data/versions.json' assert { type: 'json' };
+import { timeAgo } from './src/js/timeAgo.js';
+
+const flat = versions.groups.flat();
+const latestPreview = flat.find((v) => v.isPreview === true);
+const latestPublic = flat.find((v) => v.isPreview === false);
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://c1xtz.github.io/',
@@ -51,7 +59,15 @@ export default defineConfig({
         { icon: 'github', label: 'Github', href: 'https://github.com/ac-custom-shaders-patch' },
       ],
       sidebar: [
-        { label: 'Version List', link: 'versions' },
+        {
+          label: 'Overview',
+          items: [
+            { slug: '/' },
+            { label: 'Latest Preview', link: '/latest/preview', badge: { text: latestPreview ? timeAgo(latestPreview.published) : '', variant: 'default' } },
+            { label: 'Latest Public', link: '/latest/public', badge: { text: latestPublic ? timeAgo(latestPublic.published) : '', variant: 'default' } },
+            { slug: 'versions' },
+          ],
+        },
         { label: 'Changelogs', items: changelogFiles },
       ],
       plugins: [
