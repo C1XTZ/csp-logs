@@ -214,7 +214,7 @@
     color: var(--ring);
     font-size: 0.65rem;
     white-space: nowrap;
-    pointer-events: none;
+    cursor: default;
 
     .vt-release & {
         color: var(--muted-foreground);

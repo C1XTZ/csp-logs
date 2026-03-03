@@ -92,7 +92,20 @@ const { counts, groups } = data;
         setTimeout(() => t.classList.remove('vt-toast-show'), 900);
     });
 
+    function formatFullDate(dateStr: string) {
+        return new Date(dateStr).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+    }
+
     document.addEventListener('mouseover', (e: MouseEvent) => {
+        const timeEl = (e.target as Element)?.closest('.vt-time') as HTMLElement;
+        if (timeEl?.dataset.timeago) {
+            const t = getToast();
+            if (t.classList.contains('vt-toast-show')) return;
+            t.textContent = formatFullDate(timeEl.dataset.timeago);
+            positionToast(timeEl);
+            t.classList.add('vt-toast-hover');
+            return;
+        }
         const el = (e.target as Element)?.closest('.vt-id') as HTMLElement;
         if (!el) return;
         const t = getToast();
@@ -103,6 +116,11 @@ const { counts, groups } = data;
     });
 
     document.addEventListener('mouseout', (e) => {
+        const timeEl = (e.target as Element)?.closest('.vt-time') as HTMLElement;
+        if (timeEl && !(e.relatedTarget as Element)?.closest('.vt-time')) {
+            getToast().classList.remove('vt-toast-hover');
+            return;
+        }
         const el = (e.target as Element)?.closest('.vt-id') as HTMLElement;
         if (!el || (e.relatedTarget as Element)?.closest('.vt-id')) return;
         getToast().classList.remove('vt-toast-hover');
