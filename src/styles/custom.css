@@ -275,6 +275,11 @@ p[id^='starlight__on-this-page'] {
     display: none;
 }
 
+/* Fix padding without table of contents */
+body:not(:has(.container-main)) .breadcrumb {
+    padding-top: 32px;
+}
+
 /* Handle thin display widths */
 @media (max-width: calc(43.5rem + 20rem)) {
     aside.aside {
