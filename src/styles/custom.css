@@ -316,19 +316,34 @@ p[id^='starlight__on-this-page'] {
     margin-top: 0 !important;
 }
 
-
 /* Fix padding without table of contents */
 body:not(:has(.container-main)) .breadcrumb {
     padding-top: 32px;
 }
 
 /* Handle thin display widths */
-@media (max-width: calc(43.5rem + 20rem)) {
+@media (max-width: 1023px) {
     aside.aside {
         display: none !important;
     }
     .container-wrapper-main {
         grid-template-columns: 1fr !important;
+    }
+    site-search {
+        flex: 1 1 0% !important;
+        width: 100% !important;
+    }
+    site-search button[data-open-modal] {
+        width: 100% !important;
+    }
+    .site-title-wrapper {
+        display: none !important;
+    }
+    .header-right {
+        justify-content: space-between !important;
+    }
+    button.show-modal {
+        display: inline-flex !important;
     }
 }
 
