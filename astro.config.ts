@@ -1,15 +1,14 @@
-// @ts-check
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import starlightThemeBlack from 'starlight-theme-black';
 import fs from 'fs';
 import path from 'path';
+import { getChangelogFiles } from './src/ts/changelogUtils.ts';
 
 const changelogsDir = path.join(process.cwd(), 'src', 'content', 'docs');
-const changelogFiles = fs
-  .readdirSync(changelogsDir)
-  .filter((f) => (f.endsWith('.md') || f.endsWith('.mdx')) && !['home.mdx', 'versions.mdx'].includes(f))
-  .map((f) => {
+
+const changelogFiles = getChangelogFiles(changelogsDir)
+  .map((f: string) => {
     const content = fs.readFileSync(path.join(changelogsDir, f), 'utf8');
     const title = content.match(/title:\s*(.+)/)?.[1]?.trim() || f.replace(/\.mdx?$/, '');
     const slug = f.replace(/\.mdx?$/, '');
@@ -34,7 +33,6 @@ const changelogFiles = fs
 
 //timeAgo for Sidebar
 import versions from './src/data/versions.json' assert { type: 'json' };
-import { timeAgo } from './src/js/timeAgo.js';
 
 const flat = versions.groups.flat();
 const latestPreview = flat.find((v) => v.isPreview === true);
@@ -61,12 +59,7 @@ export default defineConfig({
       sidebar: [
         {
           label: 'Overview',
-          items: [
-            { slug: '/' },
-            { label: 'Latest Preview', link: '/latest/preview', badge: { text: latestPreview ? timeAgo(latestPreview.published) : '', variant: 'default' } },
-            { label: 'Latest Public', link: '/latest/public', badge: { text: latestPublic ? timeAgo(latestPublic.published) : '', variant: 'default' } },
-            { slug: 'versions' },
-          ],
+          items: [{ slug: '/' }, { label: 'Latest Preview', link: '/latest/preview', badge: { text: ' ', variant: 'default' } }, { label: 'Latest Public', link: '/latest/public', badge: { text: ' ', variant: 'default' } }, { slug: 'versions' }],
         },
         { label: 'Changelogs', items: changelogFiles },
       ],

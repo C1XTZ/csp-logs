@@ -3,13 +3,17 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "generate": "node src/js/generateVersionTable.cjs",
-    "formatter": "node src/js/changelogFormatter.cjs",
+    "formatter": "tsx src/ts/changelogFormatter.ts",
+    "generate": "tsx src/ts/generateVersionTable.ts",
     "dev": "npm run formatter && npm run generate && astro dev",
     "build": "npm run formatter && npm run generate && astro build",
     "start": "astro dev",
     "preview": "astro preview",
     "astro": "astro"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3",
+    "tsx": "^4.0.0"
   },
   "dependencies": {
     "@astrojs/starlight": "^0.37.6",

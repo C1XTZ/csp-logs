@@ -1,13 +1,14 @@
 ---
+// @ts-ignore
 import config from 'virtual:starlight/user-config';
+// @ts-ignore
+import type { StarlightIcon } from '@astrojs/starlight/components/Icons';
 import LanguageSelect from '@astrojs/starlight/components/LanguageSelect.astro';
 import Search from 'starlight-theme-black/overrides/Search.astro';
 import ThemeSelect from 'starlight-theme-black/overrides/ThemeSelect.astro';
 import SiteTitle from 'starlight-theme-black/overrides/SiteTitle.astro';
 import { Icon } from '@astrojs/starlight/components';
-// @ts-ignore
 import NavBar from '../../node_modules/starlight-theme-black/src/components/NavBar.astro';
-// @ts-ignore
 import MobileMenuToggle from '../../node_modules/starlight-theme-black/src/overrides/MobileMenuToggle.astro';
 
 const shouldRenderSearch = config.pagefind || config.components.Search !== '@astrojs/starlight/components/Search.astro';
@@ -24,7 +25,7 @@ const links = config.social || [];
     <nav class="header-nav">
         <div class="social-icons">
             {
-                links.map(({ label, href, icon }) => (
+                links.map(({ label, href, icon }: { label: string; href: string; icon: StarlightIcon }) => (
                     <a href={href} rel="me" class="sl-flex button" data-variant="ghost">
                         <span class="sr-only">{label}</span>
                         <Icon name={icon} />
@@ -83,3 +84,26 @@ const links = config.social || [];
         -webkit-mask: url(/favicon.svg) no-repeat center / contain;
     }
 </style>
+
+<script>
+// Adds timeAgo for all [data-timeago] elements including sidebar badges
+    import { timeAgo } from '../ts/timeAgo.ts';
+    import versions from '../data/versions.json';
+
+    const flat = versions.groups.flat();
+    const latestPreview = flat.find((v) => v.isPreview === true)?.published ?? null;
+    const latestPublic = flat.find((v) => v.isPreview === false)?.published ?? null;
+
+    function applyTimeAgo() {
+        const previewBadge = document.querySelector("a[href$='/latest/preview'] .entry-badge");
+        const publicBadge = document.querySelector("a[href$='/latest/public'] .entry-badge");
+        if (previewBadge && latestPreview) previewBadge.setAttribute('data-timeago', latestPreview);
+        if (publicBadge && latestPublic) publicBadge.setAttribute('data-timeago', latestPublic);
+
+        document.querySelectorAll('[data-timeago]').forEach((el) => {
+            (el as HTMLElement).textContent = timeAgo((el as HTMLElement).dataset.timeago ?? null);
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', applyTimeAgo);
+</script>
