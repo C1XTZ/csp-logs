@@ -86,7 +86,7 @@ const links = config.social || [];
 </style>
 
 <script>
-// Adds timeAgo for all [data-timeago] elements including sidebar badges
+    // Adds timeAgo for all [data-timeago] elements including sidebar badges
     import { timeAgo } from '../ts/timeAgo.ts';
     import versions from '../data/versions.json';
 
@@ -99,6 +99,18 @@ const links = config.social || [];
         const publicBadge = document.querySelector("a[href$='/latest/public'] .entry-badge");
         if (previewBadge && latestPreview) previewBadge.setAttribute('data-timeago', latestPreview);
         if (publicBadge && latestPublic) publicBadge.setAttribute('data-timeago', latestPublic);
+
+        document.querySelectorAll('a').forEach((anchor) => {
+            const badge = anchor.querySelector('.entry-badge');
+            if (!badge) return;
+            const href = anchor.getAttribute('href');
+            if (href && !href.includes('/latest/')) {
+                const version = flat.find((v) => href.endsWith(v.link.replace('/csp-logs', '')) || href.endsWith(v.link));
+                if (version && version.published) {
+                    badge.setAttribute('data-timeago', version.published);
+                }
+            }
+        });
 
         document.querySelectorAll('[data-timeago]').forEach((el) => {
             (el as HTMLElement).textContent = timeAgo((el as HTMLElement).dataset.timeago ?? null);

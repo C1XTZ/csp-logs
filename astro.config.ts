@@ -4,6 +4,9 @@ import starlightThemeBlack from 'starlight-theme-black';
 import fs from 'fs';
 import path from 'path';
 import { getChangelogFiles } from './src/ts/changelogUtils.ts';
+import versions from './src/data/versions.json' assert { type: 'json' };
+
+const flat = versions.groups.flat();
 
 const changelogsDir = path.join(process.cwd(), 'src', 'content', 'docs');
 
@@ -29,14 +32,13 @@ const changelogFiles = getChangelogFiles(changelogsDir)
     return +preA - +preB;
   })
   .reverse()
-  .map(({ slug, title }) => ({ label: title, link: `/${slug}` }));
-
-//timeAgo for Sidebar
-import versions from './src/data/versions.json' assert { type: 'json' };
-
-const flat = versions.groups.flat();
-const latestPreview = flat.find((v) => v.isPreview === true);
-const latestPublic = flat.find((v) => v.isPreview === false);
+  .map(({ slug, title }) => {
+    const version = flat.find((v) => v.link === `/csp-logs/${slug}` || v.link === `/${slug}`);
+    if (version && version.published) {
+      return { label: title, link: `/${slug}`, badge: { text: ' ', variant: 'default' as const } };
+    }
+    return { label: title, link: `/${slug}` };
+  });
 
 // https://astro.build/config
 export default defineConfig({
