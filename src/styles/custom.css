@@ -26,6 +26,14 @@
     grid-template-columns: var(--custom-sidebar-width) minmax(0, 1fr) !important;
 }
 
+/* Reduce markdown list margins */
+.sl-markdown-content ul:not(:where(.not-content *)),
+.sl-markdown-content ol:not(:where(.not-content *)) {
+    margin-inline-start: -0.5rem;
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
 /* Version List Tree */
 .vt-wrapper {
     position: relative;
