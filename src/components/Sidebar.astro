@@ -1,0 +1,29 @@
+---
+import ThemeSidebar from 'starlight-theme-black/overrides/Sidebar.astro';
+import type { StarlightRouteData } from '@astrojs/starlight/route-data';
+import { markSidebarItems } from '../ts/sidebarUtils';
+import versions from '../data/versions.json';
+
+const starlightRoute = (Astro.locals as { starlightRoute: StarlightRouteData }).starlightRoute;
+const { sidebar, id } = starlightRoute;
+
+const flatVersions = versions.groups.flat();
+const latestPreview = flatVersions.find((v) => v.isPreview === true);
+const latestPublic = flatVersions.find((v) => v.isPreview === false);
+
+const latestPreviewSlug = latestPreview?.link.replace('/csp-logs/', '') || '';
+const latestPublicSlug = latestPublic?.link.replace('/csp-logs/', '') || '';
+
+const isLatestPreviewPage = id === 'latest/preview' || (latestPreviewSlug && id === latestPreviewSlug);
+const isLatestPublicPage = id === 'latest/public' || (latestPublicSlug && id === latestPublicSlug);
+
+if (isLatestPreviewPage) {
+    markSidebarItems(sidebar, ['latest/preview', latestPreviewSlug]);
+}
+
+if (isLatestPublicPage) {
+    markSidebarItems(sidebar, ['latest/public', latestPublicSlug]);
+}
+---
+
+<ThemeSidebar />
