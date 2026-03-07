@@ -187,6 +187,7 @@ const { groups } = data;
         });
 
         document.addEventListener('pointerover', (e) => {
+            if (e.pointerType === 'touch') return;
             showHintForTarget(e.target);
         });
 
