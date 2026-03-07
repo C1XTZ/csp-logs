@@ -7,11 +7,11 @@ const ICON_COPY = `<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12
 const { groups } = data;
 ---
 
+<p>
+    The table below lists all available CSP versions alongside their build IDs.<br />
+    <b>Preview</b> versions are grouped with the latest <b>Public</b> release available at the time they were released.<br />
+</p>
 <div class="vt-wrapper">
-    <p>
-        The table below lists all available CSP versions alongside their build IDs.<br />
-        <b>Preview</b> versions are grouped with the latest <b>Public</b> release available at the time they were released.<br />
-    </p>
     <div class="vt-timeline" role="list" aria-label="CSP version timeline">
         {
             groups.map((entries, idx) => {
