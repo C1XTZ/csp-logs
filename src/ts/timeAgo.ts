@@ -1,7 +1,8 @@
 export function timeAgo(dateStr: string | null): string {
   if (!dateStr) return 'unknown';
 
-  const date = new Date(dateStr);
+  const isoDateOnly = /^\d{4}-\d{2}-\d{2}$/;
+  const date = new Date(isoDateOnly.test(dateStr) ? `${dateStr}T00:00:00Z` : dateStr);
   if (isNaN(date.getTime())) return 'unknown';
 
   const diff = Date.now() - date.getTime();

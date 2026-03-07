@@ -43,18 +43,29 @@ function readChangelogFiles(): ChangelogEntry[] {
     })
     .sort(compareEntries);
 
-  const seenYears = new Set<string>();
-  for (let i = entries.length - 1; i >= 0; i--) {
-    const entry = entries[i];
-    if (!entry) continue;
-    const year = entry.published?.slice(0, 4);
-    if (year && !seenYears.has(year)) {
-      seenYears.add(year);
-      entry.yearMarker = year;
-    }
-  }
+  placeOldestYearMarkers(entries);
 
   return entries;
+}
+
+function placeOldestYearMarkers(entries: ChangelogEntry[]): void {
+  const oldestByYear = new Map<string, { index: number; time: number }>();
+
+  entries.forEach((entry, index) => {
+    const year = entry.published?.slice(0, 4);
+    if (!year) return;
+
+    const time = Date.parse(`${entry.published}T00:00:00Z`);
+    if (Number.isNaN(time)) return;
+
+    const current = oldestByYear.get(year);
+    if (!current || time < current.time) oldestByYear.set(year, { index, time });
+  });
+
+  oldestByYear.forEach(({ index }, year) => {
+    const entry = entries[index];
+    if (entry) entry.yearMarker = year;
+  });
 }
 
 function groupByRelease(entries: ChangelogEntry[]): ChangelogEntry[][] {
@@ -84,7 +95,9 @@ async function main(): Promise<void> {
       return;
     }
 
-    const newestSrc = Math.max(...files.map((f: string) => fs.statSync(path.join(CONFIG.changelogsDir, f)).mtimeMs));
+    const newestChangelogSrc = Math.max(...files.map((f: string) => fs.statSync(path.join(CONFIG.changelogsDir, f)).mtimeMs));
+    const generatorMtime = fs.statSync(path.resolve(process.cwd(), 'src', 'ts', 'generateVersionTable.ts')).mtimeMs;
+    const newestSrc = Math.max(newestChangelogSrc, generatorMtime);
 
     const outMtime = fs.existsSync(CONFIG.outputFile) ? fs.statSync(CONFIG.outputFile).mtimeMs : 0;
 

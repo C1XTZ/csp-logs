@@ -35,7 +35,7 @@ const changelogFiles = getChangelogFiles(changelogsDir)
   .map(({ slug, title }) => {
     const version = flat.find((v) => v.link === `/csp-logs/${slug}` || v.link === `/${slug}`);
     if (version && version.published) {
-      return { label: title, link: `/${slug}`, badge: { text: ' ', variant: 'default' as const } };
+      return { label: title, link: `/${slug}`, badge: { text: 'some time ago', variant: 'default' as const } };
     }
     return { label: title, link: `/${slug}` };
   });
@@ -52,6 +52,7 @@ export default defineConfig({
       tableOfContents: { minHeadingLevel: 1 },
       components: {
         Header: './src/components/Header.astro', //adds Content Manager social icon
+        Sidebar: './src/components/Sidebar.astro', //adds Bidirectional activation of sidebar items (going to /latest/public will also highlight the version its mirroring in the sidebar and vice versa)
       },
       social: [
         { icon: 'discord', label: 'Discord', href: 'https://discord.gg/nM4Xkrt' },
@@ -61,13 +62,13 @@ export default defineConfig({
       sidebar: [
         {
           label: 'Overview',
-          items: [{ slug: '/' }, { label: 'Latest Preview', link: '/latest/preview', badge: { text: ' ', variant: 'default' } }, { label: 'Latest Public', link: '/latest/public', badge: { text: ' ', variant: 'default' } }, { slug: 'versions' }],
+          items: [{ slug: '/' }, { label: 'Latest Preview', link: '/latest/preview', badge: { text: 'some time ago', variant: 'default' } }, { label: 'Latest Public', link: '/latest/public', badge: { text: 'some time ago', variant: 'default' } }, { slug: 'versions' }],
         },
         { label: 'Changelogs', items: changelogFiles },
       ],
       plugins: [
         starlightThemeBlack({
-          footerText: 'This site is maintained by [C1XTZ](https://github.com/C1XTZ), a 3rd party unaffiated with Custom Shaders Patch. You can contriube [here.](https://github.com/C1XTZ/csp-logs)',
+          footerText: 'This site is maintained by [C1XTZ](https://github.com/C1XTZ), a 3rd party unaffiliated with Custom Shaders Patch. You can contribute [here.](https://github.com/C1XTZ/csp-logs)',
         }),
       ],
     }),

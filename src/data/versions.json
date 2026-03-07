@@ -166,7 +166,7 @@
         "published": "2025-01-08",
         "link": "/csp-logs/0-2-7p1",
         "isPreview": true,
-        "yearMarker": null
+        "yearMarker": "2025"
       },
       {
         "versionName": "0.2.6",
@@ -174,7 +174,7 @@
         "published": "2025-01-08",
         "link": "/csp-logs/0-2-6",
         "isPreview": false,
-        "yearMarker": "2025"
+        "yearMarker": null
       }
     ],
     [
@@ -368,7 +368,7 @@
         "published": "2022-02-28",
         "link": "/csp-logs/0-1-78p1",
         "isPreview": true,
-        "yearMarker": null
+        "yearMarker": "2022"
       },
       {
         "versionName": "0.1.77",
@@ -376,7 +376,7 @@
         "published": "2022-02-28",
         "link": "/csp-logs/0-1-77",
         "isPreview": false,
-        "yearMarker": "2022"
+        "yearMarker": null
       }
     ],
     [
@@ -516,7 +516,7 @@
         "published": "2021-01-08",
         "link": "/csp-logs/0-1-72p1",
         "isPreview": true,
-        "yearMarker": null
+        "yearMarker": "2021"
       },
       {
         "versionName": "0.1.71",
@@ -534,7 +534,7 @@
         "published": "2021-01-08",
         "link": "/csp-logs/0-1-70",
         "isPreview": false,
-        "yearMarker": "2021"
+        "yearMarker": null
       }
     ],
     [

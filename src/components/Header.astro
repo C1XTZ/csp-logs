@@ -8,8 +8,8 @@ import Search from 'starlight-theme-black/overrides/Search.astro';
 import ThemeSelect from 'starlight-theme-black/overrides/ThemeSelect.astro';
 import SiteTitle from 'starlight-theme-black/overrides/SiteTitle.astro';
 import { Icon } from '@astrojs/starlight/components';
-import NavBar from '../../node_modules/starlight-theme-black/src/components/NavBar.astro';
-import MobileMenuToggle from '../../node_modules/starlight-theme-black/src/overrides/MobileMenuToggle.astro';
+import NavBar from './theme/NavBar.astro';
+import MobileMenuToggle from './theme/MobileMenuToggle.astro';
 
 const shouldRenderSearch = config.pagefind || config.components.Search !== '@astrojs/starlight/components/Search.astro';
 const links = config.social || [];
@@ -93,6 +93,11 @@ const links = config.social || [];
     const flat = versions.groups.flat();
     const latestPreview = flat.find((v) => v.isPreview === true)?.published ?? null;
     const latestPublic = flat.find((v) => v.isPreview === false)?.published ?? null;
+    const publishedByPath = new Map(flat.filter((v) => Boolean(v.published)).map((v) => [normalizePath(v.link), v.published as string]));
+
+    function normalizePath(href: string) {
+        return href.replace(/^https?:\/\/[^/]+/i, '').replace(/^\/csp-logs(?=\/|$)/, '');
+    }
 
     function applyTimeAgo() {
         const previewBadge = document.querySelector("a[href$='/latest/preview'] .entry-badge");
@@ -100,16 +105,15 @@ const links = config.social || [];
         if (previewBadge && latestPreview) previewBadge.setAttribute('data-timeago', latestPreview);
         if (publicBadge && latestPublic) publicBadge.setAttribute('data-timeago', latestPublic);
 
-        document.querySelectorAll('a').forEach((anchor) => {
-            const badge = anchor.querySelector('.entry-badge');
-            if (!badge) return;
-            const href = anchor.getAttribute('href');
-            if (href && !href.includes('/latest/')) {
-                const version = flat.find((v) => href.endsWith(v.link.replace('/csp-logs', '')) || href.endsWith(v.link));
-                if (version && version.published) {
-                    badge.setAttribute('data-timeago', version.published);
-                }
-            }
+        document.querySelectorAll('.entry-badge').forEach((badgeEl) => {
+            const badge = badgeEl as HTMLElement;
+            if (badge.dataset.timeago) return;
+
+            const href = badge.closest('a')?.getAttribute('href');
+            if (!href || href.includes('/latest/')) return;
+
+            const published = publishedByPath.get(normalizePath(href));
+            if (published) badge.dataset.timeago = published;
         });
 
         document.querySelectorAll('[data-timeago]').forEach((el) => {
@@ -117,5 +121,11 @@ const links = config.social || [];
         });
     }
 
-    document.addEventListener('DOMContentLoaded', applyTimeAgo);
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', applyTimeAgo, { once: true });
+    } else {
+        applyTimeAgo();
+    }
+
+    document.addEventListener('astro:page-load', applyTimeAgo);
 </script>
