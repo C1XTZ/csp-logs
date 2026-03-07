@@ -59,6 +59,7 @@ const { groups } = data;
 
     let toast: HTMLElement | null = null;
     let hideTimer: ReturnType<typeof setTimeout> | null = null;
+    let currentAnchor: HTMLElement | null = null;
 
     function getToast() {
         if (!toast) {
@@ -86,6 +87,7 @@ const { groups } = data;
     function hideToast() {
         const el = getToast();
         el.classList.remove('vt-toast-hover', 'vt-toast-show');
+        currentAnchor = null;
     }
 
     function isCopyToastVisible() {
@@ -103,6 +105,7 @@ const { groups } = data;
         el.textContent = text;
         el.classList.remove('vt-toast-hover', 'vt-toast-show');
         positionToast(anchor);
+        currentAnchor = anchor;
         if (mode === 'copy') {
             void el.offsetWidth;
             el.classList.add('vt-toast-show');
@@ -160,12 +163,15 @@ const { groups } = data;
 
         const timeEl = target.closest('.vt-time') as HTMLElement | null;
         if (timeEl?.dataset.timeago) {
+            if (currentAnchor === timeEl) return;
             showToast(timeEl, getFullDate(timeEl.dataset.timeago), 'hint');
             return;
         }
 
         const idEl = target.closest('.vt-id') as HTMLElement | null;
         if (idEl) {
+            if (isCopyToastVisible() && currentAnchor === idEl) return;
+            if (currentAnchor === idEl) return;
             showToast(idEl, TOAST_COPY_HINT, 'hint');
         }
     }

@@ -43,13 +43,13 @@ function readChangelogFiles(): ChangelogEntry[] {
     })
     .sort(compareEntries);
 
-  placeOldestYearMarkers(entries);
+  placeYearMarkers(entries);
 
   return entries;
 }
 
-function placeOldestYearMarkers(entries: ChangelogEntry[]): void {
-  const oldestByYear = new Map<string, { index: number; time: number }>();
+function placeYearMarkers(entries: ChangelogEntry[]): void {
+  const entryByYear = new Map<string, { index: number; time: number }>();
 
   entries.forEach((entry, index) => {
     const year = entry.published?.slice(0, 4);
@@ -58,11 +58,11 @@ function placeOldestYearMarkers(entries: ChangelogEntry[]): void {
     const time = Date.parse(`${entry.published}T00:00:00Z`);
     if (Number.isNaN(time)) return;
 
-    const current = oldestByYear.get(year);
-    if (!current || time < current.time) oldestByYear.set(year, { index, time });
+    const current = entryByYear.get(year);
+    if (!current || time > current.time) entryByYear.set(year, { index, time });
   });
 
-  oldestByYear.forEach(({ index }, year) => {
+  entryByYear.forEach(({ index }, year) => {
     const entry = entries[index];
     if (entry) entry.yearMarker = year;
   });

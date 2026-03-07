@@ -251,6 +251,10 @@
     .vt-release & {
         color: color-mix(in oklab, var(--accent-foreground) 65%, var(--muted-foreground) 35%);
     }
+
+    & > * {
+        pointer-events: none;
+    }
 }
 
 .vt-time[data-timeago],
@@ -297,6 +301,10 @@
     &:focus-visible {
         outline: 2px solid color-mix(in oklab, var(--foreground) 25%, transparent 75%);
         outline-offset: 2px;
+    }
+
+    & > * {
+        pointer-events: none;
     }
 }
 
