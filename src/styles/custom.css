@@ -9,18 +9,16 @@
     --sl-font: 'Google Sans', sans-serif !important;
     --sl-font-mono: 'Google Sans Code', monospace !important;
     --custom-sidebar-width: 15rem;
+    --vt-release-left-gradient: linear-gradient(90deg, color-mix(in oklab, var(--accent) 25%, white 75%) 0%, color-mix(in oklab, var(--accent) 80%, black 20%) 100%);
+    --vt-release-right-gradient: linear-gradient(270deg, color-mix(in oklab, var(--accent) 25%, white 75%) 0%, color-mix(in oklab, var(--accent) 80%, black 20%) 100%);
 }
 
 [data-theme='dark'] {
     --vt-shadow-sm: 0 2px 5px rgb(255 255 255 / 20%);
     --vt-shadow-md: 0 2px 10px rgb(255 255 255 / 35%);
 
-    .vt-release {
-        background: linear-gradient(90deg, color-mix(in oklab, var(--accent) 75%, white 25%) 0%, color-mix(in oklab, var(--accent) 70%, black 30%) 100%);
-    }
-    .vt-right .vt-release {
-        background: linear-gradient(270deg, color-mix(in oklab, var(--accent) 75%, white 25%) 0%, color-mix(in oklab, var(--accent) 70%, black 30%) 100%);
-    }
+    --vt-release-left-gradient: linear-gradient(90deg, color-mix(in oklab, var(--accent) 75%, white 25%) 0%, color-mix(in oklab, var(--accent) 70%, black 30%) 100%);
+    --vt-release-right-gradient: linear-gradient(270deg, color-mix(in oklab, var(--accent) 75%, white 25%) 0%, color-mix(in oklab, var(--accent) 70%, black 30%) 100%);
 }
 
 /* Page widths */
@@ -44,6 +42,12 @@
     margin-inline-start: -0.5rem;
     margin-top: 0.75rem;
     margin-bottom: 0.75rem;
+}
+
+/* footer side borders */
+.container-wrapper {
+    border-right-style: none !important;
+    border-left-style: none !important;
 }
 
 /* Version List Tree */
@@ -206,12 +210,12 @@
 .vt-release {
     --vt-hover-color: var(--muted-foreground);
     font-weight: 700;
-    background: linear-gradient(90deg, color-mix(in oklab, var(--accent) 25%, white 75%) 0%, color-mix(in oklab, var(--accent) 80%, black 20%) 100%);
+    background: var(--vt-release-left-gradient);
     color: var(--accent-foreground);
 }
 
 .vt-right .vt-release {
-    background: linear-gradient(270deg, color-mix(in oklab, var(--accent) 25%, white 75%) 0%, color-mix(in oklab, var(--accent) 80%, black 20%) 100%);
+    background: var(--vt-release-right-gradient);
 }
 
 .vt-preview {
@@ -457,10 +461,10 @@ body:not(:has(.container-main)) .breadcrumb {
     }
 }
 
-@media (max-width: 46rem) {
+@media (max-width: 47rem) {
     .vt-timeline {
         overflow-x: auto;
-        max-width: 100%;
+        max-width: 28rem;
         min-width: 0;
         width: 100%;
 
@@ -484,12 +488,16 @@ body:not(:has(.container-main)) .breadcrumb {
     .vt-year-stem {
         left: calc((var(--vt-stem-left) + var(--vt-offset)) * -1) !important;
         right: auto !important;
-        transform: translate(5%, -50%) !important;
+        transform: translate(-10%, -50%) !important;
     }
 
     .vt-time {
         margin-inline-start: auto !important;
         margin-inline-end: 0 !important;
+    }
+
+    .vt-right .vt-release {
+        background: var(--vt-release-left-gradient);
     }
 
     .vt-right .vt-entry {
