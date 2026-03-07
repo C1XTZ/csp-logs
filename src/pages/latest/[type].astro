@@ -1,6 +1,7 @@
 ---
 import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
 import versions from '../../data/versions.json';
+import { getEntry, render } from 'astro:content';
 
 export function getStaticPaths() {
     return [
@@ -10,21 +11,18 @@ export function getStaticPaths() {
 }
 
 const { isPreview } = Astro.props;
-const latest = versions.groups.flat().find((v) => v.isPreview === isPreview);
 
+const latest = versions.groups.flat().find((v) => v.isPreview === isPreview);
 if (!latest) return new Response(null, { status: 404, statusText: 'Not found' });
 
 const slug = latest.link.split('/').pop();
+if (!slug) return new Response(null, { status: 404, statusText: 'Not found' });
 
-interface MarkdownDoc {
-    Content: any;
-    frontmatter: Record<string, any>;
-    getHeadings: () => { depth: number; slug: string; text: string }[];
-}
+const entry = await getEntry('docs', slug);
+if (!entry) return new Response(null, { status: 404, statusText: 'Not found' });
 
-const pages = import.meta.glob<MarkdownDoc>('../../content/docs/*.md');
-const { Content, frontmatter, getHeadings } = await pages[`../../content/docs/${slug}.md`]();
-const headings = getHeadings();
+const { Content, headings } = await render(entry);
+const frontmatter = entry.data;
 ---
 
 <StarlightPage frontmatter={frontmatter as any} headings={headings}>
