@@ -50,16 +50,16 @@ const { groups } = data;
     </div>
 </div>
 
-<script>
+<script is:inline>
     const TOAST_COPY_SUCCESS = 'Copied ID!';
     const TOAST_COPY_HINT = 'Copy ID';
     const TOAST_COPY_ERROR = 'Copy failed';
     const TOAST_COPY_DURATION_MS = 900;
     const TOAST_ERROR_DURATION_MS = 1200;
 
-    let toast: HTMLElement | null = null;
-    let hideTimer: ReturnType<typeof setTimeout> | null = null;
-    let currentAnchor: HTMLElement | null = null;
+    let toast;
+    let hideTimer;
+    let currentAnchor;
 
     function getToast() {
         if (!toast) {
@@ -72,11 +72,11 @@ const { groups } = data;
         return toast;
     }
 
-    function clamp(num: number, min: number, max: number) {
+    function clamp(num, min, max) {
         return Math.max(min, Math.min(max, num));
     }
 
-    function positionToast(anchor: HTMLElement) {
+    function positionToast(anchor) {
         const el = getToast();
         const r = anchor.getBoundingClientRect();
         const top = Math.max(10, r.top - 34);
@@ -99,7 +99,7 @@ const { groups } = data;
         hideToast();
     }
 
-    function showToast(anchor: HTMLElement, text: string, mode: 'hint' | 'copy' = 'hint', duration = 0) {
+    function showToast(anchor, text, mode, duration = 0) {
         const el = getToast();
         if (hideTimer) clearTimeout(hideTimer);
         el.textContent = text;
@@ -117,7 +117,7 @@ const { groups } = data;
         el.classList.add('vt-toast-hover');
     }
 
-    async function copyText(text: string) {
+    async function copyText(text) {
         if (!text) return false;
         if (navigator.clipboard?.writeText) {
             await navigator.clipboard.writeText(text);
@@ -134,41 +134,41 @@ const { groups } = data;
         return copied;
     }
 
-    async function handleCopy(trigger: HTMLElement) {
+    async function handleCopy(trigger) {
         const copyValue = trigger.dataset.copy || '';
         if (!copyValue) return;
 
         try {
             const copied = await copyText(copyValue);
             if (!copied) throw new Error('copy-failed');
-            const container = trigger.closest('.vt-id') as HTMLElement | null;
+            const container = trigger.closest('.vt-id');
             if (container) {
                 showToast(container, TOAST_COPY_SUCCESS, 'copy', TOAST_COPY_DURATION_MS);
             }
         } catch {
-            const container = (trigger.closest('.vt-id') as HTMLElement | null) ?? trigger;
+            const container = trigger.closest('.vt-id') ?? trigger;
             showToast(container, TOAST_COPY_ERROR, 'copy', TOAST_ERROR_DURATION_MS);
         }
     }
 
-    function getFullDate(dateStr: string | null | undefined) {
+    function getFullDate(dateStr) {
         if (!dateStr) return 'Unknown publish date';
         const date = new Date(`${dateStr}T00:00:00`);
         if (Number.isNaN(date.getTime())) return 'Unknown publish date';
         return date.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
     }
 
-    function showHintForTarget(target: Element | null) {
+    function showHintForTarget(target) {
         if (!target) return;
 
-        const timeEl = target.closest('.vt-time') as HTMLElement | null;
+        const timeEl = target.closest('.vt-time');
         if (timeEl?.dataset.timeago) {
             if (currentAnchor === timeEl) return;
             showToast(timeEl, getFullDate(timeEl.dataset.timeago), 'hint');
             return;
         }
 
-        const idEl = target.closest('.vt-id') as HTMLElement | null;
+        const idEl = target.closest('.vt-id');
         if (idEl) {
             if (isCopyToastVisible() && currentAnchor === idEl) return;
             if (currentAnchor === idEl) return;
@@ -176,42 +176,65 @@ const { groups } = data;
         }
     }
 
-    const globalState = window as typeof window & { __vtTimelineHandlersBound?: boolean };
+    const globalState = window;
     if (!globalState.__vtTimelineHandlersBound) {
         globalState.__vtTimelineHandlersBound = true;
 
         document.addEventListener('click', (e) => {
-            const trigger = (e.target as Element)?.closest('[data-copy]') as HTMLElement | null;
+            const trigger = e.target?.closest('[data-copy]');
             if (!trigger) return;
             void handleCopy(trigger);
         });
 
         document.addEventListener('pointerover', (e) => {
-            showHintForTarget(e.target as Element | null);
+            showHintForTarget(e.target);
         });
 
         document.addEventListener('pointerout', (e) => {
-            const fromTime = (e.target as Element)?.closest('.vt-time');
-            if (fromTime && !(e.relatedTarget as Element | null)?.closest('.vt-time')) {
+            const fromTime = e.target?.closest('.vt-time');
+            if (fromTime && !e.relatedTarget?.closest('.vt-time')) {
                 hideHintToastIfAllowed();
                 return;
             }
-            const fromId = (e.target as Element)?.closest('.vt-id');
-            if (fromId && !(e.relatedTarget as Element | null)?.closest('.vt-id')) {
+            const fromId = e.target?.closest('.vt-id');
+            if (fromId && !e.relatedTarget?.closest('.vt-id')) {
                 hideHintToastIfAllowed();
             }
         });
 
         document.addEventListener('focusin', (e) => {
-            showHintForTarget(e.target as Element | null);
+            showHintForTarget(e.target);
         });
 
         document.addEventListener('focusout', (e) => {
-            const related = e.relatedTarget as Element | null;
+            const related = e.relatedTarget;
             if (related?.closest('.vt-id') || related?.closest('.vt-time')) return;
             hideHintToastIfAllowed();
         });
 
         window.addEventListener('resize', () => hideToast(), { passive: true });
     }
+
+    function timeAgo(dateStr) {
+        if (!dateStr) return '';
+        const date = new Date(/^\d{4}-\d{2}-\d{2}$/.test(dateStr) ? dateStr + 'T00:00:00Z' : dateStr);
+        if (isNaN(date.getTime())) return '';
+        const diff = Date.now() - date.getTime();
+        if (diff < 0) return 'just now';
+        const units = [
+            ['year', 31536000000],
+            ['month', 2592000000],
+            ['week', 604800000],
+            ['day', 86400000],
+        ];
+        for (const [name, ms] of units) {
+            const n = Math.floor(diff / ms);
+            if (n >= 1) return n + ' ' + name + (n !== 1 ? 's' : '') + ' ago';
+        }
+        return 'today';
+    }
+
+    document.querySelectorAll('[data-timeago]').forEach(function (el) {
+        el.textContent = timeAgo(el.dataset.timeago);
+    });
 </script>

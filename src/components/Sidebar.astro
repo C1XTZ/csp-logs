@@ -7,12 +7,15 @@ import versions from '../data/versions.json';
 const starlightRoute = (Astro.locals as { starlightRoute: StarlightRouteData }).starlightRoute;
 const { sidebar, id } = starlightRoute;
 
-const flatVersions = versions.groups.flat();
-const latestPreview = flatVersions.find((v) => v.isPreview === true);
-const latestPublic = flatVersions.find((v) => v.isPreview === false);
+const flat = versions.groups.flat();
+const latestPreviewVersion = flat.find((v) => v.isPreview);
+const latestPublicVersion = flat.find((v) => !v.isPreview);
+const latestPreview = latestPreviewVersion?.published ?? null;
+const latestPublic = latestPublicVersion?.published ?? null;
+const pathDates = Object.fromEntries(flat.filter((v) => v.published).map((v) => [v.link.replace('/csp-logs', ''), v.published]));
 
-const latestPreviewSlug = latestPreview?.link.replace('/csp-logs/', '') || '';
-const latestPublicSlug = latestPublic?.link.replace('/csp-logs/', '') || '';
+const latestPreviewSlug = latestPreviewVersion?.link.replace('/csp-logs/', '') || '';
+const latestPublicSlug = latestPublicVersion?.link.replace('/csp-logs/', '') || '';
 
 const isLatestPreviewPage = id === 'latest/preview' || (latestPreviewSlug && id === latestPreviewSlug);
 const isLatestPublicPage = id === 'latest/public' || (latestPublicSlug && id === latestPublicSlug);
@@ -27,3 +30,44 @@ if (isLatestPublicPage) {
 ---
 
 <ThemeSidebar />
+
+<script is:inline define:vars={{ latestPreview, latestPublic, pathDates }}>
+    function timeAgo(dateStr) {
+        if (!dateStr) return '';
+        const date = new Date(/^\d{4}-\d{2}-\d{2}$/.test(dateStr) ? dateStr + 'T00:00:00Z' : dateStr);
+        if (isNaN(date.getTime())) return '';
+        const diff = Date.now() - date.getTime();
+        if (diff < 0) return 'just now';
+        const units = [
+            ['year', 31536000000],
+            ['month', 2592000000],
+            ['week', 604800000],
+            ['day', 86400000],
+        ];
+        for (const [name, ms] of units) {
+            const n = Math.floor(diff / ms);
+            if (n >= 1) return n + ' ' + name + (n !== 1 ? 's' : '') + ' ago';
+        }
+        return 'today';
+    }
+
+    function normalizePath(href) {
+        return href.replace(/^https?:\/\/[^/]+/i, '').replace(/^\/csp-logs(?=\/|$)/, '');
+    }
+
+    const previewBadge = document.querySelector("a[href$='/latest/preview'] .entry-badge");
+    const publicBadge = document.querySelector("a[href$='/latest/public'] .entry-badge");
+    if (previewBadge && latestPreview) previewBadge.setAttribute('data-timeago', latestPreview);
+    if (publicBadge && latestPublic) publicBadge.setAttribute('data-timeago', latestPublic);
+
+    document.querySelectorAll('.entry-badge:not([data-timeago])').forEach(function (badge) {
+        const href = badge.closest('a')?.getAttribute('href');
+        if (!href || href.includes('/latest/')) return;
+        const published = pathDates[normalizePath(href)];
+        if (published) badge.setAttribute('data-timeago', published);
+    });
+
+    document.querySelectorAll('[data-timeago]').forEach(function (el) {
+        el.textContent = timeAgo(el.dataset.timeago);
+    });
+</script>
