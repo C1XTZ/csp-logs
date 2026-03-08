@@ -69,8 +69,7 @@
     display: flex;
     flex-direction: column;
     gap: 0.55rem;
-    max-width: 53rem;
-    min-width: 44rem;
+    width: 53rem;
     padding: 0.5rem 0.6rem;
 
     &::before {
@@ -432,7 +431,7 @@ body:not(:has(.container-main)) .breadcrumb {
 }
 
 /* Handle thin display widths */
-@media (max-width: 1023px) {
+@media (max-width: 1145px) {
     aside.aside {
         display: none !important;
     }
@@ -463,7 +462,7 @@ body:not(:has(.container-main)) .breadcrumb {
     }
 }
 
-@media (max-width: 47rem) {
+@media (max-width: 865px) {
     .vt-timeline {
         overflow-x: auto;
         max-width: 28rem;
