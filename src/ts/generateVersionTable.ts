@@ -101,7 +101,19 @@ async function main(): Promise<void> {
 
     const outMtime = fs.existsSync(CONFIG.outputFile) ? fs.statSync(CONFIG.outputFile).mtimeMs : 0;
 
-    if (outMtime >= newestSrc) {
+    let isStale = outMtime < newestSrc;
+    if (!isStale && fs.existsSync(CONFIG.outputFile)) {
+      try {
+        const existingData = JSON.parse(fs.readFileSync(CONFIG.outputFile, 'utf8'));
+        if (existingData.counts?.total !== files.length) {
+          isStale = true;
+        }
+      } catch (e) {
+        isStale = true;
+      }
+    }
+
+    if (!isStale) {
       console.log(`\x1b[1m\x1b[32m  OK\x1b[0m versions.json is up to date`);
       return;
     }
