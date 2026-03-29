@@ -1,18 +1,26 @@
 {
   "counts": {
-    "total": 257,
-    "previews": 185,
+    "total": 258,
+    "previews": 186,
     "releases": 72
   },
   "groups": [
     [
+      {
+        "versionName": "0.3.0-preview342",
+        "versionId": "3879",
+        "published": "2026-03-28",
+        "link": "/csp-logs/0-3-0p342",
+        "isPreview": true,
+        "yearMarker": "2026"
+      },
       {
         "versionName": "0.3.0-preview338",
         "versionId": "3875",
         "published": "2026-03-24",
         "link": "/csp-logs/0-3-0p338",
         "isPreview": true,
-        "yearMarker": "2026"
+        "yearMarker": null
       },
       {
         "versionName": "0.3.0-preview322",
