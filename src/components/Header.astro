@@ -16,71 +16,71 @@ const links = config.social || [];
 ---
 
 <div class="site-title-wrapper">
-    <SiteTitle />
-    <NavBar />
+  <SiteTitle />
+  <NavBar />
 </div>
 <MobileMenuToggle />
 <div class="header-right">
-    {shouldRenderSearch && <Search />}
-    <nav class="header-nav">
-        <div class="social-icons">
-            {
-                links.map(({ label, href, icon }: { label: string; href: string; icon: StarlightIcon }) => (
-                    <a href={href} rel="me" class="sl-flex button" data-variant="ghost">
-                        <span class="sr-only">{label}</span>
-                        <Icon name={icon} />
-                    </a>
-                ))
-            }
-            <a href="https://acstuff.club/patch/" rel="me" class="sl-flex button" data-variant="ghost">
-                <span class="sr-only">Website</span>
-                <span class="custom-icon"></span>
-            </a>
-        </div>
-        <div>
-            <ThemeSelect />
-        </div>
-        <div>
-            <LanguageSelect />
-        </div>
-    </nav>
+  {shouldRenderSearch && <Search />}
+  <nav class="header-nav">
+    <div class="social-icons">
+      {
+        links.map(({ label, href, icon }: { label: string; href: string; icon: StarlightIcon }) => (
+          <a href={href} rel="me" class="sl-flex button" data-variant="ghost">
+            <span class="sr-only">{label}</span>
+            <Icon name={icon} />
+          </a>
+        ))
+      }
+      <a href="https://acstuff.club/patch/" rel="me" class="sl-flex button" data-variant="ghost">
+        <span class="sr-only">Website</span>
+        <span class="custom-icon"></span>
+      </a>
+    </div>
+    <div>
+      <ThemeSelect />
+    </div>
+    <div>
+      <LanguageSelect />
+    </div>
+  </nav>
 </div>
 <style>
+  .site-title-wrapper {
+    display: none;
+    margin-right: 1rem;
+  }
+  @media (min-width: 768px) {
     .site-title-wrapper {
-        display: none;
-        margin-right: 1rem;
+      display: flex;
     }
-    @media (min-width: 768px) {
-        .site-title-wrapper {
-            display: flex;
-        }
-    }
+  }
+  .header-right {
+    gap: 0.5rem;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1 1 0%;
+    display: flex;
+  }
+  @media (min-width: 768px) {
     .header-right {
-        gap: 0.5rem;
-        justify-content: space-between;
-        align-items: center;
-        flex: 1 1 0%;
-        display: flex;
+      justify-content: flex-end;
     }
-    @media (min-width: 768px) {
-        .header-right {
-            justify-content: flex-end;
-        }
-    }
-    .header-nav {
-        gap: 0.125rem;
-        align-items: center;
-        display: flex;
-    }
-    .social-icons a {
-        color: inherit;
-    }
-    .custom-icon {
-        display: inline-block;
-        width: 1em;
-        height: 1em;
-        background-color: currentColor;
-        mask: url(/favicon.svg) no-repeat center / contain;
-        -webkit-mask: url(/favicon.svg) no-repeat center / contain;
-    }
+  }
+  .header-nav {
+    gap: 0.125rem;
+    align-items: center;
+    display: flex;
+  }
+  .social-icons a {
+    color: inherit;
+  }
+  .custom-icon {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    background-color: currentColor;
+    mask: url(/favicon.svg) no-repeat center / contain;
+    -webkit-mask: url(/favicon.svg) no-repeat center / contain;
+  }
 </style>

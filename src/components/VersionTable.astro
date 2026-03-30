@@ -8,234 +8,234 @@ const { groups } = data;
 ---
 
 <p>
-    The table below lists all available CSP versions alongside their build IDs.<br />
-    <b>Preview</b> versions are grouped with the latest <b>Public</b> release available at the time they were released.<br />
+  The table below lists all available CSP versions alongside their build IDs.<br />
+  <b>Preview</b> versions are grouped with the latest <b>Public</b> release available at the time they were released.<br />
 </p>
 <div class="vt-wrapper">
-    <div class="vt-timeline" role="list" aria-label="CSP version timeline">
-        {
-            groups.map((entries, idx) => {
-                const side = idx % 2 === 0 ? 'vt-left' : 'vt-right';
-                return (
-                    <section class:list={['vt-card-wrap', side]} aria-label={`Version group ${idx + 1}`}>
-                        <ul class="vt-card">
-                            {entries.map((entry, entryIdx) => (
-                                <li class:list={['vt-entry', entry.isPreview ? 'vt-preview' : 'vt-release']} style={`--vt-entry-delay:${idx * 18 + entryIdx * 24}ms`}>
-                                    {entry.yearMarker && (
-                                        <div class="vt-year-stem">
-                                            <span>{entry.yearMarker}</span>
-                                        </div>
-                                    )}
-                                    <a href={entry.link} class="vt-name" aria-label={`Open changelog for ${entry.versionName}`}>
-                                        {side === 'vt-left' && <Fragment set:html={CARET_LEFT} />}
-                                        <span class="vt-name-text">{entry.versionName}</span>
-                                        {side === 'vt-right' && <Fragment set:html={CARET_RIGHT} />}
-                                    </a>
-                                    <time class="vt-time" datetime={entry.published ?? undefined} data-timeago={entry.published}>
-                                        some time ago
-                                    </time>
-                                    <button type="button" class="vt-id" data-copy={entry.versionId} aria-label={`Copy version ID ${entry.versionId}`}>
-                                        <code>{entry.versionId}</code>
-                                        <span class="vt-copy">
-                                            <Fragment set:html={ICON_COPY} />
-                                        </span>
-                                    </button>
-                                </li>
-                            ))}
-                        </ul>
-                    </section>
-                );
-            })
-        }
-    </div>
+  <div class="vt-timeline" role="list" aria-label="CSP version timeline">
+    {
+      groups.map((entries, idx) => {
+        const side = idx % 2 === 0 ? 'vt-left' : 'vt-right';
+        return (
+          <section class:list={['vt-card-wrap', side]} aria-label={`Version group ${idx + 1}`}>
+            <ul class="vt-card">
+              {entries.map((entry, entryIdx) => (
+                <li class:list={['vt-entry', entry.isPreview ? 'vt-preview' : 'vt-release']} style={`--vt-entry-delay:${idx * 18 + entryIdx * 24}ms`}>
+                  {entry.yearMarker && (
+                    <div class="vt-year-stem">
+                      <span>{entry.yearMarker}</span>
+                    </div>
+                  )}
+                  <a href={entry.link} class="vt-name" aria-label={`Open changelog for ${entry.versionName}`}>
+                    {side === 'vt-left' && <Fragment set:html={CARET_LEFT} />}
+                    <span class="vt-name-text">{entry.versionName}</span>
+                    {side === 'vt-right' && <Fragment set:html={CARET_RIGHT} />}
+                  </a>
+                  <time class="vt-time" datetime={entry.published ?? undefined} data-timeago={entry.published}>
+                    some time ago
+                  </time>
+                  <button type="button" class="vt-id" data-copy={entry.versionId} aria-label={`Copy version ID ${entry.versionId}`}>
+                    <code>{entry.versionId}</code>
+                    <span class="vt-copy">
+                      <Fragment set:html={ICON_COPY} />
+                    </span>
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </section>
+        );
+      })
+    }
+  </div>
 </div>
 
 <script is:inline>
-    const TOAST_COPY_SUCCESS = 'Copied ID!';
-    const TOAST_COPY_HINT = 'Copy ID';
-    const TOAST_COPY_ERROR = 'Copy failed';
-    const TOAST_COPY_DURATION_MS = 900;
-    const TOAST_ERROR_DURATION_MS = 1200;
+  const TOAST_COPY_SUCCESS = 'Copied ID!';
+  const TOAST_COPY_HINT = 'Copy ID';
+  const TOAST_COPY_ERROR = 'Copy failed';
+  const TOAST_COPY_DURATION_MS = 900;
+  const TOAST_ERROR_DURATION_MS = 1200;
 
-    let toast;
-    let hideTimer;
-    let currentAnchor;
+  let toast;
+  let hideTimer;
+  let currentAnchor;
 
-    function getToast() {
-        if (!toast) {
-            toast = document.createElement('div');
-            toast.className = 'vt-toast';
-            toast.setAttribute('role', 'status');
-            toast.setAttribute('aria-live', 'polite');
-            document.body.appendChild(toast);
-        }
-        return toast;
+  function getToast() {
+    if (!toast) {
+      toast = document.createElement('div');
+      toast.className = 'vt-toast';
+      toast.setAttribute('role', 'status');
+      toast.setAttribute('aria-live', 'polite');
+      document.body.appendChild(toast);
+    }
+    return toast;
+  }
+
+  function clamp(num, min, max) {
+    return Math.max(min, Math.min(max, num));
+  }
+
+  function positionToast(anchor) {
+    const el = getToast();
+    const r = anchor.getBoundingClientRect();
+    const top = Math.max(10, r.top - 34);
+    const left = clamp(r.left + r.width / 2, 36, window.innerWidth - 36);
+    Object.assign(el.style, { top: `${top}px`, left: `${left}px`, transform: 'translateX(-50%)' });
+  }
+
+  function hideToast() {
+    const el = getToast();
+    el.classList.remove('vt-toast-hover', 'vt-toast-show');
+    currentAnchor = null;
+  }
+
+  function isCopyToastVisible() {
+    return getToast().classList.contains('vt-toast-show');
+  }
+
+  function hideHintToastIfAllowed() {
+    if (isCopyToastVisible()) return;
+    hideToast();
+  }
+
+  function showToast(anchor, text, mode, duration = 0) {
+    const el = getToast();
+    if (hideTimer) clearTimeout(hideTimer);
+    el.textContent = text;
+    el.classList.remove('vt-toast-hover', 'vt-toast-show');
+    positionToast(anchor);
+    currentAnchor = anchor;
+    if (mode === 'copy') {
+      void el.offsetWidth;
+      el.classList.add('vt-toast-show');
+      if (duration > 0) {
+        hideTimer = setTimeout(() => hideToast(), duration);
+      }
+      return;
+    }
+    el.classList.add('vt-toast-hover');
+  }
+
+  async function copyText(text) {
+    if (!text) return false;
+    if (navigator.clipboard?.writeText) {
+      await navigator.clipboard.writeText(text);
+      return true;
+    }
+    const fallbackInput = document.createElement('textarea');
+    fallbackInput.value = text;
+    fallbackInput.style.position = 'fixed';
+    fallbackInput.style.opacity = '0';
+    document.body.appendChild(fallbackInput);
+    fallbackInput.select();
+    const copied = document.execCommand('copy');
+    fallbackInput.remove();
+    return copied;
+  }
+
+  async function handleCopy(trigger) {
+    const copyValue = trigger.dataset.copy || '';
+    if (!copyValue) return;
+
+    try {
+      const copied = await copyText(copyValue);
+      if (!copied) throw new Error('copy-failed');
+      const container = trigger.closest('.vt-id');
+      if (container) {
+        showToast(container, TOAST_COPY_SUCCESS, 'copy', TOAST_COPY_DURATION_MS);
+      }
+    } catch {
+      const container = trigger.closest('.vt-id') ?? trigger;
+      showToast(container, TOAST_COPY_ERROR, 'copy', TOAST_ERROR_DURATION_MS);
+    }
+  }
+
+  function getFullDate(dateStr) {
+    if (!dateStr) return 'Unknown publish date';
+    const date = new Date(`${dateStr}T00:00:00`);
+    if (Number.isNaN(date.getTime())) return 'Unknown publish date';
+    return date.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+  }
+
+  function showHintForTarget(target) {
+    if (!target) return;
+
+    const timeEl = target.closest('.vt-time');
+    if (timeEl?.dataset.timeago) {
+      if (currentAnchor === timeEl) return;
+      showToast(timeEl, getFullDate(timeEl.dataset.timeago), 'hint');
+      return;
     }
 
-    function clamp(num, min, max) {
-        return Math.max(min, Math.min(max, num));
+    const idEl = target.closest('.vt-id');
+    if (idEl) {
+      if (isCopyToastVisible() && currentAnchor === idEl) return;
+      if (currentAnchor === idEl) return;
+      showToast(idEl, TOAST_COPY_HINT, 'hint');
     }
+  }
 
-    function positionToast(anchor) {
-        const el = getToast();
-        const r = anchor.getBoundingClientRect();
-        const top = Math.max(10, r.top - 34);
-        const left = clamp(r.left + r.width / 2, 36, window.innerWidth - 36);
-        Object.assign(el.style, { top: `${top}px`, left: `${left}px`, transform: 'translateX(-50%)' });
-    }
+  const globalState = window;
+  if (!globalState.__vtTimelineHandlersBound) {
+    globalState.__vtTimelineHandlersBound = true;
 
-    function hideToast() {
-        const el = getToast();
-        el.classList.remove('vt-toast-hover', 'vt-toast-show');
-        currentAnchor = null;
-    }
-
-    function isCopyToastVisible() {
-        return getToast().classList.contains('vt-toast-show');
-    }
-
-    function hideHintToastIfAllowed() {
-        if (isCopyToastVisible()) return;
-        hideToast();
-    }
-
-    function showToast(anchor, text, mode, duration = 0) {
-        const el = getToast();
-        if (hideTimer) clearTimeout(hideTimer);
-        el.textContent = text;
-        el.classList.remove('vt-toast-hover', 'vt-toast-show');
-        positionToast(anchor);
-        currentAnchor = anchor;
-        if (mode === 'copy') {
-            void el.offsetWidth;
-            el.classList.add('vt-toast-show');
-            if (duration > 0) {
-                hideTimer = setTimeout(() => hideToast(), duration);
-            }
-            return;
-        }
-        el.classList.add('vt-toast-hover');
-    }
-
-    async function copyText(text) {
-        if (!text) return false;
-        if (navigator.clipboard?.writeText) {
-            await navigator.clipboard.writeText(text);
-            return true;
-        }
-        const fallbackInput = document.createElement('textarea');
-        fallbackInput.value = text;
-        fallbackInput.style.position = 'fixed';
-        fallbackInput.style.opacity = '0';
-        document.body.appendChild(fallbackInput);
-        fallbackInput.select();
-        const copied = document.execCommand('copy');
-        fallbackInput.remove();
-        return copied;
-    }
-
-    async function handleCopy(trigger) {
-        const copyValue = trigger.dataset.copy || '';
-        if (!copyValue) return;
-
-        try {
-            const copied = await copyText(copyValue);
-            if (!copied) throw new Error('copy-failed');
-            const container = trigger.closest('.vt-id');
-            if (container) {
-                showToast(container, TOAST_COPY_SUCCESS, 'copy', TOAST_COPY_DURATION_MS);
-            }
-        } catch {
-            const container = trigger.closest('.vt-id') ?? trigger;
-            showToast(container, TOAST_COPY_ERROR, 'copy', TOAST_ERROR_DURATION_MS);
-        }
-    }
-
-    function getFullDate(dateStr) {
-        if (!dateStr) return 'Unknown publish date';
-        const date = new Date(`${dateStr}T00:00:00`);
-        if (Number.isNaN(date.getTime())) return 'Unknown publish date';
-        return date.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
-    }
-
-    function showHintForTarget(target) {
-        if (!target) return;
-
-        const timeEl = target.closest('.vt-time');
-        if (timeEl?.dataset.timeago) {
-            if (currentAnchor === timeEl) return;
-            showToast(timeEl, getFullDate(timeEl.dataset.timeago), 'hint');
-            return;
-        }
-
-        const idEl = target.closest('.vt-id');
-        if (idEl) {
-            if (isCopyToastVisible() && currentAnchor === idEl) return;
-            if (currentAnchor === idEl) return;
-            showToast(idEl, TOAST_COPY_HINT, 'hint');
-        }
-    }
-
-    const globalState = window;
-    if (!globalState.__vtTimelineHandlersBound) {
-        globalState.__vtTimelineHandlersBound = true;
-
-        document.addEventListener('click', (e) => {
-            const trigger = e.target?.closest('[data-copy]');
-            if (!trigger) return;
-            void handleCopy(trigger);
-        });
-
-        document.addEventListener('pointerover', (e) => {
-            if (e.pointerType === 'touch') return;
-            showHintForTarget(e.target);
-        });
-
-        document.addEventListener('pointerout', (e) => {
-            const fromTime = e.target?.closest('.vt-time');
-            if (fromTime && !e.relatedTarget?.closest('.vt-time')) {
-                hideHintToastIfAllowed();
-                return;
-            }
-            const fromId = e.target?.closest('.vt-id');
-            if (fromId && !e.relatedTarget?.closest('.vt-id')) {
-                hideHintToastIfAllowed();
-            }
-        });
-
-        document.addEventListener('focusin', (e) => {
-            showHintForTarget(e.target);
-        });
-
-        document.addEventListener('focusout', (e) => {
-            const related = e.relatedTarget;
-            if (related?.closest('.vt-id') || related?.closest('.vt-time')) return;
-            hideHintToastIfAllowed();
-        });
-
-        window.addEventListener('resize', () => hideToast(), { passive: true });
-    }
-
-    function timeAgo(dateStr) {
-        if (!dateStr) return '';
-        const date = new Date(/^\d{4}-\d{2}-\d{2}$/.test(dateStr) ? dateStr + 'T00:00:00Z' : dateStr);
-        if (isNaN(date.getTime())) return '';
-        const diff = Date.now() - date.getTime();
-        if (diff < 0) return 'just now';
-        const units = [
-            ['year', 31536000000],
-            ['month', 2592000000],
-            ['week', 604800000],
-            ['day', 86400000],
-        ];
-        for (const [name, ms] of units) {
-            const n = Math.floor(diff / ms);
-            if (n >= 1) return n + ' ' + name + (n !== 1 ? 's' : '') + ' ago';
-        }
-        return 'today';
-    }
-
-    document.querySelectorAll('[data-timeago]').forEach(function (el) {
-        el.textContent = timeAgo(el.dataset.timeago);
+    document.addEventListener('click', (e) => {
+      const trigger = e.target?.closest('[data-copy]');
+      if (!trigger) return;
+      void handleCopy(trigger);
     });
+
+    document.addEventListener('pointerover', (e) => {
+      if (e.pointerType === 'touch') return;
+      showHintForTarget(e.target);
+    });
+
+    document.addEventListener('pointerout', (e) => {
+      const fromTime = e.target?.closest('.vt-time');
+      if (fromTime && !e.relatedTarget?.closest('.vt-time')) {
+        hideHintToastIfAllowed();
+        return;
+      }
+      const fromId = e.target?.closest('.vt-id');
+      if (fromId && !e.relatedTarget?.closest('.vt-id')) {
+        hideHintToastIfAllowed();
+      }
+    });
+
+    document.addEventListener('focusin', (e) => {
+      showHintForTarget(e.target);
+    });
+
+    document.addEventListener('focusout', (e) => {
+      const related = e.relatedTarget;
+      if (related?.closest('.vt-id') || related?.closest('.vt-time')) return;
+      hideHintToastIfAllowed();
+    });
+
+    window.addEventListener('resize', () => hideToast(), { passive: true });
+  }
+
+  function timeAgo(dateStr) {
+    if (!dateStr) return '';
+    const date = new Date(/^\d{4}-\d{2}-\d{2}$/.test(dateStr) ? dateStr + 'T00:00:00Z' : dateStr);
+    if (isNaN(date.getTime())) return '';
+    const diff = Date.now() - date.getTime();
+    if (diff < 0) return 'just now';
+    const units = [
+      ['year', 31536000000],
+      ['month', 2592000000],
+      ['week', 604800000],
+      ['day', 86400000],
+    ];
+    for (const [name, ms] of units) {
+      const n = Math.floor(diff / ms);
+      if (n >= 1) return n + ' ' + name + (n !== 1 ? 's' : '') + ' ago';
+    }
+    return 'today';
+  }
+
+  document.querySelectorAll('[data-timeago]').forEach(function (el) {
+    el.textContent = timeAgo(el.dataset.timeago);
+  });
 </script>
