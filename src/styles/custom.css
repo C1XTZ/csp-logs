@@ -56,6 +56,9 @@
 .vt-wrapper {
   position: relative;
   overflow-x: auto;
+  opacity: 0;
+  transform: translateY(50px);
+  animation: vt-anim 1.5s cubic-bezier(0.25, 0.95, 0.1, 1) forwards;
 }
 
 /* Opt out of Starlight markdown flow spacing inside the custom version table */
@@ -171,10 +174,6 @@
   gap: 1rem;
   padding: 0.5rem 0.7rem;
   margin-top: 0 !important;
-  opacity: 0;
-  transform: translateY(4px);
-  animation: vt-entry-in 0.4s cubic-bezier(0.21, 0.95, 0.25, 1) forwards;
-  animation-delay: var(--vt-entry-delay, 0ms);
 
   & + & {
     border-top: 1px solid var(--border);
@@ -376,10 +375,10 @@
   }
 }
 
-@keyframes vt-entry-in {
+@keyframes vt-anim {
   from {
     opacity: 0;
-    transform: translateY(4px);
+    transform: translateY(50px);
   }
 
   to {
