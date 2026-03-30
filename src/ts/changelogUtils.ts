@@ -22,7 +22,7 @@ export interface ChangelogEntry {
 export const REGEX = {
   title: /title:\s*v?([^\n\r]+)/,
   versionId: /\*\s+Version ID:\s*([?\d]+)/i,
-  published: /\*\s+Published:\s*(\d{4}-\d{2}-\d{2})/i,
+  published: /\*\s+Published:\s*(\d{4}-\d{1,2}-\d{1,2})/i,
   semver: /^v?(\d+)\.(\d+)\.(\d+)(?:-([a-zA-Z]+)(\d+)?)?/,
   filenameVersion: /^(\d+)-(\d+)-(\d+)(?:p(\d+))?$/,
 } as const;

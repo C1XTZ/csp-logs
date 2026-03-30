@@ -30,10 +30,18 @@ function readChangelogFiles(): ChangelogEntry[] {
       const versionIdNumeric = versionIdRaw && /^\d+$/.test(versionIdRaw) ? parseInt(versionIdRaw, 10) : null;
       const versionName = title || filename.replace(/\.mdx?$/, '');
 
+      let published = content.match(REGEX.published)?.[1] ?? null;
+      if (published) {
+        const [y, m, d] = published.split('-');
+        if (y && m && d) {
+          published = `${y}-${m.padStart(2, '0')}-${d.padStart(2, '0')}`;
+        }
+      }
+
       return {
         versionName,
         versionId: versionIdRaw ?? '???',
-        published: content.match(REGEX.published)?.[1] ?? null,
+        published,
         link: `/csp-logs/${filename.replace(/\.mdx?$/, '')}`,
         isPreview: versionName.includes('-preview'),
         yearMarker: null,

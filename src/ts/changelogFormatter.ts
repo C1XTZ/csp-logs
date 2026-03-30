@@ -27,6 +27,10 @@ try {
       content = content.replace(/(#\s*Changelog\s*\n)(\s*)(?:-|\*)/, '$1$2## New features, options and improvements\n\n$2*');
     }
 
+    content = content.replace(/(?:[-*+])\s+Published:\s*(\d{4})-(\d{1,2})-(\d{1,2})/gi, (_, y, m, d) => {
+      return `* Published: ${y}-${m.padStart(2, '0')}-${d.padStart(2, '0')}`;
+    });
+
     const lines = content.split('\n');
     const newLines = [];
     let listIndentLevels: number[] = [0];
