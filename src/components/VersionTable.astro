@@ -19,29 +19,33 @@ const { groups } = data;
         return (
           <section class:list={['vt-card-wrap', side]} aria-label={`Version group ${idx + 1}`}>
             <ul class="vt-card">
-              {entries.map((entry, entryIdx) => (
-                <li class:list={['vt-entry', entry.isPreview ? 'vt-preview' : 'vt-release']} style={`--vt-entry-delay:${idx * 18 + entryIdx * 24}ms`}>
-                  {entry.yearMarker && (
-                    <div class="vt-year-stem">
-                      <span>{entry.yearMarker}</span>
-                    </div>
-                  )}
-                  <a href={entry.link} class="vt-name" aria-label={`Open changelog for ${entry.versionName}`}>
-                    {side === 'vt-left' && <Fragment set:html={CARET_LEFT} />}
-                    <span class="vt-name-text">{entry.versionName}</span>
-                    {side === 'vt-right' && <Fragment set:html={CARET_RIGHT} />}
-                  </a>
-                  <time class="vt-time" datetime={entry.published ?? undefined} data-timeago={entry.published}>
-                    some time ago
-                  </time>
-                  <button type="button" class="vt-id" data-copy={entry.versionId} aria-label={`Copy version ID ${entry.versionId}`}>
-                    <code>{entry.versionId}</code>
-                    <span class="vt-copy">
-                      <Fragment set:html={ICON_COPY} />
-                    </span>
-                  </button>
-                </li>
-              ))}
+              {entries.map((entry, entryIdx) => {
+                const isKnown = entry.versionId !== '???';
+                const Tag = isKnown ? 'button' : 'div';
+                return (
+                  <li class:list={['vt-entry', entry.isPreview ? 'vt-preview' : 'vt-release']} style={`--vt-entry-delay:${idx * 20 + entryIdx * 30}ms`}>
+                    {entry.yearMarker && (
+                      <div class="vt-year-stem">
+                        <span>{entry.yearMarker}</span>
+                      </div>
+                    )}
+                    <a href={entry.link} class="vt-name" aria-label={`Open changelog for ${entry.versionName}`}>
+                      {side === 'vt-left' && <Fragment set:html={CARET_LEFT} />}
+                      <span class="vt-name-text">{entry.versionName}</span>
+                      {side === 'vt-right' && <Fragment set:html={CARET_RIGHT} />}
+                    </a>
+                    <time class="vt-time" datetime={entry.published ?? undefined} data-timeago={entry.published}>
+                      some time ago
+                    </time>
+                    <Tag class="vt-id" type={isKnown ? 'button' : undefined} data-copy={isKnown ? entry.versionId : undefined} aria-label={isKnown ? `Copy version ID ${entry.versionId}` : 'Unknown version ID'}>
+                      <code>{entry.versionId}</code>
+                      <span class="vt-copy" style={!isKnown ? 'visibility: hidden;' : null}>
+                        <Fragment set:html={ICON_COPY} />
+                      </span>
+                    </Tag>
+                  </li>
+                );
+              })}
             </ul>
           </section>
         );
@@ -169,7 +173,7 @@ const { groups } = data;
     }
 
     const idEl = target.closest('.vt-id');
-    if (idEl) {
+    if (idEl && idEl.hasAttribute('data-copy')) {
       if (isCopyToastVisible() && currentAnchor === idEl) return;
       if (currentAnchor === idEl) return;
       showToast(idEl, TOAST_COPY_HINT, 'hint');
