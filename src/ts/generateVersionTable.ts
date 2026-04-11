@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import crypto from 'crypto';
 import { REGEX, getChangelogFiles, parseVersion, compareEntries, type ChangelogEntry } from '../ts/changelogUtils.ts';
 
 interface Config {
@@ -8,6 +9,7 @@ interface Config {
 }
 
 interface VersionOutput {
+  hash: string;
   counts: {
     total: number;
     previews: number;
@@ -20,6 +22,14 @@ const CONFIG: Config = {
   changelogsDir: path.resolve(process.cwd(), 'src', 'content', 'docs'),
   outputFile: path.resolve(process.cwd(), 'src', 'data', 'versions.json'),
 };
+
+function getSourceHash(files: string[]): string {
+  const hash = crypto.createHash('md5');
+  for (const f of files) {
+    hash.update(fs.readFileSync(path.join(CONFIG.changelogsDir, f)));
+  }
+  return hash.digest('hex');
+}
 
 function readChangelogFiles(): ChangelogEntry[] {
   const entries: ChangelogEntry[] = getChangelogFiles(CONFIG.changelogsDir)
@@ -92,7 +102,7 @@ function groupByRelease(entries: ChangelogEntry[]): ChangelogEntry[][] {
   return groups;
 }
 
-async function main(): Promise<void> {
+function main(): void {
   console.log('\x1b[36m[Version Table Generator]\x1b[0m');
 
   try {
@@ -103,27 +113,18 @@ async function main(): Promise<void> {
       return;
     }
 
-    const newestChangelogSrc = Math.max(...files.map((f: string) => fs.statSync(path.join(CONFIG.changelogsDir, f)).mtimeMs));
-    const generatorMtime = fs.statSync(path.resolve(process.cwd(), 'src', 'ts', 'generateVersionTable.ts')).mtimeMs;
-    const newestSrc = Math.max(newestChangelogSrc, generatorMtime);
+    const currentHash = getSourceHash(files);
 
-    const outMtime = fs.existsSync(CONFIG.outputFile) ? fs.statSync(CONFIG.outputFile).mtimeMs : 0;
-
-    let isStale = outMtime < newestSrc;
-    if (!isStale && fs.existsSync(CONFIG.outputFile)) {
+    if (fs.existsSync(CONFIG.outputFile)) {
       try {
         const existingData = JSON.parse(fs.readFileSync(CONFIG.outputFile, 'utf8'));
-        if (existingData.counts?.total !== files.length) {
-          isStale = true;
+        if (existingData.hash === currentHash) {
+          console.log(`\x1b[1m\x1b[32m  OK\x1b[0m versions.json is up to date`);
+          return;
         }
-      } catch (e) {
-        isStale = true;
+      } catch (err) {
+        console.log(`\x1b[1m\x1b[33mWARN\x1b[0m versions.json could not be read, regenerating (${err instanceof Error ? err.message : String(err)})`);
       }
-    }
-
-    if (!isStale) {
-      console.log(`\x1b[1m\x1b[32m  OK\x1b[0m versions.json is up to date`);
-      return;
     }
 
     const entries = readChangelogFiles();
@@ -137,6 +138,7 @@ async function main(): Promise<void> {
     const previews = entries.filter((e: ChangelogEntry) => e.isPreview).length;
 
     const output: VersionOutput = {
+      hash: currentHash,
       counts: {
         total: entries.length,
         previews,

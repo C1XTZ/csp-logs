@@ -47,7 +47,7 @@ export default defineConfig({
   integrations: [
     starlight({
       defaultLocale: 'en',
-      title: 'CSP Changelog Archive',
+      title: 'Custom Shaders Patch Changelog Archive',
       customCss: ['./src/styles/custom.css'],
       tableOfContents: { minHeadingLevel: 1 },
       components: {

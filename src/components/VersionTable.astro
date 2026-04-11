@@ -8,7 +8,7 @@ const { groups } = data;
 ---
 
 <p>
-  The table below lists all available CSP versions alongside their build IDs.<br />
+  The table below lists Custom Shaders Patch versions alongside their build IDs.<br />
   <b>Preview</b> versions are grouped with the latest <b>Public</b> release available at the time they were released.<br />
 </p>
 <div class="vt-wrapper">
@@ -123,19 +123,8 @@ const { groups } = data;
 
   async function copyText(text) {
     if (!text) return false;
-    if (navigator.clipboard?.writeText) {
-      await navigator.clipboard.writeText(text);
-      return true;
-    }
-    const fallbackInput = document.createElement('textarea');
-    fallbackInput.value = text;
-    fallbackInput.style.position = 'fixed';
-    fallbackInput.style.opacity = '0';
-    document.body.appendChild(fallbackInput);
-    fallbackInput.select();
-    const copied = document.execCommand('copy');
-    fallbackInput.remove();
-    return copied;
+    await navigator.clipboard.writeText(text);
+    return true;
   }
 
   async function handleCopy(trigger) {

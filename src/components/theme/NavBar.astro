@@ -15,6 +15,7 @@ type NavLink = {
 
 const currentPath = Astro.url.pathname;
 const defaultLang = starlightConfig.defaultLocale?.lang || starlightConfig.defaultLocale?.locale || 'en';
+const absoluteLinkRegex = /^https?:\/\//;
 
 function getTranslation(translations: Record<string, string>, link: string, description: string) {
   const defaultTranslation = translations[defaultLang];
@@ -31,7 +32,6 @@ function getTranslation(translations: Record<string, string>, link: string, desc
 <nav class="nav-bar">
   {
     userConfig.navLinks?.map((nav: NavLink) => {
-      const absoluteLinkRegex = /^https?:\/\//;
       const link = !absoluteLinkRegex.test(nav.link) && Astro.currentLocale ? getRelativeLocaleUrl(Astro.currentLocale, nav.link) : nav.link;
       const label = typeof nav.label === 'string' ? nav.label : getTranslation(nav.label, nav.link, 'label');
 

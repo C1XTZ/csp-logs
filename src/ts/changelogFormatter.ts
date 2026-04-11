@@ -60,7 +60,7 @@ try {
         text = text.replace(/\s+/g, ' ');
 
         let parts = text.split('`');
-        if (parts.length > 2) {
+        if (parts.length > 2 && parts.length % 2 !== 0) {
           for (let j = 2; j < parts.length; j += 2) {
             if (parts[j] === '/') {
               parts[j] = ' / ';

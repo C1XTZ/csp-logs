@@ -10,7 +10,7 @@ export const allVersions = versionsData.groups.flat();
 export const latestPublic = allVersions.find((v) => !v.isPreview);
 export const latestPreview = allVersions.find((v) => v.isPreview);
 
-An archive of CSP changelogs for versions that were available to the Public via patreon, acstuff.club or the CSP discord.
+An archive of Custom Shaders Patch changelogs for versions that were available to the Public via patreon, acstuff.club or the Custom Shaders Patch discord.
 
 Changelogs are currently available for **{versionsData.counts.total}** versions, of which **{versionsData.counts.previews}** are **Previews** and **{versionsData.counts.releases}** are **Public** releases.  
 The latest **Public** version <a href="/csp-logs/latest/public">{latestPublic.versionName}</a> was released <span data-timeago={latestPublic.published}>some time ago</span>, the latest **Preview** version <a href="/csp-logs/latest/preview">{latestPreview.versionName}</a> was released <span data-timeago={latestPreview.published}>some time ago</span>.
