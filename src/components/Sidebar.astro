@@ -32,24 +32,38 @@ if (isLatestPublicPage) {
 <ThemeSidebar />
 
 <script is:inline define:vars={{ latestPreview, latestPublic, pathDates }}>
-  function timeAgo(dateStr) {
-    if (!dateStr) return '';
-    const date = new Date(/^\d{4}-\d{2}-\d{2}$/.test(dateStr) ? dateStr + 'T00:00:00Z' : dateStr);
-    if (isNaN(date.getTime())) return '';
-    const diff = Date.now() - date.getTime();
-    if (diff < 0) return 'just now';
-    const units = [
-      ['year', 31536000000],
-      ['month', 2592000000],
-      ['week', 604800000],
-      ['day', 86400000],
-    ];
-    for (const [name, ms] of units) {
-      const n = Math.floor(diff / ms);
-      if (n >= 1) return n + ' ' + name + (n !== 1 ? 's' : '') + ' ago';
+  const timeAgo = (s) => {
+    if (!s) return '';
+
+    const [y, m, d] = s.split('-').map(Number);
+    if (!y || !m || !d) return '';
+
+    const date = new Date(Date.UTC(y, m - 1, d));
+
+    const now = new Date();
+    const today = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate()));
+
+    if (date > today) return 'just now';
+
+    let Y = today.getUTCFullYear() - date.getUTCFullYear();
+    let M = today.getUTCMonth() - date.getUTCMonth();
+    let D = today.getUTCDate() - date.getUTCDate();
+
+    if (D < 0) {
+      M--;
+      D += new Date(Date.UTC(today.getUTCFullYear(), today.getUTCMonth(), 0)).getUTCDate();
     }
-    return 'today';
-  }
+
+    if (M < 0) {
+      Y--;
+      M += 12;
+    }
+
+    if (Y) return `${Y} year${Y > 1 ? 's' : ''} ago`;
+    if (M) return `${M} month${M > 1 ? 's' : ''} ago`;
+    if (D === 1) return 'yesterday';
+    return D > 1 ? `${D} days ago` : 'today';
+  };
 
   function normalizePath(href) {
     return href.replace(/^https?:\/\/[^/]+/i, '').replace(/^\/csp-logs(?=\/|$)/, '');
