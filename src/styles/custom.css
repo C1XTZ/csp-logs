@@ -37,6 +37,18 @@
   margin-inline: 1.5rem 0 !important;
 }
 
+/* Homepage Fix */
+[data-has-sidebar]:not([data-has-toc]) .main-pane {
+  padding-block: 1.5rem;
+}
+
+@media (min-width: 64rem) {
+  [data-has-sidebar]:not([data-has-toc]) .main-pane {
+    padding-block: 2rem;
+    padding-top: 3rem;
+  }
+}
+
 [data-theme='dark'] {
   --vt-release-left-gradient: linear-gradient(90deg, color-mix(in oklab, var(--gray-7) 90%, white 10%) 0%, var(--gray-7) 100%);
   --vt-release-right-gradient: linear-gradient(270deg, color-mix(in oklab, var(--gray-7) 90%, white 10%) 0%, var(--gray-7) 100%);
@@ -46,8 +58,14 @@
 .sl-markdown-content ul:not(:where(.not-content *)),
 .sl-markdown-content ol:not(:where(.not-content *)),
 [data-has-toc] .sl-markdown-content li:not(:where(.not-content *)) {
-  margin-inline-start: -0.7rem;
+  margin-inline-start: -0.6rem;
   margin-block: 0.2rem;
+}
+
+/* Bulletpoint spacing */
+[data-has-toc] .sl-markdown-content li:has(> ul):not(:where(.not-content *)),
+[data-has-toc] .sl-markdown-content li:has(> ol):not(:where(.not-content *)) {
+  margin-block: 0.4rem;
 }
 
 /* Version list tree. */

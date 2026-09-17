@@ -31,8 +31,10 @@ try {
       return `* Published: ${y}-${m.padStart(2, '0')}-${d.padStart(2, '0')}`;
     });
 
+    content = content.replace(/(?:[-*+])\s+Size:\s*(\d+),(\d+)(\s*(?:KB|MB|GB|TB)\b)/gi, (_, whole, decimal, unit) => `* Size: ${whole}.${decimal}${unit}`);
+
     const lines = content.split('\n');
-    const newLines = [];
+    const newLines: string[] = [];
     let listIndentLevels: number[] = [0];
     let inChangelog = false;
 
@@ -59,7 +61,8 @@ try {
         }
         text = text.replace(/\s+/g, ' ');
 
-        let parts = text.split('`');
+        const parts = text.split('`');
+
         if (parts.length > 2 && parts.length % 2 !== 0) {
           for (let j = 2; j < parts.length; j += 2) {
             if (parts[j] === '/') {
@@ -90,11 +93,31 @@ try {
         }
 
         newLines.push(' '.repeat(level * 4) + '*   ' + text);
+      } else if (inChangelog && line?.trim() === '') {
+        const prevLine = newLines[newLines.length - 1] ?? '';
+        const isPrevListItem = /^\s*[-*+]\s+/.test(prevLine);
+        let j = i + 1;
+
+        while (j < lines.length && lines[j]?.trim() === '') {
+          j++;
+        }
+
+        const isNextListItem = j < lines.length && /^\s*[-*+]\s+/.test(lines[j] ?? '');
+        if (!(isPrevListItem && isNextListItem)) {
+          newLines.push(line ?? '');
+        }
       } else {
-        if (line && line.trim() !== '') {
+        let outputLine = line ?? '';
+
+        if (/^\s*#{1,6}\s+/.test(outputLine)) {
+          outputLine = outputLine.replace(/[.,;:!?]+(?=\s*$)/, '');
+        }
+
+        if (outputLine.trim() !== '') {
           listIndentLevels = [0];
         }
-        newLines.push(line ?? '');
+
+        newLines.push(outputLine);
       }
     }
 
@@ -109,7 +132,11 @@ try {
       const titleMatch = fmBody.match(/^title:\s*(.+)$/m);
       if (titleMatch?.[1]?.trim() !== title) {
         let newFm = fmBody.replace(/^title:.*$/m, `title: ${title}`);
-        if (!newFm.includes('title:')) newFm = `title: ${title}\n${newFm}`;
+
+        if (!newFm.includes('title:')) {
+          newFm = `title: ${title}\n${newFm}`;
+        }
+
         content = `---\n${newFm}\n---\n` + content.slice(fmFull.length);
       }
     } else {
