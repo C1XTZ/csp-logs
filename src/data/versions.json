@@ -1,12 +1,20 @@
 {
-  "hash": "75c31d64b72ddf7b2f5d43efcf9ffc45",
+  "hash": "5f2153567c9856e59636d349b4c2494b",
   "counts": {
-    "total": 268,
-    "previews": 196,
+    "total": 269,
+    "previews": 197,
     "releases": 72
   },
   "groups": [
     [
+      {
+        "versionName": "0.3.0-preview622",
+        "versionId": "4157",
+        "published": "2026-09-18",
+        "link": "/csp-logs/0-3-0p622",
+        "isPreview": true,
+        "yearMarker": null
+      },
       {
         "versionName": "0.3.0-preview619",
         "versionId": "4154",
