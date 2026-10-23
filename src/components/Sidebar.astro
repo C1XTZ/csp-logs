@@ -78,3 +78,34 @@ if (isLatestPublicPage) {
     }
   })();
 </script>
+
+<script is:inline>
+  (function () {
+    const KEY = 'csp-sidebar-scroll';
+    const sc = document.currentScript?.closest('.sidebar-content') ?? document.querySelector('.sidebar-content');
+    if (!sc) return;
+
+    try {
+      const saved = Number(sessionStorage.getItem(KEY));
+      if (saved > 0) sc.scrollTop = saved;
+    } catch {}
+
+    const links = sc.querySelectorAll('a[aria-current="page"]');
+    const active = links[links.length - 1];
+    if (active && sc.clientHeight) {
+      const box = sc.getBoundingClientRect();
+      const rect = active.getBoundingClientRect();
+      const pad = 48;
+      if (rect.top < box.top + pad || rect.bottom > box.bottom - pad) {
+        sc.scrollTop += rect.top + rect.height / 2 - (box.top + box.height / 2);
+      }
+    }
+
+    addEventListener('pagehide', function () {
+      if (!sc.clientHeight) return;
+      try {
+        sessionStorage.setItem(KEY, String(sc.scrollTop));
+      } catch {}
+    });
+  })();
+</script>

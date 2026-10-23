@@ -4,53 +4,106 @@ const CARET_LEFT = `<svg class="vt-name-caret" xmlns="http://www.w3.org/2000/svg
 const CARET_RIGHT = `<svg class="vt-name-caret" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>`;
 const ICON_COPY = `<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>`;
 
+const ICON_SPLIT = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M12 3v18"/></svg>`;
+const ICON_SINGLE = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h.01"/><path d="M3 12h.01"/><path d="M3 18h.01"/><path d="M8 6h13"/><path d="M8 12h13"/><path d="M8 18h13"/></svg>`;
+
 const { groups } = data;
 ---
 
 <p>
-  The table below lists Custom Shaders Patch versions alongside their build IDs.<br />
-  <b>Preview</b> versions are grouped with the latest <b>Public</b> release available at the time they were released.<br />
+  The table below lists Custom Shaders Patch versions alongside their build IDs.
+  <br />
+  <b>Preview</b> versions are grouped with the latest <b>Public</b> release available at the time they were released.
+  <br />
 </p>
+<div class="vt-controls not-content">
+  <div class="vt-switch" role="group" aria-label="Table layout">
+    <button type="button" class="vt-layout-btn" data-vt-layout="split" aria-pressed="true">
+      <Fragment set:html={ICON_SPLIT} />
+      Split
+    </button>
+    <button type="button" class="vt-layout-btn" data-vt-layout="single" aria-pressed="false">
+      <Fragment set:html={ICON_SINGLE} />
+      Single
+    </button>
+  </div>
+</div>
 <div class="vt-wrapper">
+  <script is:inline>
+    (function () {
+      const KEY = 'vt-layout';
+      const root = document.documentElement;
+      const mq = matchMedia('(min-width: 64rem)');
+      const controls = document.querySelector('.vt-controls');
+      const buttons = controls ? controls.querySelectorAll('.vt-layout-btn') : [];
+
+      function getPref() {
+        try {
+          return localStorage.getItem(KEY) === 'single' ? 'single' : 'split';
+        } catch {
+          return 'split';
+        }
+      }
+
+      function apply() {
+        const fits = mq.matches;
+        const layout = fits ? getPref() : 'single';
+        root.dataset.vtLayout = layout;
+        if (controls) controls.hidden = !fits;
+        buttons.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.vtLayout === layout)));
+      }
+
+      buttons.forEach((b) =>
+        b.addEventListener('click', () => {
+          try {
+            localStorage.setItem(KEY, b.dataset.vtLayout);
+          } catch {}
+          apply();
+        }),
+      );
+
+      mq.addEventListener('change', apply);
+
+      apply();
+    })();
+  </script>
   <div class="vt-timeline" role="list" aria-label="CSP version timeline">
-    {
-      groups.map((entries, idx) => {
-        const side = idx % 2 === 0 ? 'vt-left' : 'vt-right';
-        return (
-          <section class:list={['vt-card-wrap', side]} aria-label={`Version group ${idx + 1}`}>
-            <ul class="vt-card">
-              {entries.map((entry) => {
-                const isKnown = entry.versionId !== '???';
-                const Tag = isKnown ? 'button' : 'div';
-                return (
-                  <li class:list={['vt-entry', entry.isPreview ? 'vt-preview' : 'vt-release']}>
-                    {entry.yearMarker && (
-                      <div class="vt-year-stem">
-                        <span>{entry.yearMarker}</span>
-                      </div>
-                    )}
-                    <a href={entry.link} class="vt-name" aria-label={`Open changelog for ${entry.versionName}`}>
-                      {side === 'vt-left' && <Fragment set:html={CARET_LEFT} />}
-                      <span class="vt-name-text">{entry.versionName}</span>
-                      {side === 'vt-right' && <Fragment set:html={CARET_RIGHT} />}
-                    </a>
-                    <time class="vt-time" datetime={entry.published ?? undefined} data-timeago={entry.published}>
-                      some time ago
-                    </time>
-                    <Tag class="vt-id" type={isKnown ? 'button' : undefined} data-copy={isKnown ? entry.versionId : undefined} aria-label={isKnown ? `Copy version ID ${entry.versionId}` : 'Unknown version ID'}>
-                      <code>{entry.versionId}</code>
-                      <span class="vt-copy" style={!isKnown ? 'visibility: hidden;' : null}>
-                        <Fragment set:html={ICON_COPY} />
-                      </span>
-                    </Tag>
-                  </li>
-                );
-              })}
-            </ul>
-          </section>
-        );
-      })
-    }
+    {groups.map((entries, idx) => {
+      const side = idx % 2 === 0 ? 'vt-left' : 'vt-right';
+      return (
+        <section class:list={['vt-card-wrap', side]} aria-label={`Version group ${idx + 1}`}>
+          <ul class="vt-card">
+            {entries.map((entry) => {
+              const isKnown = entry.versionId !== '???';
+              const Tag = isKnown ? 'button' : 'div';
+              return (
+                <li class:list={['vt-entry', entry.isPreview ? 'vt-preview' : 'vt-release']}>
+                  {entry.yearMarker && (
+                    <div class="vt-year-stem">
+                      <span>{entry.yearMarker}</span>
+                    </div>
+                  )}
+                  <a href={entry.link} class="vt-name" aria-label={`Open changelog for ${entry.versionName}`}>
+                    {side === 'vt-left' && <Fragment set:html={CARET_LEFT} />}
+                    <span class="vt-name-text">{entry.versionName}</span>
+                    {side === 'vt-right' && <Fragment set:html={CARET_RIGHT} />}
+                  </a>
+                  <time class="vt-time" datetime={entry.published ?? undefined} data-timeago={entry.published}>
+                    some time ago
+                  </time>
+                  <Tag class="vt-id" type={isKnown ? 'button' : undefined} data-copy={isKnown ? entry.versionId : undefined} aria-label={isKnown ? `Copy version ID ${entry.versionId}` : 'Unknown version ID'}>
+                    <code>{entry.versionId}</code>
+                    <span class="vt-copy" style={!isKnown ? 'visibility: hidden;' : null}>
+                      <Fragment set:html={ICON_COPY} />
+                    </span>
+                  </Tag>
+                </li>
+              );
+            })}
+          </ul>
+        </section>
+      );
+    })}
   </div>
 </div>
 

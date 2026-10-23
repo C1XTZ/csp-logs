@@ -5,6 +5,8 @@
   --sl-font-mono: 'Google Sans Code', monospace !important;
 
   --vt-offset: 2.8rem;
+  --vt-single-width: 28rem;
+  --vt-split-width: 53rem;
   --vt-line-width: 2px;
   --vt-stem-left: 1.3rem;
   --vt-release-left-gradient: linear-gradient(90deg, color-mix(in oklab, var(--card) 90%, black 10%) 0%, var(--card) 100%);
@@ -37,7 +39,7 @@
   margin-inline: 1.5rem 0 !important;
 }
 
-/* Homepage Fix */
+/* Homepage Fix. */
 [data-has-sidebar]:not([data-has-toc]) .main-pane {
   padding-block: 1.5rem;
 }
@@ -72,6 +74,11 @@
 .vt-wrapper {
   position: relative;
   overflow-x: auto;
+
+  /* Undo Starlight's 1rem gap after the script tag. */
+  & > .vt-timeline {
+    margin-top: 0;
+  }
 }
 
 /* Disable default markdown spacing. */
@@ -84,7 +91,8 @@
   display: flex;
   flex-direction: column;
   gap: 0.55rem;
-  width: 53rem;
+  width: 100%;
+  max-width: var(--vt-split-width);
 
   &::before {
     content: '';
@@ -373,7 +381,7 @@
   color: var(--foreground) !important;
 }
 
-/* Sidebar timeAgo */
+/* Sidebar timeAgo. */
 .entry-link {
   width: 100% !important;
 }
@@ -399,17 +407,79 @@
   display: none;
 }
 
-/* Handle thin display widths */
+/* Handle thin display widths. */
 @media (max-width: 1145px) {
   .right-sidebar-container {
     display: none !important;
   }
 }
 
-@media (max-width: 865px) {
+/* Split/single toggle. */
+.vt-controls {
+  display: flex;
+  justify-content: flex-start;
+  max-width: var(--vt-split-width);
+}
+
+.vt-switch {
+  display: flex;
+  gap: 0.15rem;
+  padding: 0.15rem;
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius) * 0.8 + 0.15rem);
+  background: var(--card);
+}
+
+.vt-layout-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  height: 1.7rem;
+  padding-inline: 0.6rem;
+  border: none;
+  border-radius: calc(var(--radius) * 0.8);
+  background: none;
+  color: var(--muted-foreground);
+  font: inherit;
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    background-color 0.15s,
+    color 0.15s;
+
+  & svg {
+    flex-shrink: 0;
+  }
+
+  &:hover {
+    color: var(--foreground);
+  }
+
+  &[aria-pressed='true'] {
+    background: var(--accent);
+    color: var(--accent-foreground);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--foreground);
+    outline-offset: 2px;
+  }
+}
+
+.vt-controls[hidden] {
+  display: none;
+}
+
+/* Single column layout. */
+:root[data-vt-layout='single'] {
+  .vt-controls {
+    max-width: var(--vt-single-width);
+  }
+
   .vt-timeline {
     overflow-x: auto;
-    max-width: 28rem;
+    max-width: var(--vt-single-width);
     min-width: 0;
     width: 100%;
 
@@ -475,7 +545,7 @@
   inset-inline-start: var(--page-inset);
 }
 
-/* Header grid fix */
+/* Header grid fix. */
 @media (min-width: 0rem) {
   .header {
     display: flex !important;
@@ -484,14 +554,14 @@
   }
 }
 
-/* Searchbar postion / size fix */
+/* Searchbar postion / size fix. */
 @media (min-width: 48rem) {
   .header > div:has(> site-search) {
     flex: 1 1 auto;
   }
 }
 
-/* Pagination Padding Removal */
+/* Pagination Padding Removal. */
 footer .meta:empty {
   display: none;
 }
@@ -499,8 +569,4 @@ footer .meta:empty {
 footer .pagination-links {
   padding-top: 0;
   margin-top: 0;
-}
-
-.docs-nav .nav-buttons {
-  display: none;
 }
