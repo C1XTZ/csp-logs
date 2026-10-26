@@ -4,7 +4,9 @@
   "version": "0.0.1",
   "scripts": {
     "formatter": "tsx src/ts/changelogFormatter.ts",
-    "generate": "tsx src/ts/generateVersionTable.ts",
+    "generate:versions": "tsx src/ts/generateVersions.ts",
+    "generate:sha256": "tsx src/ts/generateSha256.ts",
+    "generate": "npm run generate:versions && npm run generate:sha256",
     "dev": "npm run formatter && npm run generate && astro dev",
     "build": "npm run formatter && npm run generate && astro build",
     "start": "astro dev",

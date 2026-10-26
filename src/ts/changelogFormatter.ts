@@ -27,8 +27,10 @@ try {
       content = content.replace(/(#\s*Changelog\s*\n)(\s*)(?:-|\*)/, '$1$2## New features, options and improvements\n\n$2*');
     }
 
-    content = content.replace(/(?:[-*+])\s+Published:\s*(\d{4})-(\d{1,2})-(\d{1,2})/gi, (_, y, m, d) => {
-      return `* Published: ${y}-${m.padStart(2, '0')}-${d.padStart(2, '0')}`;
+    content = content.replace(/^[-*+]\s+(Version ID|Published|SHA-256):[ \t]*`?(.*?)`?[ \t]*$/gm, (_, label: string, value: string) => {
+      const date = value.match(/^(\d{4})-(\d{1,2})-(\d{1,2})$/);
+      const normalized = date ? `${date[1]}-${date[2]?.padStart(2, '0')}-${date[3]?.padStart(2, '0')}` : value;
+      return `* ${label}: \`${normalized}\``;
     });
 
     content = content.replace(/(?:[-*+])\s+Size:\s*(\d+),(\d+)(\s*(?:KB|MB|GB|TB)\b)/gi, (_, whole, decimal, unit) => `* Size: ${whole}.${decimal}${unit}`);
@@ -122,6 +124,7 @@ try {
     }
 
     content = newLines.join('\n');
+    content = content.replace(/(\*   Version ID: .*\n)(\*   SHA-256: .*\n)(\*   Published: .*\n)/, '$1$3$2');
 
     const fm = content.match(/^---\n([\s\S]*?)\n---\n/);
     let isAdd = false;

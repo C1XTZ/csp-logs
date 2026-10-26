@@ -1,11 +1,11 @@
 import configparser
+import hashlib
 import html
 import re
 import zipfile
 from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
-from typing import Optional
 
 from bs4 import BeautifulSoup, Tag
 
@@ -21,7 +21,7 @@ PREVIEW_REGEX = re.compile(r"preview(\d+)", re.IGNORECASE)
 class VersionInfo:
     title: str
     version_id: str
-    size: str
+    sha256: str
     is_preview: bool = False
     preview_number: str = "1"
 
@@ -66,7 +66,7 @@ class CSPLogProcessor:
                 parts.append(self._parse_ul_node(node, ""))
         return "".join(parts)
 
-    def _parse_changelog(self, changelog_container: Optional[Tag]) -> str:
+    def _parse_changelog(self, changelog_container: Tag | None) -> str:
         if not changelog_container:
             return ""
         nodes = changelog_container.find_all(
@@ -80,20 +80,19 @@ class CSPLogProcessor:
             title = title_element.get_text(strip=True)
 
         if not (version_details := soup.find("div", class_="version-block")):
-            return VersionInfo(title, "Unknown", "Unknown")
+            return VersionInfo(title, "Unknown", "???")
 
         details = version_details.find_all("li")
         if len(details) < 3:
-            return VersionInfo(title, "Unknown", "Unknown")
+            return VersionInfo(title, "Unknown", "???")
 
         version_id = details[0].get_text(strip=True).replace("Version ID:", "").strip()
-        size = details[2].get_text(strip=True).replace("Size:", "").strip()
-        return VersionInfo(title, version_id, size)
+        return VersionInfo(title, version_id, "???")
 
-    def _find_preview_zip(self) -> Optional[Path]:
+    def _find_preview_zip(self) -> Path | None:
         return next(self.desktop_path.glob(ZIP_PATTERN), None)
 
-    def _read_manifest_from_zip(self, zip_path: Path) -> Optional[tuple[str, str]]:
+    def _read_manifest_from_zip(self, zip_path: Path) -> tuple[str, str] | None:
         try:
             with zipfile.ZipFile(zip_path, "r") as zf:
                 manifest_content = zf.read(MANIFEST_PATH).decode("utf-8")
@@ -116,7 +115,7 @@ class CSPLogProcessor:
             print(f"Warning: Could not read manifest from {zip_path}: {e}")
         return None
 
-    def _create_preview_version_info(self, zip_path: Path) -> Optional[VersionInfo]:
+    def _create_preview_version_info(self, zip_path: Path) -> VersionInfo | None:
         if not (manifest_data := self._read_manifest_from_zip(zip_path)):
             return None
 
@@ -125,16 +124,19 @@ class CSPLogProcessor:
         preview_num = preview_match.group(1) if preview_match else "1"
 
         try:
-            size_bytes = zip_path.stat().st_size
-            size_mb = f"{size_bytes / (1024 * 1024):.2f} MB"
+            digest = hashlib.sha256()
+            with open(zip_path, "rb") as f:
+                for chunk in iter(lambda: f.read(1024 * 1024), b""):
+                    digest.update(chunk)
+            sha256 = digest.hexdigest()
         except OSError as e:
-            print(f"Warning: Could not get file size for {zip_path}: {e}")
-            size_mb = "Unknown"
+            print(f"Warning: Could not hash {zip_path}: {e}")
+            sha256 = "???"
 
         return VersionInfo(
             title=f"v{version}",
             version_id=build,
-            size=size_mb,
+            sha256=sha256,
             is_preview=True,
             preview_number=preview_num,
         )
@@ -162,15 +164,15 @@ class CSPLogProcessor:
 
         title_esc = html.unescape(version_info.title).lstrip("v")
         id_esc = html.unescape(version_info.version_id)
-        size_esc = html.unescape(version_info.size)
+        sha_esc = html.unescape(version_info.sha256)
 
         return f"""---
 title: {title_esc}
 ---
 
-*   Version ID: {id_esc}
-*   Size: {size_esc}
-*   Published: {published_date}
+*   Version ID: `{id_esc}`
+*   Published: `{published_date}`
+*   SHA-256: `{sha_esc}`
 
 # Changelog
 {changelog_content}"""
@@ -227,8 +229,6 @@ def main():
             f"Error: '{input_file}' not found. "
             "Please make sure the file exists on your desktop."
         )
-    except Exception as e:
-        print(f"An unexpected error occurred: {e}")
 
 
 if __name__ == "__main__":

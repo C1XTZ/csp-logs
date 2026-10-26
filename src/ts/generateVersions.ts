@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import crypto from 'crypto';
-import { REGEX, getChangelogFiles, parseVersion, compareEntries, type ChangelogEntry } from '../ts/changelogUtils.ts';
+import { REGEX, getChangelogFiles, parseVersion, compareEntries, type ChangelogEntry } from './changelogUtils.ts';
 
 interface Config {
   changelogsDir: string;
@@ -121,7 +121,7 @@ function groupByRelease(entries: ChangelogEntry[]): ChangelogEntry[][] {
 }
 
 function main(): void {
-  console.log('\x1b[36m[Version Table Generator]\x1b[0m');
+  console.log('\x1b[36m[Versions Generator]\x1b[0m');
 
   try {
     const files = getChangelogFiles(CONFIG.changelogsDir);

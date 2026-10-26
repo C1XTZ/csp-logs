@@ -364,6 +364,84 @@
   }
 }
 
+@property --csp-fade-start {
+  syntax: '<length>';
+  inherits: false;
+  initial-value: 0px;
+}
+
+@property --csp-fade-end {
+  syntax: '<length>';
+  inherits: false;
+  initial-value: 0px;
+}
+
+@keyframes csp-fade-start {
+  to {
+    --csp-fade-start: var(--csp-fade);
+  }
+}
+
+@keyframes csp-fade-end {
+  from {
+    --csp-fade-end: var(--csp-fade);
+  }
+}
+
+.sl-markdown-content code[data-copy] {
+  cursor: pointer;
+  transition:
+    background-color 0.15s,
+    color 0.15s;
+
+  &:hover {
+    background: var(--accent);
+    color: var(--accent-foreground);
+  }
+}
+
+.sl-markdown-content code[data-date] {
+  cursor: default;
+}
+
+.sl-markdown-content code[data-copy]:focus-visible,
+.sl-markdown-content code[data-date]:focus-visible {
+  outline: 2px solid var(--foreground);
+  outline-offset: 2px;
+}
+
+.csp-sha-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.3em;
+  white-space: nowrap;
+}
+
+.csp-sha-row > code {
+  min-width: 0;
+  overflow: hidden;
+  line-height: normal;
+}
+
+.csp-sha-text {
+  --csp-fade: 1.2em;
+  display: block;
+  font-size: inherit;
+  overflow-x: auto;
+  scrollbar-width: none;
+  mask-image: linear-gradient(to right, transparent, #000 var(--csp-fade-start), #000 calc(100% - var(--csp-fade-end)), transparent);
+
+  @supports (animation-timeline: scroll()) {
+    animation:
+      csp-fade-start linear both,
+      csp-fade-end linear both;
+    animation-timeline: scroll(self inline);
+    animation-range:
+      0 var(--csp-fade),
+      calc(100% - var(--csp-fade)) 100%;
+  }
+}
+
 @keyframes vt-fade {
   0%,
   60% {
