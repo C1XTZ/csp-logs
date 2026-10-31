@@ -110,6 +110,17 @@ function scrollInsideChip(code: HTMLElement) {
   text.append(...Array.from(code.childNodes));
   code.append(text);
 
+  const updateFade = () => {
+    const fade = parseFloat(getComputedStyle(text).fontSize) * 1.2;
+    const max = text.scrollWidth - text.clientWidth;
+    text.style.setProperty('--csp-fade-start', `${Math.min(text.scrollLeft, fade)}px`);
+    text.style.setProperty('--csp-fade-end', `${Math.max(0, Math.min(max - text.scrollLeft, fade))}px`);
+  };
+
+  text.addEventListener('scroll', updateFade, { passive: true });
+  new ResizeObserver(updateFade).observe(text);
+  updateFade();
+
   const wrap = document.createElement('span');
   wrap.className = 'csp-sha-row';
   wrap.append(...Array.from(row.childNodes));

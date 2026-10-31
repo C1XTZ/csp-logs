@@ -364,30 +364,6 @@
   }
 }
 
-@property --csp-fade-start {
-  syntax: '<length>';
-  inherits: false;
-  initial-value: 0px;
-}
-
-@property --csp-fade-end {
-  syntax: '<length>';
-  inherits: false;
-  initial-value: 0px;
-}
-
-@keyframes csp-fade-start {
-  to {
-    --csp-fade-start: var(--csp-fade);
-  }
-}
-
-@keyframes csp-fade-end {
-  from {
-    --csp-fade-end: var(--csp-fade);
-  }
-}
-
 .sl-markdown-content code[data-copy] {
   cursor: pointer;
   transition:
@@ -424,22 +400,12 @@
 }
 
 .csp-sha-text {
-  --csp-fade: 1.2em;
   display: block;
   font-size: inherit;
   overflow-x: auto;
   scrollbar-width: none;
-  mask-image: linear-gradient(to right, transparent, #000 var(--csp-fade-start), #000 calc(100% - var(--csp-fade-end)), transparent);
-
-  @supports (animation-timeline: scroll()) {
-    animation:
-      csp-fade-start linear both,
-      csp-fade-end linear both;
-    animation-timeline: scroll(self inline);
-    animation-range:
-      0 var(--csp-fade),
-      calc(100% - var(--csp-fade)) 100%;
-  }
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 var(--csp-fade-start, 0px), #000 calc(100% - var(--csp-fade-end, 0px)), transparent);
+  mask-image: linear-gradient(to right, transparent, #000 var(--csp-fade-start, 0px), #000 calc(100% - var(--csp-fade-end, 0px)), transparent);
 }
 
 @keyframes vt-fade {
