@@ -51,6 +51,7 @@ export default defineConfig({
       defaultLocale: 'en',
       title: 'Custom Shaders Patch Changelog Archive',
       customCss: ['./src/styles/custom.css'],
+      routeMiddleware: './src/ts/routeData.ts',
       tableOfContents: { minHeadingLevel: 1 },
       components: {
         Sidebar: './src/components/Sidebar.astro', //adds Bidirectional activation of sidebar items (going to /latest/public will also highlight the version its mirroring in the sidebar and vice versa)
